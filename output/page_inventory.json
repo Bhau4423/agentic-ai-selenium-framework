@@ -1,0 +1,61 @@
+{
+    "pages": [
+        {
+            "page_name": "Login Page",
+            "url": "file:///D:/agentic-ai-selenium-framework/test_site.html",
+            "elements": [
+                {
+                    "element_name": "email",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "email",
+                        "name": "email",
+                        "xpath": "//*[@id='email']",
+                        "css_selector": "#email"
+                    },
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "password",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "password",
+                        "name": "password",
+                        "xpath": "//*[@id='password']",
+                        "css_selector": "#password"
+                    },
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "Login",
+                    "element_type": "button",
+                    "visible_text": "Login",
+                    "locator": {
+                        "id": "loginBtn",
+                        "name": null,
+                        "xpath": "//*[@id='loginBtn']",
+                        "css_selector": "#loginBtn"
+                    },
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "Register",
+                    "href": "/register"
+                }
+            ]
+        }
+    ]
+}

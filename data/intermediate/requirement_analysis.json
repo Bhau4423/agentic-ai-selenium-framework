@@ -1,0 +1,96 @@
+{
+    "requirements": [
+        {
+            "id": "FR-001",
+            "title": "User Authentication",
+            "description": "User can login using email and password."
+        },
+        {
+            "id": "FR-002",
+            "title": "Email Validation",
+            "description": "Email must be valid."
+        },
+        {
+            "id": "FR-003",
+            "title": "Password Policy",
+            "description": "Password minimum length is 8 characters."
+        },
+        {
+            "id": "FR-004",
+            "title": "Post-Login Navigation",
+            "description": "After successful login user lands on dashboard."
+        }
+    ],
+    "acceptance_criteria": [
+        {
+            "id": "AC-001",
+            "description": "System accepts valid email format and password with at least 8 characters."
+        },
+        {
+            "id": "AC-002",
+            "description": "System rejects login attempts with invalid email formats."
+        },
+        {
+            "id": "AC-003",
+            "description": "System rejects login attempts with passwords shorter than 8 characters."
+        },
+        {
+            "id": "AC-004",
+            "description": "Successful authentication redirects the user to the dashboard page."
+        }
+    ],
+    "positive_scenarios": [
+        {
+            "id": "POS-001",
+            "scenario_type": "POSITIVE",
+            "title": "Successful Login",
+            "steps": [
+                "Navigate to login page",
+                "Enter valid email address",
+                "Enter password with 8 or more characters",
+                "Click login button"
+            ],
+            "expected_result": "User is redirected to the dashboard."
+        }
+    ],
+    "negative_scenarios": [
+        {
+            "id": "NEG-001",
+            "scenario_type": "NEGATIVE",
+            "title": "Login with invalid email format",
+            "steps": [
+                "Navigate to login page",
+                "Enter email without @ symbol or domain",
+                "Enter valid password",
+                "Click login button"
+            ],
+            "expected_result": "Login is denied and error message is displayed."
+        },
+        {
+            "id": "NEG-002",
+            "scenario_type": "NEGATIVE",
+            "title": "Login with short password",
+            "steps": [
+                "Navigate to login page",
+                "Enter valid email",
+                "Enter password with 7 characters",
+                "Click login button"
+            ],
+            "expected_result": "Login is denied and error message is displayed."
+        }
+    ],
+    "boundary_scenarios": [
+        {
+            "id": "BND-001",
+            "scenario_type": "BOUNDARY",
+            "title": "Login with minimum password length",
+            "steps": [
+                "Navigate to login page",
+                "Enter valid email",
+                "Enter password with exactly 8 characters",
+                "Click login button"
+            ],
+            "expected_result": "User is successfully logged in and redirected to the dashboard."
+        }
+    ]
+}

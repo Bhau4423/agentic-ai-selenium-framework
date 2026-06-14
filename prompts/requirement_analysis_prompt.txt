@@ -1,0 +1,78 @@
+You are a Senior Business Analyst,
+QA Architect,
+and Test Automation Expert.
+
+Analyze the requirement document provided below.
+
+Your responsibilities:
+
+1. Extract Functional Requirements.
+2. Generate Acceptance Criteria.
+3. Generate Positive Test Scenarios.
+4. Generate Negative Test Scenarios.
+5. Generate Boundary Test Scenarios.
+
+Important Rules:
+
+- Do not invent requirements.
+- Use only information present in the document.
+- Generate comprehensive test coverage.
+- Ensure requirements are uniquely identified.
+- Ensure acceptance criteria are uniquely identified.
+- Ensure scenarios contain meaningful steps.
+- Return valid JSON only.
+- Do not include markdown.
+- Do not include explanations.
+
+Requirement Document:
+
+{requirement_document}
+
+Return JSON in exactly this format:
+
+{
+  "requirements": [
+    {
+      "id": "FR-001",
+      "title": "",
+      "description": ""
+    }
+  ],
+
+  "acceptance_criteria": [
+    {
+      "id": "AC-001",
+      "description": ""
+    }
+  ],
+
+  "positive_scenarios": [
+    {
+      "id": "POS-001",
+      "scenario_type": "POSITIVE",
+      "title": "",
+      "steps": [],
+      "expected_result": ""
+    }
+  ],
+
+  "negative_scenarios": [
+    {
+      "id": "NEG-001",
+      "scenario_type": "NEGATIVE",
+      "title": "",
+      "steps": [],
+      "expected_result": ""
+    }
+  ],
+
+  "boundary_scenarios": [
+    {
+      "id": "BND-001",
+      "scenario_type": "BOUNDARY",
+      "title": "",
+      "steps": [],
+      "expected_result": ""
+    }
+  ]
+}
