@@ -13,6 +13,8 @@ class Element(BaseModel):
 
     locator: Locator
 
+    input_type: str | None = None
+
     placeholder: str | None = None
 
     required: bool = False

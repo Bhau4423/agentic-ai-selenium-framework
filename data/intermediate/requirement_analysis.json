@@ -12,8 +12,8 @@
         },
         {
             "id": "FR-003",
-            "title": "Password Policy",
-            "description": "Password minimum length is 8 characters."
+            "title": "Password Length Validation",
+            "description": "Password minimum length is 8."
         },
         {
             "id": "FR-004",
@@ -24,30 +24,35 @@
     "acceptance_criteria": [
         {
             "id": "AC-001",
-            "description": "System accepts valid email format and password with at least 8 characters."
+            "requirement_id": "FR-001",
+            "description": "System authenticates user when valid email and password are provided."
         },
         {
             "id": "AC-002",
+            "requirement_id": "FR-002",
             "description": "System rejects login attempts with invalid email formats."
         },
         {
             "id": "AC-003",
-            "description": "System rejects login attempts with passwords shorter than 8 characters."
+            "requirement_id": "FR-003",
+            "description": "System rejects passwords with fewer than 8 characters."
         },
         {
             "id": "AC-004",
-            "description": "Successful authentication redirects the user to the dashboard page."
+            "requirement_id": "FR-004",
+            "description": "User is redirected to the dashboard page upon successful authentication."
         }
     ],
     "positive_scenarios": [
         {
             "id": "POS-001",
+            "requirement_id": "FR-001",
             "scenario_type": "POSITIVE",
             "title": "Successful Login",
             "steps": [
                 "Navigate to login page",
-                "Enter valid email address",
-                "Enter password with 8 or more characters",
+                "Enter valid email",
+                "Enter valid password (length >= 8)",
                 "Click login button"
             ],
             "expected_result": "User is redirected to the dashboard."
@@ -56,34 +61,37 @@
     "negative_scenarios": [
         {
             "id": "NEG-001",
+            "requirement_id": "FR-002",
             "scenario_type": "NEGATIVE",
-            "title": "Login with invalid email format",
+            "title": "Login with Invalid Email Format",
             "steps": [
                 "Navigate to login page",
-                "Enter email without @ symbol or domain",
+                "Enter invalid email (e.g., missing @ symbol)",
                 "Enter valid password",
                 "Click login button"
             ],
-            "expected_result": "Login is denied and error message is displayed."
+            "expected_result": "System displays an error message regarding invalid email."
         },
         {
             "id": "NEG-002",
+            "requirement_id": "FR-003",
             "scenario_type": "NEGATIVE",
-            "title": "Login with short password",
+            "title": "Login with Password Too Short",
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
                 "Enter password with 7 characters",
                 "Click login button"
             ],
-            "expected_result": "Login is denied and error message is displayed."
+            "expected_result": "System displays an error message regarding password length."
         }
     ],
     "boundary_scenarios": [
         {
             "id": "BND-001",
+            "requirement_id": "FR-003",
             "scenario_type": "BOUNDARY",
-            "title": "Login with minimum password length",
+            "title": "Login with Minimum Password Length",
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",

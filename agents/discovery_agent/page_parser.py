@@ -1,9 +1,8 @@
 from models.element_model import Element
 from models.link_model import Link
+from models.table_model import Table
 
-from agents.discovery_agent.locator_builder import (
-    LocatorBuilder
-)
+from agents.discovery_agent.locator_builder import LocatorBuilder
 
 
 class PageParser:
@@ -14,7 +13,7 @@ class PageParser:
         elements = []
 
         inputs = page.locator(
-            "input:not([type='checkbox']):not([type='radio'])"
+            "input:not([type='checkbox']):not([type='radio']):not([type='hidden'])"
         )
 
         count = inputs.count()
@@ -39,9 +38,8 @@ class PageParser:
                     "placeholder"
                 ),
                 required=(
-                    input_element.get_attribute(
-                        "required"
-                    ) is not None
+                    input_element.get_attribute("required")
+                    is not None
                 ),
                 enabled=input_element.is_enabled(),
                 visible=input_element.is_visible()
@@ -74,9 +72,7 @@ class PageParser:
                     or f"button_{index}"
                 ),
                 element_type="button",
-                visible_text=(
-                    button.inner_text().strip()
-                ),
+                visible_text=button.inner_text().strip(),
                 locator=locator,
                 enabled=button.is_enabled(),
                 visible=button.is_visible()
@@ -147,9 +143,8 @@ class PageParser:
                 visible_text="",
                 locator=locator,
                 required=(
-                    checkbox.get_attribute(
-                        "required"
-                    ) is not None
+                    checkbox.get_attribute("required")
+                    is not None
                 ),
                 enabled=checkbox.is_enabled(),
                 visible=checkbox.is_visible()
@@ -187,9 +182,8 @@ class PageParser:
                 visible_text="",
                 locator=locator,
                 required=(
-                    radio.get_attribute(
-                        "required"
-                    ) is not None
+                    radio.get_attribute("required")
+                    is not None
                 ),
                 enabled=radio.is_enabled(),
                 visible=radio.is_visible()
@@ -204,9 +198,7 @@ class PageParser:
 
         elements = []
 
-        textareas = page.locator(
-            "textarea"
-        )
+        textareas = page.locator("textarea")
 
         count = textareas.count()
 
@@ -226,15 +218,12 @@ class PageParser:
                 element_type="textarea",
                 visible_text="",
                 locator=locator,
-                placeholder=(
-                    textarea.get_attribute(
-                        "placeholder"
-                    )
+                placeholder=textarea.get_attribute(
+                    "placeholder"
                 ),
                 required=(
-                    textarea.get_attribute(
-                        "required"
-                    ) is not None
+                    textarea.get_attribute("required")
+                    is not None
                 ),
                 enabled=textarea.is_enabled(),
                 visible=textarea.is_visible()
@@ -259,11 +248,53 @@ class PageParser:
 
             link = Link(
                 text=anchor.inner_text().strip(),
-                href=anchor.get_attribute(
-                    "href"
-                )
+                href=anchor.get_attribute("href")
             )
 
             links.append(link)
 
         return links
+
+    @staticmethod
+    def extract_tables(page):
+
+        tables = []
+
+        table_elements = page.locator("table")
+
+        count = table_elements.count()
+
+        for index in range(count):
+
+            table = table_elements.nth(index)
+
+            headers = []
+
+            header_elements = table.locator("th")
+
+            header_count = header_elements.count()
+
+            for header_index in range(header_count):
+
+                headers.append(
+                    header_elements.nth(
+                        header_index
+                    ).inner_text().strip()
+                )
+
+            tables.append(
+                Table(
+                    table_name=(
+                        table.get_attribute("id")
+                        or f"table_{index}"
+                    ),
+                    table_id=table.get_attribute("id"),
+                    row_count=table.locator(
+                        "tr"
+                    ).count(),
+                    column_count=len(headers),
+                    headers=headers
+                )
+            )
+
+        return tables

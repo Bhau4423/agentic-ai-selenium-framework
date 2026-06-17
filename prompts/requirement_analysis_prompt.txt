@@ -1,6 +1,4 @@
-You are a Senior Business Analyst,
-QA Architect,
-and Test Automation Expert.
+You are a Senior Business Analyst, QA Architect, and Test Automation Expert.
 
 Analyze the requirement document provided below.
 
@@ -14,15 +12,25 @@ Your responsibilities:
 
 Important Rules:
 
-- Do not invent requirements.
-- Use only information present in the document.
-- Generate comprehensive test coverage.
-- Ensure requirements are uniquely identified.
-- Ensure acceptance criteria are uniquely identified.
-- Ensure scenarios contain meaningful steps.
-- Return valid JSON only.
-- Do not include markdown.
-- Do not include explanations.
+* Do not invent requirements.
+* Use only information present in the document.
+* Generate comprehensive test coverage.
+* Ensure requirements are uniquely identified.
+* Ensure acceptance criteria are uniquely identified.
+* Ensure every acceptance criterion references its parent requirement using requirement_id.
+* Ensure every test scenario references its parent requirement using requirement_id.
+* Ensure scenarios contain meaningful test steps.
+* Generate multiple scenarios when appropriate.
+* Return valid JSON only.
+* Do not include markdown.
+* Do not include explanations.
+* Do not include any text before or after the JSON.
+* All IDs must be unique.
+* Requirement IDs must follow format: FR-001, FR-002, FR-003...
+* Acceptance Criteria IDs must follow format: AC-001, AC-002, AC-003...
+* Positive Scenario IDs must follow format: POS-001, POS-002...
+* Negative Scenario IDs must follow format: NEG-001, NEG-002...
+* Boundary Scenario IDs must follow format: BND-001, BND-002...
 
 Requirement Document:
 
@@ -31,48 +39,67 @@ Requirement Document:
 Return JSON in exactly this format:
 
 {
-  "requirements": [
-    {
-      "id": "FR-001",
-      "title": "",
-      "description": ""
-    }
-  ],
+"requirements": [
+{
+"id": "FR-001",
+"title": "User Login",
+"description": "User should be able to login using valid credentials."
+}
+],
 
-  "acceptance_criteria": [
-    {
-      "id": "AC-001",
-      "description": ""
-    }
-  ],
+"acceptance_criteria": [
+{
+"id": "AC-001",
+"requirement_id": "FR-001",
+"description": "User should successfully login with valid credentials."
+}
+],
 
-  "positive_scenarios": [
-    {
-      "id": "POS-001",
-      "scenario_type": "POSITIVE",
-      "title": "",
-      "steps": [],
-      "expected_result": ""
-    }
-  ],
+"positive_scenarios": [
+{
+"id": "POS-001",
+"requirement_id": "FR-001",
+"scenario_type": "POSITIVE",
+"title": "Login with Valid Credentials",
+"steps": [
+"Open Login Page",
+"Enter valid username",
+"Enter valid password",
+"Click Login button"
+],
+"expected_result": "User should be redirected to Dashboard."
+}
+],
 
-  "negative_scenarios": [
-    {
-      "id": "NEG-001",
-      "scenario_type": "NEGATIVE",
-      "title": "",
-      "steps": [],
-      "expected_result": ""
-    }
-  ],
+"negative_scenarios": [
+{
+"id": "NEG-001",
+"requirement_id": "FR-001",
+"scenario_type": "NEGATIVE",
+"title": "Login with Invalid Password",
+"steps": [
+"Open Login Page",
+"Enter valid username",
+"Enter invalid password",
+"Click Login button"
+],
+"expected_result": "System should display an invalid credentials message."
+}
+],
 
-  "boundary_scenarios": [
-    {
-      "id": "BND-001",
-      "scenario_type": "BOUNDARY",
-      "title": "",
-      "steps": [],
-      "expected_result": ""
-    }
-  ]
+"boundary_scenarios": [
+{
+"id": "BND-001",
+"requirement_id": "FR-001",
+"scenario_type": "BOUNDARY",
+"title": "Password at Maximum Allowed Length",
+"steps": [
+"Open Login Page",
+"Enter valid username",
+"Enter password with maximum allowed length",
+"Click Login button"
+],
+"expected_result": "System should process the login request successfully."
+}
+]
 }

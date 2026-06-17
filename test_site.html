@@ -7,34 +7,117 @@
 
 <body>
 
-    <input id="email" name="email">
+    <h1>Login Form</h1>
 
-    <input id="password" name="password" type="password">
+    <form id="loginForm">
 
-    <select id="country" name="country">
-        <option>India</option>
-        <option>USA</option>
-    </select>
+        <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+        >
 
-    <input type="checkbox" id="terms" name="terms">
+        <br><br>
 
-    <input type="radio" id="male" name="gender">
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+        >
 
-    <input type="radio" id="female" name="gender">
+        <br><br>
 
-    <textarea
-        id="comments"
-        name="comments"
-        placeholder="Enter comments">
-    </textarea>
+        <select
+            id="country"
+            name="country"
+        >
+            <option>India</option>
+            <option>USA</option>
+        </select>
 
-    <button id="loginBtn">
-        Login
-    </button>
+        <br><br>
+
+        <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+        >
+
+        <label for="terms">
+            Accept Terms
+        </label>
+
+        <br><br>
+
+        <input
+            type="radio"
+            id="male"
+            name="gender"
+        >
+
+        <label for="male">
+            Male
+        </label>
+
+        <input
+            type="radio"
+            id="female"
+            name="gender"
+        >
+
+        <label for="female">
+            Female
+        </label>
+
+        <br><br>
+
+        <textarea
+            id="comments"
+            name="comments"
+            placeholder="Enter comments"
+        ></textarea>
+
+        <br><br>
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+    </form>
+
+    <br><br>
 
     <a href="/register">
         Register
     </a>
+
+    <br><br>
+
+    <h2>Members</h2>
+
+    <table id="memberTable" border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+
+        <tr>
+            <td>1001</td>
+            <td>John</td>
+            <td>Active</td>
+        </tr>
+
+        <tr>
+            <td>1002</td>
+            <td>Mary</td>
+            <td>Inactive</td>
+        </tr>
+
+    </table>
 
 </body>
 

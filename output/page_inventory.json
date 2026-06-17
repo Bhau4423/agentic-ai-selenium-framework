@@ -1,19 +1,20 @@
 {
     "pages": [
         {
-            "page_name": "Login Page",
-            "url": "file:///D:/agentic-ai-selenium-framework/test_site.html",
+            "page_name": "Test Login | Practice Test Automation",
+            "url": "https://practicetestautomation.com/practice-test-login/",
             "elements": [
                 {
-                    "element_name": "email",
+                    "element_name": "username",
                     "element_type": "input",
                     "visible_text": "",
                     "locator": {
-                        "id": "email",
-                        "name": "email",
-                        "xpath": "//*[@id='email']",
-                        "css_selector": "#email"
+                        "id": "username",
+                        "name": "username",
+                        "xpath": "//*[@id='username']",
+                        "css_selector": "#username"
                     },
+                    "input_type": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -29,21 +30,55 @@
                         "xpath": "//*[@id='password']",
                         "css_selector": "#password"
                     },
+                    "input_type": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
                     "visible": true
                 },
                 {
-                    "element_name": "Login",
+                    "element_name": "button_0",
                     "element_type": "button",
-                    "visible_text": "Login",
+                    "visible_text": "",
                     "locator": {
-                        "id": "loginBtn",
+                        "id": null,
                         "name": null,
-                        "xpath": "//*[@id='loginBtn']",
-                        "css_selector": "#loginBtn"
+                        "xpath": null,
+                        "css_selector": null
                     },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": false
+                },
+                {
+                    "element_name": "open menu",
+                    "element_type": "button",
+                    "visible_text": "open menu",
+                    "locator": {
+                        "id": "toggle-navigation",
+                        "name": "toggle-navigation",
+                        "xpath": "//*[@id='toggle-navigation']",
+                        "css_selector": "#toggle-navigation"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": false
+                },
+                {
+                    "element_name": "Submit",
+                    "element_type": "button",
+                    "visible_text": "Submit",
+                    "locator": {
+                        "id": "submit",
+                        "name": null,
+                        "xpath": "//*[@id='submit']",
+                        "css_selector": "#submit"
+                    },
+                    "input_type": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -52,10 +87,371 @@
             ],
             "links": [
                 {
-                    "text": "Register",
-                    "href": "/register"
+                    "text": "Press \"Enter\" to skip to content",
+                    "href": "#main-container"
+                },
+                {
+                    "text": "",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "HOME",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "PRACTICE",
+                    "href": "https://practicetestautomation.com/practice/"
+                },
+                {
+                    "text": "COURSES",
+                    "href": "https://practicetestautomation.com/courses/"
+                },
+                {
+                    "text": "BLOG",
+                    "href": "https://practicetestautomation.com/blog/"
+                },
+                {
+                    "text": "CONTACT",
+                    "href": "https://practicetestautomation.com/contact/"
+                },
+                {
+                    "text": "Practice Test Automation.",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "Privacy Policy",
+                    "href": "https://practicetestautomation.com/privacy-policy/"
                 }
-            ]
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "Contact | Practice Test Automation | Selenium WebDriver",
+            "url": "https://practicetestautomation.com/contact/",
+            "elements": [
+                {
+                    "element_name": "wpforms[fields][0][first]",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "wpforms-161-field_0",
+                        "name": "wpforms[fields][0][first]",
+                        "xpath": "//*[@id='wpforms-161-field_0']",
+                        "css_selector": "#wpforms-161-field_0"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": true,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "wpforms[fields][0][last]",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "wpforms-161-field_0-last",
+                        "name": "wpforms[fields][0][last]",
+                        "xpath": "//*[@id='wpforms-161-field_0-last']",
+                        "css_selector": "#wpforms-161-field_0-last"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": true,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "wpforms[fields][1]",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "wpforms-161-field_1",
+                        "name": "wpforms[fields][1]",
+                        "xpath": "//*[@id='wpforms-161-field_1']",
+                        "css_selector": "#wpforms-161-field_1"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": true,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "wpforms[hp]",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "wpforms-161-field-hp",
+                        "name": "wpforms[hp]",
+                        "xpath": "//*[@id='wpforms-161-field-hp']",
+                        "css_selector": "#wpforms-161-field-hp"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": false
+                },
+                {
+                    "element_name": "g-recaptcha-hidden",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": null,
+                        "name": "g-recaptcha-hidden",
+                        "xpath": "//*[@name='g-recaptcha-hidden']",
+                        "css_selector": "[name='g-recaptcha-hidden']"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "button_0",
+                    "element_type": "button",
+                    "visible_text": "",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": null,
+                        "css_selector": null
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": false
+                },
+                {
+                    "element_name": "open menu",
+                    "element_type": "button",
+                    "visible_text": "open menu",
+                    "locator": {
+                        "id": "toggle-navigation",
+                        "name": "toggle-navigation",
+                        "xpath": "//*[@id='toggle-navigation']",
+                        "css_selector": "#toggle-navigation"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": false
+                },
+                {
+                    "element_name": "Submit",
+                    "element_type": "button",
+                    "visible_text": "Submit",
+                    "locator": {
+                        "id": "wpforms-submit-161",
+                        "name": "wpforms[submit]",
+                        "xpath": "//*[@id='wpforms-submit-161']",
+                        "css_selector": "#wpforms-submit-161"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "wpforms[fields][2]",
+                    "element_type": "textarea",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "wpforms-161-field_2",
+                        "name": "wpforms[fields][2]",
+                        "xpath": "//*[@id='wpforms-161-field_2']",
+                        "css_selector": "#wpforms-161-field_2"
+                    },
+                    "input_type": null,
+                    "placeholder": null,
+                    "required": true,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "Press \"Enter\" to skip to content",
+                    "href": "#main-container"
+                },
+                {
+                    "text": "",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "HOME",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "PRACTICE",
+                    "href": "https://practicetestautomation.com/practice/"
+                },
+                {
+                    "text": "COURSES",
+                    "href": "https://practicetestautomation.com/courses/"
+                },
+                {
+                    "text": "BLOG",
+                    "href": "https://practicetestautomation.com/blog/"
+                },
+                {
+                    "text": "CONTACT",
+                    "href": "https://practicetestautomation.com/contact/"
+                },
+                {
+                    "text": "Practice Test Automation.",
+                    "href": "https://practicetestautomation.com/"
+                },
+                {
+                    "text": "Privacy Policy",
+                    "href": "https://practicetestautomation.com/privacy-policy/"
+                }
+            ],
+            "forms": [
+                {
+                    "form_name": "wpforms-form-161",
+                    "form_id": "wpforms-form-161",
+                    "form_action": null,
+                    "form_method": null,
+                    "elements": [
+                        {
+                            "element_name": "wpforms[fields][0][first]",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "wpforms-161-field_0",
+                                "name": "wpforms[fields][0][first]",
+                                "xpath": "//*[@id='wpforms-161-field_0']",
+                                "css_selector": "#wpforms-161-field_0"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": true,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "wpforms[fields][0][last]",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "wpforms-161-field_0-last",
+                                "name": "wpforms[fields][0][last]",
+                                "xpath": "//*[@id='wpforms-161-field_0-last']",
+                                "css_selector": "#wpforms-161-field_0-last"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": true,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "wpforms[fields][1]",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "wpforms-161-field_1",
+                                "name": "wpforms[fields][1]",
+                                "xpath": "//*[@id='wpforms-161-field_1']",
+                                "css_selector": "#wpforms-161-field_1"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": true,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "wpforms[hp]",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "wpforms-161-field-hp",
+                                "name": "wpforms[hp]",
+                                "xpath": "//*[@id='wpforms-161-field-hp']",
+                                "css_selector": "#wpforms-161-field-hp"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": false
+                        },
+                        {
+                            "element_name": "g-recaptcha-hidden",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": null,
+                                "name": "g-recaptcha-hidden",
+                                "xpath": "//*[@name='g-recaptcha-hidden']",
+                                "css_selector": "[name='g-recaptcha-hidden']"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "wpforms[fields][2]",
+                            "element_type": "textarea",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "wpforms-161-field_2",
+                                "name": "wpforms[fields][2]",
+                                "xpath": "//*[@id='wpforms-161-field_2']",
+                                "css_selector": "#wpforms-161-field_2"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": true,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "g-recaptcha-response",
+                            "element_type": "textarea",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "g-recaptcha-response",
+                                "name": "g-recaptcha-response",
+                                "xpath": "//*[@id='g-recaptcha-response']",
+                                "css_selector": "#g-recaptcha-response"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": false
+                        },
+                        {
+                            "element_name": "Submit",
+                            "element_type": "button",
+                            "visible_text": "Submit",
+                            "locator": {
+                                "id": "wpforms-submit-161",
+                                "name": "wpforms[submit]",
+                                "xpath": "//*[@id='wpforms-submit-161']",
+                                "css_selector": "#wpforms-submit-161"
+                            },
+                            "input_type": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        }
+                    ]
+                }
+            ],
+            "tables": []
         }
     ]
 }
