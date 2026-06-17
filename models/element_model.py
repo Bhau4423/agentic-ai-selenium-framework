@@ -15,6 +15,10 @@ class Element(BaseModel):
 
     input_type: str | None = None
 
+    label: str | None = None
+
+    aria_label: str | None = None
+
     placeholder: str | None = None
 
     required: bool = False

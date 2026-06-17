@@ -14,7 +14,9 @@
                         "xpath": "//*[@id='username']",
                         "css_selector": "#username"
                     },
-                    "input_type": null,
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -30,7 +32,9 @@
                         "xpath": "//*[@id='password']",
                         "css_selector": "#password"
                     },
-                    "input_type": null,
+                    "input_type": "password",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -47,6 +51,8 @@
                         "css_selector": null
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -63,6 +69,8 @@
                         "css_selector": "#toggle-navigation"
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -79,6 +87,8 @@
                         "css_selector": "#submit"
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -140,7 +150,9 @@
                         "xpath": "//*[@id='wpforms-161-field_0']",
                         "css_selector": "#wpforms-161-field_0"
                     },
-                    "input_type": null,
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": true,
                     "enabled": true,
@@ -156,7 +168,9 @@
                         "xpath": "//*[@id='wpforms-161-field_0-last']",
                         "css_selector": "#wpforms-161-field_0-last"
                     },
-                    "input_type": null,
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": true,
                     "enabled": true,
@@ -172,7 +186,9 @@
                         "xpath": "//*[@id='wpforms-161-field_1']",
                         "css_selector": "#wpforms-161-field_1"
                     },
-                    "input_type": null,
+                    "input_type": "email",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": true,
                     "enabled": true,
@@ -188,7 +204,9 @@
                         "xpath": "//*[@id='wpforms-161-field-hp']",
                         "css_selector": "#wpforms-161-field-hp"
                     },
-                    "input_type": null,
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -204,7 +222,9 @@
                         "xpath": "//*[@name='g-recaptcha-hidden']",
                         "css_selector": "[name='g-recaptcha-hidden']"
                     },
-                    "input_type": null,
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -221,6 +241,8 @@
                         "css_selector": null
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -237,6 +259,8 @@
                         "css_selector": "#toggle-navigation"
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -253,6 +277,8 @@
                         "css_selector": "#wpforms-submit-161"
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": false,
                     "enabled": true,
@@ -269,6 +295,8 @@
                         "css_selector": "#wpforms-161-field_2"
                     },
                     "input_type": null,
+                    "label": null,
+                    "aria_label": null,
                     "placeholder": null,
                     "required": true,
                     "enabled": true,
@@ -330,7 +358,9 @@
                                 "xpath": "//*[@id='wpforms-161-field_0']",
                                 "css_selector": "#wpforms-161-field_0"
                             },
-                            "input_type": null,
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": true,
                             "enabled": true,
@@ -346,7 +376,9 @@
                                 "xpath": "//*[@id='wpforms-161-field_0-last']",
                                 "css_selector": "#wpforms-161-field_0-last"
                             },
-                            "input_type": null,
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": true,
                             "enabled": true,
@@ -362,7 +394,9 @@
                                 "xpath": "//*[@id='wpforms-161-field_1']",
                                 "css_selector": "#wpforms-161-field_1"
                             },
-                            "input_type": null,
+                            "input_type": "email",
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": true,
                             "enabled": true,
@@ -378,7 +412,9 @@
                                 "xpath": "//*[@id='wpforms-161-field-hp']",
                                 "css_selector": "#wpforms-161-field-hp"
                             },
-                            "input_type": null,
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": false,
                             "enabled": true,
@@ -394,7 +430,9 @@
                                 "xpath": "//*[@name='g-recaptcha-hidden']",
                                 "css_selector": "[name='g-recaptcha-hidden']"
                             },
-                            "input_type": null,
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": false,
                             "enabled": true,
@@ -411,26 +449,12 @@
                                 "css_selector": "#wpforms-161-field_2"
                             },
                             "input_type": null,
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": true,
                             "enabled": true,
                             "visible": true
-                        },
-                        {
-                            "element_name": "g-recaptcha-response",
-                            "element_type": "textarea",
-                            "visible_text": "",
-                            "locator": {
-                                "id": "g-recaptcha-response",
-                                "name": "g-recaptcha-response",
-                                "xpath": "//*[@id='g-recaptcha-response']",
-                                "css_selector": "#g-recaptcha-response"
-                            },
-                            "input_type": null,
-                            "placeholder": null,
-                            "required": false,
-                            "enabled": true,
-                            "visible": false
                         },
                         {
                             "element_name": "Submit",
@@ -443,6 +467,8 @@
                                 "css_selector": "#wpforms-submit-161"
                             },
                             "input_type": null,
+                            "label": null,
+                            "aria_label": null,
                             "placeholder": null,
                             "required": false,
                             "enabled": true,

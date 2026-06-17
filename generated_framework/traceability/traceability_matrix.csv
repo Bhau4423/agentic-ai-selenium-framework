@@ -1,0 +1,5 @@
+Requirement ID,Scenario ID,Scenario Title,Scenario Type
+FR-001,POS-001,Successful Login,POSITIVE
+FR-002,NEG-001,Login with Invalid Email Format,NEGATIVE
+FR-003,NEG-002,Login with Password Too Short,NEGATIVE
+FR-003,BND-001,Login with Minimum Password Length,BOUNDARY

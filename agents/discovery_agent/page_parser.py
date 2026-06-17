@@ -29,11 +29,21 @@ class PageParser:
             element = Element(
                 element_name=(
                     input_element.get_attribute("name")
+                    or input_element.get_attribute("id")
                     or f"input_{index}"
                 ),
                 element_type="input",
                 visible_text="",
                 locator=locator,
+                input_type=input_element.get_attribute(
+                    "type"
+                ),
+                label=input_element.get_attribute(
+                    "label"
+                ),
+                aria_label=input_element.get_attribute(
+                    "aria-label"
+                ),
                 placeholder=input_element.get_attribute(
                     "placeholder"
                 ),
@@ -102,6 +112,7 @@ class PageParser:
             element = Element(
                 element_name=(
                     dropdown.get_attribute("name")
+                    or dropdown.get_attribute("id")
                     or f"dropdown_{index}"
                 ),
                 element_type="dropdown",
@@ -137,6 +148,7 @@ class PageParser:
             element = Element(
                 element_name=(
                     checkbox.get_attribute("name")
+                    or checkbox.get_attribute("id")
                     or f"checkbox_{index}"
                 ),
                 element_type="checkbox",
@@ -175,7 +187,8 @@ class PageParser:
 
             element = Element(
                 element_name=(
-                    radio.get_attribute("id")
+                    radio.get_attribute("name")
+                    or radio.get_attribute("id")
                     or f"radio_{index}"
                 ),
                 element_type="radio",
@@ -213,6 +226,7 @@ class PageParser:
             element = Element(
                 element_name=(
                     textarea.get_attribute("name")
+                    or textarea.get_attribute("id")
                     or f"textarea_{index}"
                 ),
                 element_type="textarea",
