@@ -3,8 +3,18 @@ class TestDataGenerator:
     @staticmethod
     def generate_value(
         element_name: str,
-        input_type: str = None
+        input_type: str = None,
+        label: str = None,
+        placeholder: str = None
     ):
+
+        search_text = " ".join(
+            [
+                str(element_name or ""),
+                str(label or ""),
+                str(placeholder or "")
+            ]
+        ).lower()
 
         if input_type:
 
@@ -30,38 +40,55 @@ class TestDataGenerator:
             if input_type == "url":
                 return "https://example.com"
 
-        element_name = (
-            element_name.lower()
-        )
+        if "email" in search_text:
+            return "test@test.com"
 
-        if "phone" in element_name:
+        if "password" in search_text:
+            return "Password123"
+
+        if "phone" in search_text:
             return "9876543210"
 
-        if "mobile" in element_name:
+        if "mobile" in search_text:
             return "9876543210"
 
-        if "first" in element_name:
+        if "first" in search_text:
             return "John"
 
-        if "last" in element_name:
+        if "last" in search_text:
             return "Doe"
 
-        if "name" in element_name:
+        if "full name" in search_text:
             return "John Doe"
 
-        if "city" in element_name:
+        if "name" in search_text:
+            return "John Doe"
+
+        if "city" in search_text:
             return "Mumbai"
 
-        if "address" in element_name:
+        if "country" in search_text:
+            return "India"
+
+        if "address" in search_text:
             return "Test Address"
 
-        if "pin" in element_name:
+        if "pin" in search_text:
             return "411001"
 
-        if "zipcode" in element_name:
+        if "zipcode" in search_text:
             return "411001"
 
-        if "postal" in element_name:
+        if "postal" in search_text:
             return "411001"
+
+        if "policy" in search_text:
+            return "POL123456"
+
+        if "customer" in search_text:
+            return "CUS123456"
+
+        if "employee" in search_text:
+            return "EMP123456"
 
         return "TEST_DATA"

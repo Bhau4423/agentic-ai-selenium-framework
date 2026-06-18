@@ -58,10 +58,6 @@ public class ContactPage {
         return g_recaptcha_hidden;
     }
 
-    public WebElement get_button_0() {
-        return button_0;
-    }
-
     public WebElement get_open_menu() {
         return open_menu;
     }

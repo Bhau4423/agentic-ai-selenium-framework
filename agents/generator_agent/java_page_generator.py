@@ -27,7 +27,6 @@ class JavaPageGenerator:
         class_name = ""
 
         for word in words:
-
             class_name += word.capitalize()
 
         if not class_name.endswith(
@@ -49,30 +48,39 @@ class JavaPageGenerator:
         locator_type = locator_type.lower()
 
         if locator_type == "id":
-
             return (
                 f'@FindBy(id = "{locator_value}")'
             )
 
         if locator_type == "name":
-
             return (
                 f'@FindBy(name = "{locator_value}")'
             )
 
         if locator_type == "css_selector":
-
             return (
                 f'@FindBy(css = "{locator_value}")'
             )
 
         if locator_type == "xpath":
-
             return (
                 f'@FindBy(xpath = "{locator_value}")'
             )
 
         return None
+
+    @staticmethod
+    def get_field_name(
+        element_name: str
+    ):
+
+        return (
+            element_name
+            .replace(" ", "_")
+            .replace("-", "_")
+            .replace("[", "_")
+            .replace("]", "_")
+        )
 
     @staticmethod
     def generate(
@@ -109,18 +117,18 @@ class JavaPageGenerator:
         )
 
         lines.append("")
-
         lines.append(
             f"public class {class_name} {{"
         )
 
         lines.append("")
-
         lines.append(
             "    private WebDriver driver;"
         )
 
         lines.append("")
+
+        valid_elements = []
 
         for element in page_object.elements:
 
@@ -135,11 +143,13 @@ class JavaPageGenerator:
                 continue
 
             field_name = (
-                element.element_name
-                .replace(" ", "_")
-                .replace("-", "_")
-                .replace("[", "_")
-                .replace("]", "_")
+                JavaPageGenerator.get_field_name(
+                    element.element_name
+                )
+            )
+
+            valid_elements.append(
+                field_name
             )
 
             lines.append(
@@ -170,15 +180,7 @@ class JavaPageGenerator:
 
         lines.append("")
 
-        for element in page_object.elements:
-
-            field_name = (
-                element.element_name
-                .replace(" ", "_")
-                .replace("-", "_")
-                .replace("[", "_")
-                .replace("]", "_")
-            )
+        for field_name in valid_elements:
 
             lines.append(
                 f"    public WebElement get_{field_name}() {{"

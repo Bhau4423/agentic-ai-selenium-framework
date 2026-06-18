@@ -34,10 +34,6 @@ public class TestLoginPage {
         return password;
     }
 
-    public WebElement get_button_0() {
-        return button_0;
-    }
-
     public WebElement get_open_menu() {
         return open_menu;
     }

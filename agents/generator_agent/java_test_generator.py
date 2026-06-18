@@ -1,11 +1,16 @@
 from pathlib import Path
 
-from agents.generator_agent.action_mapper import (
-    ActionMapper
+from models.semantic_mapping_model import (
+    SemanticMapping,
+    SemanticElement
 )
 
-from models.scenario_mapping_model import (
-    ScenarioMapping
+from agents.generator_agent.wait_generator import (
+    WaitGenerator
+)
+
+from agents.generator_agent.assertion_generator import (
+    AssertionGenerator
 )
 
 
@@ -52,17 +57,50 @@ class JavaTestGenerator:
 
         for word in words:
 
-            class_name += word.capitalize()
+            class_name += (
+                word.capitalize()
+            )
 
         return class_name + "Test"
 
     @staticmethod
-    def generate_action(
-        action_type: str,
+    def get_page_class_name(
+        page_name: str
+    ):
+
+        page_name = (
+            page_name.split("|")[0]
+            .strip()
+        )
+
+        words = (
+            page_name
+            .replace("-", " ")
+            .replace("_", " ")
+            .split()
+        )
+
+        class_name = ""
+
+        for word in words:
+
+            class_name += (
+                word.capitalize()
+            )
+
+        if not class_name.endswith(
+            "Page"
+        ):
+            class_name += "Page"
+
+        return class_name
+
+    @staticmethod
+    def get_safe_element_name(
         element_name: str
     ):
 
-        safe_name = (
+        return (
             element_name
             .replace(" ", "_")
             .replace("-", "_")
@@ -70,18 +108,41 @@ class JavaTestGenerator:
             .replace("]", "_")
         )
 
+    @staticmethod
+    def generate_action(
+        semantic_element: SemanticElement
+    ):
+
+        element_name = (
+            JavaTestGenerator.get_safe_element_name(
+                semantic_element.element_name
+            )
+        )
+
+        action_type = (
+            semantic_element.action_type
+            .upper()
+        )
+
         if action_type == "SEND_KEYS":
 
             return (
-                f'page.get_{safe_name}()'
+                f'page.get_{element_name}()'
                 '.sendKeys("TEST_DATA");'
             )
 
         if action_type == "CLICK":
 
             return (
-                f"page.get_{safe_name}()"
-                ".click();"
+                f'page.get_{element_name}()'
+                '.click();'
+            )
+
+        if action_type == "SELECT":
+
+            return (
+                f'// TODO: Select value for '
+                f'{element_name}'
             )
 
         if action_type == "ASSERT":
@@ -97,33 +158,24 @@ class JavaTestGenerator:
 
     @staticmethod
     def generate(
-        scenario_mapping: ScenarioMapping,
-        scenario: dict
+        semantic_mapping: SemanticMapping
     ):
 
         class_name = (
             JavaTestGenerator.create_class_name(
-                scenario_mapping.scenario_title
+                semantic_mapping.scenario_title
             )
         )
 
         method_name = (
             JavaTestGenerator.create_method_name(
-                scenario_mapping.scenario_title
+                semantic_mapping.scenario_title
             )
         )
 
         page_class = (
-            scenario_mapping.page_name
-            .replace(" ", "")
-            .replace("|", "")
-            .replace("-", "")
-            + "Page"
-        )
-
-        actions = (
-            ActionMapper.map_steps(
-                scenario
+            JavaTestGenerator.get_page_class_name(
+                semantic_mapping.page_name
             )
         )
 
@@ -134,6 +186,7 @@ class JavaTestGenerator:
         )
 
         lines.append("")
+
         lines.append(
             "import org.testng.Assert;"
         )
@@ -143,12 +196,21 @@ class JavaTestGenerator:
         )
 
         lines.append(
+            "import org.openqa.selenium.support.ui.ExpectedConditions;"
+        )
+
+        lines.append(
+            "import base.BaseTest;"
+        )
+
+        lines.append(
             f"import pages.{page_class};"
         )
 
         lines.append("")
+
         lines.append(
-            f"public class {class_name} {{"
+            f"public class {class_name} extends BaseTest {{"
         )
 
         lines.append("")
@@ -170,50 +232,49 @@ class JavaTestGenerator:
 
         lines.append("")
 
-        element_index = 0
+        for element in (
+            semantic_mapping.matched_elements
+        ):
 
-        for action in actions:
-
-            action_type = (
-                action["action"]
+            wait_code = (
+                WaitGenerator.generate(
+                    element.action_type,
+                    element.element_name
+                )
             )
 
-            if action_type == "NAVIGATE":
-                continue
-
-            if (
-                element_index
-                >= len(
-                    scenario_mapping.matched_elements
-                )
-            ):
-                continue
-
-            element_name = (
-                scenario_mapping
-                .matched_elements[
-                    element_index
-                ]
+            lines.append(
+                f"        {wait_code}"
             )
 
             lines.append(
                 "        "
                 + JavaTestGenerator.generate_action(
-                    action_type,
-                    element_name
+                    element
                 )
             )
 
-            if action_type != "ASSERT":
+            lines.append("")
 
-                element_index += 1
+        assertion_code = (
+            AssertionGenerator.generate(
+                semantic_mapping.scenario_title,
+                "POSITIVE"
+            )
+        )
+
+        lines.append(
+            f"        {assertion_code}"
+        )
 
         lines.append("")
+
         lines.append(
             "    }"
         )
 
         lines.append("")
+
         lines.append(
             "}"
         )
@@ -222,8 +283,7 @@ class JavaTestGenerator:
 
     @staticmethod
     def save(
-        scenario_mapping: ScenarioMapping,
-        scenario: dict
+        semantic_mapping: SemanticMapping
     ):
 
         output_dir = Path(
@@ -237,15 +297,14 @@ class JavaTestGenerator:
 
         file_name = (
             JavaTestGenerator.create_class_name(
-                scenario_mapping.scenario_title
+                semantic_mapping.scenario_title
             )
             + ".java"
         )
 
         java_code = (
             JavaTestGenerator.generate(
-                scenario_mapping,
-                scenario
+                semantic_mapping
             )
         )
 

@@ -1,0 +1,23 @@
+{
+    "iteration": 1,
+    "status": "REVIEWED",
+    "total_findings": 2,
+    "findings": [
+        {
+            "finding_id": "FND-001",
+            "severity": "MEDIUM",
+            "category": "ASSERTION",
+            "file_name": "LoginWithInvalidEmailFormatTest.java",
+            "description": "Weak assertion detected.",
+            "recommendation": "Replace with business validation."
+        },
+        {
+            "finding_id": "FND-002",
+            "severity": "MEDIUM",
+            "category": "ASSERTION",
+            "file_name": "LoginWithPasswordTooShortTest.java",
+            "description": "Weak assertion detected.",
+            "recommendation": "Replace with business validation."
+        }
+    ]
+}
