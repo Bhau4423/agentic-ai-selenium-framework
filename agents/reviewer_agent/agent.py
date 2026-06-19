@@ -10,6 +10,30 @@ from agents.reviewer_agent.coverage_reviewer import (
     CoverageReviewer
 )
 
+from agents.reviewer_agent.wait_reviewer import (
+    WaitReviewer
+)
+
+from agents.reviewer_agent.locator_reviewer import (
+    LocatorReviewer
+)
+
+from agents.reviewer_agent.missing_script_reviewer import (
+    MissingScriptReviewer
+)
+
+from agents.reviewer_agent.edge_case_reviewer import (
+    EdgeCaseReviewer
+)
+
+from agents.reviewer_agent.traceability_reviewer import (
+    TraceabilityReviewer
+)
+
+from agents.reviewer_agent.hallucination_reviewer import (
+    HallucinationReviewer
+)
+
 from agents.reviewer_agent.report_generator import (
     ReportGenerator
 )
@@ -43,9 +67,9 @@ class ReviewerAgent:
 
         findings = []
 
-        # -------------------------
+        # --------------------------------
         # ASSERTION REVIEW
-        # -------------------------
+        # --------------------------------
 
         print(
             "\nRunning Assertion Review..."
@@ -64,9 +88,9 @@ class ReviewerAgent:
             f"{len(assertion_findings)}"
         )
 
-        # -------------------------
+        # --------------------------------
         # COVERAGE REVIEW
-        # -------------------------
+        # --------------------------------
 
         print(
             "\nRunning Coverage Review..."
@@ -85,9 +109,135 @@ class ReviewerAgent:
             f"{len(coverage_findings)}"
         )
 
-        # -------------------------
-        # STATUS CALCULATION
-        # -------------------------
+        # --------------------------------
+        # WAIT REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Wait Review..."
+        )
+
+        wait_findings = (
+            WaitReviewer.review()
+        )
+
+        findings.extend(
+            wait_findings
+        )
+
+        print(
+            f"Wait Findings: "
+            f"{len(wait_findings)}"
+        )
+
+        # --------------------------------
+        # LOCATOR REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Locator Review..."
+        )
+
+        locator_findings = (
+            LocatorReviewer.review()
+        )
+
+        findings.extend(
+            locator_findings
+        )
+
+        print(
+            f"Locator Findings: "
+            f"{len(locator_findings)}"
+        )
+
+        # --------------------------------
+        # MISSING SCRIPT REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Missing Script Review..."
+        )
+
+        script_findings = (
+            MissingScriptReviewer.review()
+        )
+
+        findings.extend(
+            script_findings
+        )
+
+        print(
+            f"Missing Script Findings: "
+            f"{len(script_findings)}"
+        )
+
+        # --------------------------------
+        # EDGE CASE REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Edge Case Review..."
+        )
+
+        edge_findings = (
+            EdgeCaseReviewer.review()
+        )
+
+        findings.extend(
+            edge_findings
+        )
+
+        print(
+            f"Edge Case Findings: "
+            f"{len(edge_findings)}"
+        )
+
+        # --------------------------------
+        # TRACEABILITY REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Traceability Review..."
+        )
+
+        traceability_findings = (
+            TraceabilityReviewer.review()
+        )
+
+        findings.extend(
+            traceability_findings
+        )
+
+        print(
+            f"Traceability Findings: "
+            f"{len(traceability_findings)}"
+        )
+
+        # --------------------------------
+        # HALLUCINATION REVIEW
+        # --------------------------------
+
+        print(
+            "\nRunning Hallucination Review..."
+        )
+
+        hallucination_findings = (
+            HallucinationReviewer.review()
+        )
+
+        findings.extend(
+            hallucination_findings
+        )
+
+        print(
+            f"Hallucination Findings: "
+            f"{len(hallucination_findings)}"
+        )
+
+        # --------------------------------
+        # STATUS
+        # --------------------------------
 
         if len(findings) == 0:
 
@@ -97,9 +247,9 @@ class ReviewerAgent:
 
             status = "REVIEWED"
 
-        # -------------------------
-        # REVIEW REPORT
-        # -------------------------
+        # --------------------------------
+        # REPORT
+        # --------------------------------
 
         report = ReviewReport(
 
@@ -120,9 +270,9 @@ class ReviewerAgent:
             )
         )
 
-        # -------------------------
-        # SUMMARY COUNTS
-        # -------------------------
+        # --------------------------------
+        # COUNTS
+        # --------------------------------
 
         critical_count = len(
             [

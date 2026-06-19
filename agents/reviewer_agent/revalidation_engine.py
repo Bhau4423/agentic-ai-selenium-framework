@@ -1,95 +1,65 @@
-from agents.reviewer_agent.agent import (
-    ReviewerAgent
+from agents.reviewer_agent.assertion_reviewer import (
+    AssertionReviewer
 )
 
-from agents.reviewer_agent.patch_agent import (
-    PatchAgent
+from agents.reviewer_agent.wait_reviewer import (
+    WaitReviewer
+)
+
+from agents.reviewer_agent.locator_reviewer import (
+    LocatorReviewer
+)
+
+from agents.reviewer_agent.missing_script_reviewer import (
+    MissingScriptReviewer
+)
+
+from agents.reviewer_agent.edge_case_reviewer import (
+    EdgeCaseReviewer
+)
+
+from agents.reviewer_agent.traceability_reviewer import (
+    TraceabilityReviewer
+)
+
+from agents.reviewer_agent.hallucination_reviewer import (
+    HallucinationReviewer
 )
 
 
 class RevalidationEngine:
 
-    MAX_ITERATIONS = 5
-
     @staticmethod
-    def execute():
+    def validate():
 
-        reviewer = (
-            ReviewerAgent()
+        findings = []
+
+        findings.extend(
+            AssertionReviewer.review()
         )
 
-        iteration = 1
+        findings.extend(
+            WaitReviewer.review()
+        )
 
-        while (
-            iteration
-            <=
-            RevalidationEngine.MAX_ITERATIONS
-        ):
+        findings.extend(
+            LocatorReviewer.review()
+        )
 
-            print(
-                f"\n========== ITERATION {iteration} =========="
-            )
+        findings.extend(
+            MissingScriptReviewer.review()
+        )
 
-            result = (
-                reviewer.review(
-                    iteration
-                )
-            )
+        findings.extend(
+            EdgeCaseReviewer.review()
+        )
 
-            if (
-                result["total_findings"]
-                == 0
-            ):
+        findings.extend(
+            TraceabilityReviewer.review()
+        )
 
-                print(
-                    "\nFRAMEWORK APPROVED"
-                )
+        findings.extend(
+            HallucinationReviewer.review()
+        )
 
-                return {
-
-                    "status":
-                    "APPROVED",
-
-                    "iteration":
-                    iteration
-                }
-
-            report = (
-                reviewer.review(
-                    iteration
-                )
-            )
-
-            findings_count = (
-                report[
-                    "total_findings"
-                ]
-            )
-
-            if findings_count == 0:
-
-                return {
-
-                    "status":
-                    "APPROVED",
-
-                    "iteration":
-                    iteration
-                }
-
-            print(
-                "\nPatching Findings..."
-            )
-
-            # Temporary placeholder
-
-            iteration += 1
-
-        return {
-
-            "status":
-            "REVIEW_LIMIT_REACHED",
-
-            "iteration":
-            RevalidationEngine.MAX_ITERATIONS
-        }
+        return findings

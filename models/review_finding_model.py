@@ -14,3 +14,13 @@ class ReviewFinding(BaseModel):
     description: str
 
     recommendation: str
+
+    scenario_id: str | None = None
+
+    requirement_id: str | None = None
+
+    impacted_component: str | None = None
+
+    auto_fixable: bool = True
+
+    validation_status: str = "PENDING"

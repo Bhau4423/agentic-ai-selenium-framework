@@ -16,6 +16,8 @@ class SemanticMapping(BaseModel):
 
     scenario_title: str
 
+    scenario_type: str
+
     page_name: str
 
     matched_elements: list[SemanticElement]

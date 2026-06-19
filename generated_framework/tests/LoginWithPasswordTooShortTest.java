@@ -23,9 +23,7 @@ public class LoginWithPasswordTooShortTest extends BaseTest {
         page.get_Submit().click();
 
         wait.until(ExpectedConditions.visibilityOf(page.get_Submit()));
-        Assert.assertTrue(driver.getCurrentUrl().length() > 0);
-
-        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
+        Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

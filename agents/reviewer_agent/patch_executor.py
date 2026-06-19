@@ -4,8 +4,56 @@ from models.patch_plan_model import (
     PatchPlan
 )
 
+from agents.reviewer_agent.context_builder import (
+    ContextBuilder
+)
+
+from agents.reviewer_agent.assertion_patch_strategy import (
+    AssertionPatchStrategy
+)
+
 
 class PatchExecutor:
+
+    @staticmethod
+    def extract_scenario_title(
+        file_name: str
+    ):
+
+        title = (
+            file_name
+            .replace(".java", "")
+            .replace("Test", "")
+        )
+
+        words = []
+
+        current_word = ""
+
+        for char in title:
+
+            if (
+                char.isupper()
+                and current_word
+            ):
+
+                words.append(
+                    current_word
+                )
+
+                current_word = char
+
+            else:
+
+                current_word += char
+
+        if current_word:
+
+            words.append(
+                current_word
+            )
+
+        return " ".join(words)
 
     @staticmethod
     def execute(
@@ -49,9 +97,9 @@ class PatchExecutor:
                         file.read()
                     )
 
-                # ------------------
-                # REPLACE WEAK ASSERTION
-                # ------------------
+                # ---------------------------------
+                # REQUIREMENT AWARE ASSERTION PATCH
+                # ---------------------------------
 
                 if (
                     plan.patch_action
@@ -59,19 +107,44 @@ class PatchExecutor:
                     "REPLACE_WEAK_ASSERTION"
                 ):
 
-                    content = (
-                        content.replace(
-                            "Assert.assertTrue(true);",
-                            'Assert.assertTrue('
-                            'driver.getCurrentUrl()'
-                            '.length() > 0'
-                            ');'
+                    scenario_title = (
+                        PatchExecutor.extract_scenario_title(
+                            plan.file_name
                         )
                     )
 
-                # ------------------
+                    context = (
+                        ContextBuilder.get_context(
+                            scenario_title
+                        )
+                    )
+
+                    if context:
+
+                        assertion_code = (
+                            AssertionPatchStrategy.generate_assertion(
+                                context
+                            )
+                        )
+
+                    else:
+
+                        assertion_code = (
+                            "Assert.assertTrue("
+                            "driver.getCurrentUrl()"
+                            ".length() > 0);"
+                        )
+
+                    content = (
+                        content.replace(
+                            "Assert.assertTrue(true);",
+                            assertion_code
+                        )
+                    )
+
+                # ---------------------------------
                 # ADD ASSERTION
-                # ------------------
+                # ---------------------------------
 
                 elif (
                     plan.patch_action
@@ -79,16 +152,38 @@ class PatchExecutor:
                     "ADD_ASSERTION"
                 ):
 
+                    scenario_title = (
+                        PatchExecutor.extract_scenario_title(
+                            plan.file_name
+                        )
+                    )
+
+                    context = (
+                        ContextBuilder.get_context(
+                            scenario_title
+                        )
+                    )
+
+                    if context:
+
+                        assertion_code = (
+                            AssertionPatchStrategy.generate_assertion(
+                                context
+                            )
+                        )
+
+                    else:
+
+                        assertion_code = (
+                            "Assert.assertTrue("
+                            "driver.getCurrentUrl()"
+                            ".length() > 0);"
+                        )
+
                     content = (
                         content.replace(
                             "\n    }\n",
-                            "\n"
-                            "        Assert.assertTrue("
-                            "driver.getCurrentUrl()"
-                            ".length() > 0"
-                            ");\n"
-                            "\n"
-                            "    }\n"
+                            f"\n        {assertion_code}\n\n    }}\n"
                         )
                     )
 
@@ -106,7 +201,11 @@ class PatchExecutor:
                     "COMPLETED"
                 )
 
-            except Exception:
+            except Exception as e:
+
+                print(
+                    f"Patch Error: {e}"
+                )
 
                 plan.patch_status = (
                     "FAILED"

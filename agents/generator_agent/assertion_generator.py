@@ -10,10 +10,64 @@ class AssertionGenerator:
             scenario_title.lower()
         )
 
-        if (
-            "login" in title
-            or "authentication" in title
-        ):
+        scenario_type = (
+            scenario_type.upper()
+        )
+
+        # -------------------------
+        # POSITIVE SCENARIOS
+        # -------------------------
+
+        if scenario_type == "POSITIVE":
+
+            if (
+                "login" in title
+                or
+                "authentication" in title
+            ):
+
+                return (
+                    'Assert.assertTrue('
+                    'driver.getCurrentUrl()'
+                    '.contains("dashboard"));'
+                )
+
+            if (
+                "search" in title
+            ):
+
+                return (
+                    'Assert.assertTrue('
+                    '!driver.getTitle().isEmpty());'
+                )
+
+            if (
+                "contact" in title
+            ):
+
+                return (
+                    'Assert.assertTrue('
+                    '!driver.getPageSource()'
+                    '.isEmpty());'
+                )
+
+        # -------------------------
+        # NEGATIVE SCENARIOS
+        # -------------------------
+
+        if scenario_type == "NEGATIVE":
+
+            return (
+                'Assert.assertFalse('
+                'driver.getCurrentUrl()'
+                '.contains("dashboard"));'
+            )
+
+        # -------------------------
+        # BOUNDARY SCENARIOS
+        # -------------------------
+
+        if scenario_type == "BOUNDARY":
 
             return (
                 'Assert.assertTrue('
@@ -21,25 +75,12 @@ class AssertionGenerator:
                 '.contains("dashboard"));'
             )
 
-        if (
-            "search" in title
-        ):
-
-            return (
-                'Assert.assertTrue('
-                '!driver.getTitle().isEmpty());'
-            )
-
-        if (
-            "contact" in title
-        ):
-
-            return (
-                'Assert.assertTrue('
-                '!driver.getPageSource()'
-                '.isEmpty());'
-            )
+        # -------------------------
+        # FALLBACK
+        # -------------------------
 
         return (
-            "Assert.assertTrue(true);"
+            'Assert.assertTrue('
+            'driver.getCurrentUrl()'
+            '.length() > 0);'
         )

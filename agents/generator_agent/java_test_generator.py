@@ -145,10 +145,16 @@ class JavaTestGenerator:
                 f'{element_name}'
             )
 
+        #
+        # IMPORTANT
+        # ASSERT actions are handled by
+        # AssertionGenerator
+        #
         if action_type == "ASSERT":
 
             return (
-                "Assert.assertTrue(true);"
+                "// Assertion handled by "
+                "AssertionGenerator"
             )
 
         return (
@@ -247,19 +253,32 @@ class JavaTestGenerator:
                 f"        {wait_code}"
             )
 
-            lines.append(
-                "        "
-                + JavaTestGenerator.generate_action(
+            action_code = (
+                JavaTestGenerator.generate_action(
                     element
                 )
             )
 
-            lines.append("")
+            if (
+                not action_code.startswith(
+                    "// Assertion handled"
+                )
+            ):
 
+                lines.append(
+                    "        "
+                    + action_code
+                )
+
+                lines.append("")
+
+        #
+        # BUSINESS ASSERTION
+        #
         assertion_code = (
             AssertionGenerator.generate(
                 semantic_mapping.scenario_title,
-                "POSITIVE"
+                semantic_mapping.scenario_type
             )
         )
 

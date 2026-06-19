@@ -22,10 +22,7 @@ public class LoginWithInvalidEmailFormatTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Submit()));
         page.get_Submit().click();
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_error_message()));
-        Assert.assertTrue(driver.getCurrentUrl().length() > 0);
-
-        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
+        Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

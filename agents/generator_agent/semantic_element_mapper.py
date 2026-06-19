@@ -9,6 +9,10 @@ from models.semantic_mapping_model import (
     SemanticElement
 )
 
+from agents.generator_agent.semantic_mapping_validator import (
+    SemanticMappingValidator
+)
+
 
 class SemanticElementMapper:
 
@@ -178,21 +182,48 @@ Expected Response:
                 )
             )
 
+            # --------------------------------
+            # HALLUCINATION VALIDATION
+            # --------------------------------
+
+            semantic_elements = (
+                SemanticMappingValidator.validate(
+                    semantic_elements,
+                    page
+                )
+            )
+
+            # --------------------------------
+            # RETURN CLEAN MAPPING
+            # --------------------------------
+
             return SemanticMapping(
+
                 scenario_id=scenario.get(
                     "id",
                     ""
                 ),
+
                 scenario_title=scenario.get(
                     "title",
                     ""
                 ),
+
+                scenario_type=scenario.get(
+                    "scenario_type",
+                    "POSITIVE"
+                ),
+
                 page_name=page.get(
                     "page_name",
                     ""
                 ),
-                matched_elements=semantic_elements,
-                confidence_score=confidence_score
+
+                matched_elements=
+                semantic_elements,
+
+                confidence_score=
+                confidence_score
             )
 
         except Exception as e:
@@ -202,18 +233,28 @@ Expected Response:
             )
 
             return SemanticMapping(
+
                 scenario_id=scenario.get(
                     "id",
                     ""
                 ),
+
                 scenario_title=scenario.get(
                     "title",
                     ""
                 ),
+
+                scenario_type=scenario.get(
+                    "scenario_type",
+                    "POSITIVE"
+                ),
+
                 page_name=page.get(
                     "page_name",
                     ""
                 ),
+
                 matched_elements=[],
+
                 confidence_score=0.0
             )
