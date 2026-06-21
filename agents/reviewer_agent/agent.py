@@ -34,6 +34,10 @@ from agents.reviewer_agent.hallucination_reviewer import (
     HallucinationReviewer
 )
 
+from agents.reviewer_agent.finding_deduplicator import (
+    FindingDeduplicator
+)
+
 from agents.reviewer_agent.report_generator import (
     ReportGenerator
 )
@@ -234,6 +238,33 @@ class ReviewerAgent:
             f"Hallucination Findings: "
             f"{len(hallucination_findings)}"
         )
+
+        # --------------------------------
+        # DEDUPLICATION
+        # --------------------------------
+
+        original_count = len(
+            findings
+        )
+
+        findings = (
+            FindingDeduplicator.deduplicate(
+                findings
+            )
+        )
+
+        removed_count = (
+            original_count
+            -
+            len(findings)
+        )
+
+        if removed_count > 0:
+
+            print(
+                f"\nDuplicate Findings Removed: "
+                f"{removed_count}"
+            )
 
         # --------------------------------
         # STATUS

@@ -1,23 +1,15 @@
 {
     "iteration": 1,
-    "total_patches": 2,
-    "successful_patches": 2,
+    "total_patches": 1,
+    "successful_patches": 1,
     "failed_patches": 0,
     "patches": [
         {
-            "finding_id": "FND-001",
-            "file_name": "LoginWithInvalidEmailFormatTest.java",
-            "category": "ASSERTION",
-            "patch_action": "REPLACE_WEAK_ASSERTION",
-            "reason": "Weak assertion detected.",
-            "patch_status": "COMPLETED"
-        },
-        {
-            "finding_id": "FND-002",
-            "file_name": "LoginWithPasswordTooShortTest.java",
-            "category": "ASSERTION",
-            "patch_action": "REPLACE_WEAK_ASSERTION",
-            "reason": "Weak assertion detected.",
+            "finding_id": "LOC-001",
+            "file_name": "TestLoginPage.java",
+            "category": "HALLUCINATED_LOCATOR",
+            "patch_action": "REPLACE_INVALID_LOCATOR",
+            "reason": "Locator not found in inventory: submitBtn",
             "patch_status": "COMPLETED"
         }
     ]

@@ -96,18 +96,31 @@ class CoverageReviewer:
             ):
 
                 findings.append(
+
                     ReviewFinding(
 
                         finding_id=
-                        f"FND-{finding_counter:03d}",
+                        f"COV-{finding_counter:03d}",
 
-                        severity="HIGH",
+                        severity=
+                        "HIGH",
 
-                        category="COVERAGE",
+                        category=
+                        "COVERAGE",
 
                         file_name=
                         expected_test_name
                         + ".java",
+
+                        scenario_id=
+                        scenario.get(
+                            "id"
+                        ),
+
+                        requirement_id=
+                        scenario.get(
+                            "requirement_id"
+                        ),
 
                         description=
                         (
@@ -119,7 +132,13 @@ class CoverageReviewer:
                         (
                             "Generate test for "
                             "missing scenario."
-                        )
+                        ),
+
+                        impacted_component=
+                        "Test Generation",
+
+                        auto_fixable=
+                        True
                     )
                 )
 

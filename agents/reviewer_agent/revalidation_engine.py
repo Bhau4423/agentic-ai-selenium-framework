@@ -1,65 +1,234 @@
-from agents.reviewer_agent.assertion_reviewer import (
-    AssertionReviewer
+from agents.reviewer_agent.agent import (
+    ReviewerAgent
 )
 
-from agents.reviewer_agent.wait_reviewer import (
-    WaitReviewer
+from agents.reviewer_agent.patch_agent import (
+    PatchAgent
 )
 
-from agents.reviewer_agent.locator_reviewer import (
-    LocatorReviewer
-)
-
-from agents.reviewer_agent.missing_script_reviewer import (
-    MissingScriptReviewer
-)
-
-from agents.reviewer_agent.edge_case_reviewer import (
-    EdgeCaseReviewer
-)
-
-from agents.reviewer_agent.traceability_reviewer import (
-    TraceabilityReviewer
-)
-
-from agents.reviewer_agent.hallucination_reviewer import (
-    HallucinationReviewer
+from agents.reviewer_agent.final_validation_report_generator import (
+    FinalValidationReportGenerator
 )
 
 
 class RevalidationEngine:
 
+    MAX_ITERATIONS = 5
+
+    REVIEWERS_EXECUTED = [
+
+        "AssertionReviewer",
+
+        "CoverageReviewer",
+
+        "WaitReviewer",
+
+        "LocatorReviewer",
+
+        "MissingScriptReviewer",
+
+        "EdgeCaseReviewer",
+
+        "TraceabilityReviewer",
+
+        "HallucinationReviewer"
+    ]
+
     @staticmethod
-    def validate():
+    def execute():
 
-        findings = []
-
-        findings.extend(
-            AssertionReviewer.review()
+        reviewer = (
+            ReviewerAgent()
         )
 
-        findings.extend(
-            WaitReviewer.review()
+        total_findings = 0
+
+        resolved_findings = 0
+
+        patches_applied = 0
+
+        iteration = 1
+
+        while (
+
+            iteration
+            <=
+            RevalidationEngine.MAX_ITERATIONS
+
+        ):
+
+            print(
+                f"\n========== REVIEW CYCLE {iteration} =========="
+            )
+
+            review_result = (
+                reviewer.review(
+                    iteration
+                )
+            )
+
+            findings = (
+                review_result[
+                    "findings"
+                ]
+            )
+
+            findings_count = (
+                review_result[
+                    "total_findings"
+                ]
+            )
+
+            # --------------------------------
+            # APPROVED
+            # --------------------------------
+
+            if findings_count == 0:
+
+                report = (
+                    FinalValidationReportGenerator.generate(
+
+                        status=
+                        "APPROVED",
+
+                        iterations=
+                        iteration,
+
+                        total_findings=
+                        total_findings,
+
+                        resolved_findings=
+                        resolved_findings,
+
+                        remaining_findings=
+                        0,
+
+                        patches_applied=
+                        patches_applied,
+
+                        reviewers_executed=
+                        RevalidationEngine.REVIEWERS_EXECUTED,
+
+                        approval_reason=
+                        "All findings resolved successfully."
+                    )
+                )
+
+                report_file = (
+                    FinalValidationReportGenerator.save(
+                        report
+                    )
+                )
+
+                print(
+                    f"\nFINAL REPORT: "
+                    f"{report_file}"
+                )
+
+                return {
+
+                    "status":
+                    "APPROVED",
+
+                    "iteration":
+                    iteration,
+
+                    "report":
+                    report_file
+                }
+
+            # --------------------------------
+            # TRACK FINDINGS
+            # --------------------------------
+
+            total_findings += (
+                findings_count
+            )
+
+            print(
+                "\nPatching Findings..."
+            )
+
+            patch_result = (
+                PatchAgent.patch(
+                    findings,
+                    iteration
+                )
+            )
+
+            successful_patches = (
+                patch_result[
+                    "successful"
+                ]
+            )
+
+            patches_applied += (
+                successful_patches
+            )
+
+            resolved_findings += (
+                successful_patches
+            )
+
+            iteration += 1
+
+        # --------------------------------
+        # REVIEW LIMIT REACHED
+        # --------------------------------
+
+        report = (
+            FinalValidationReportGenerator.generate(
+
+                status=
+                "REVIEW_LIMIT_REACHED",
+
+                iterations=
+                RevalidationEngine.MAX_ITERATIONS,
+
+                total_findings=
+                total_findings,
+
+                resolved_findings=
+                resolved_findings,
+
+                remaining_findings=
+                max(
+                    0,
+                    total_findings
+                    -
+                    resolved_findings
+                ),
+
+                patches_applied=
+                patches_applied,
+
+                reviewers_executed=
+                RevalidationEngine.REVIEWERS_EXECUTED,
+
+                approval_reason=
+                "Maximum review iterations reached."
+            )
         )
 
-        findings.extend(
-            LocatorReviewer.review()
+        report_file = (
+            FinalValidationReportGenerator.save(
+                report
+            )
         )
 
-        findings.extend(
-            MissingScriptReviewer.review()
+        print(
+            f"\nFINAL REPORT: "
+            f"{report_file}"
         )
 
-        findings.extend(
-            EdgeCaseReviewer.review()
-        )
+        return {
 
-        findings.extend(
-            TraceabilityReviewer.review()
-        )
+            "status":
+            "REVIEW_LIMIT_REACHED",
 
-        findings.extend(
-            HallucinationReviewer.review()
-        )
+            "iteration":
+            RevalidationEngine.MAX_ITERATIONS,
 
-        return findings
+            "report":
+            report_file
+        }

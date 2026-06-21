@@ -33,6 +33,9 @@ public class ContactPage {
     @FindBy(id = "wpforms-161-field_2")
     private WebElement wpforms_fields__2_;
 
+    @FindBy(id = "g-recaptcha-response")
+    private WebElement g_recaptcha_response;
+
     public ContactPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -68,6 +71,10 @@ public class ContactPage {
 
     public WebElement get_wpforms_fields__2_() {
         return wpforms_fields__2_;
+    }
+
+    public WebElement get_g_recaptcha_response() {
+        return g_recaptcha_response;
     }
 
 }

@@ -6,10 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
 import pages.TestLoginPage;
 
-public class LoginWithMinimumPasswordLengthTest extends BaseTest {
+public class LoginWithPasswordShorterThanMinimumLengthTest extends BaseTest {
 
     @Test
-    public void loginWithMinimumPasswordLength() {
+    public void loginWithPasswordShorterThanMinimumLength() {
 
         TestLoginPage page = new TestLoginPage(driver);
 
@@ -22,7 +22,8 @@ public class LoginWithMinimumPasswordLengthTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Submit()));
         page.get_Submit().click();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
+        wait.until(ExpectedConditions.visibilityOf(page.get_Submit()));
+        Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

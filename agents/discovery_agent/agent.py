@@ -28,12 +28,15 @@ class DiscoveryAgent:
 
     def discover_page(
         self,
-        page
+        page,
+        verbose: bool = True
     ):
 
-        print(
-            f"Discovered: {page.title()}"
-        )
+        if verbose:
+
+            print(
+                f"Discovered: {page.title()}"
+            )
 
         try:
 
@@ -119,7 +122,8 @@ class DiscoveryAgent:
 
     def save_inventory(
         self,
-        inventory
+        inventory,
+        verbose: bool = True
     ):
 
         output_dir = Path(
@@ -147,13 +151,21 @@ class DiscoveryAgent:
                 indent=4
             )
 
-        print(
-            f"\nPage Inventory saved to: {inventory_file}"
+        if verbose:
+
+            print(
+                f"\nPage Inventory saved to: "
+                f"{inventory_file}"
+            )
+
+        return str(
+            inventory_file
         )
 
     def discover(
         self,
-        url: str
+        url: str,
+        verbose: bool = True
     ):
 
         config = CrawlConfig()
@@ -167,6 +179,11 @@ class DiscoveryAgent:
         )
 
         pages = []
+
+        total_elements = 0
+        total_forms = 0
+        total_links = 0
+        total_tables = 0
 
         with sync_playwright() as p:
 
@@ -190,7 +207,8 @@ class DiscoveryAgent:
 
                     page_data = (
                         self.discover_page(
-                            page
+                            page,
+                            verbose
                         )
                     )
 
@@ -200,15 +218,34 @@ class DiscoveryAgent:
                             page_data
                         )
 
+                        total_elements += len(
+                            page_data.elements
+                        )
+
+                        total_forms += len(
+                            page_data.forms
+                        )
+
+                        total_links += len(
+                            page_data.links
+                        )
+
+                        total_tables += len(
+                            page_data.tables
+                        )
+
                     page.close()
 
                 except Exception as e:
 
-                    print(
-                        f"Failed to parse page: {result['url']}"
-                    )
+                    if verbose:
 
-                    print(e)
+                        print(
+                            f"Failed to parse page: "
+                            f"{result['url']}"
+                        )
+
+                        print(e)
 
             browser.close()
 
@@ -218,8 +255,11 @@ class DiscoveryAgent:
             )
         )
 
-        self.save_inventory(
-            inventory
+        inventory_file = (
+            self.save_inventory(
+                inventory,
+                verbose
+            )
         )
 
         graph_data = (
@@ -227,6 +267,30 @@ class DiscoveryAgent:
         )
 
         return {
-            "inventory": inventory,
-            "crawl_graph": graph_data
+
+            "inventory":
+                inventory,
+
+            "crawl_graph":
+                graph_data,
+
+            "pages":
+                len(
+                    pages
+                ),
+
+            "elements":
+                total_elements,
+
+            "forms":
+                total_forms,
+
+            "links":
+                total_links,
+
+            "tables":
+                total_tables,
+
+            "inventory_file":
+                inventory_file
         }

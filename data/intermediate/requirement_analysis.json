@@ -2,7 +2,7 @@
     "requirements": [
         {
             "id": "FR-001",
-            "title": "User Authentication",
+            "title": "User Login",
             "description": "User can login using email and password."
         },
         {
@@ -25,7 +25,7 @@
         {
             "id": "AC-001",
             "requirement_id": "FR-001",
-            "description": "System authenticates user when valid email and password are provided."
+            "description": "System accepts email and password for authentication."
         },
         {
             "id": "AC-002",
@@ -40,7 +40,7 @@
         {
             "id": "AC-004",
             "requirement_id": "FR-004",
-            "description": "User is redirected to the dashboard page upon successful authentication."
+            "description": "User is redirected to the dashboard upon successful authentication."
         }
     ],
     "positive_scenarios": [
@@ -52,7 +52,7 @@
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
-                "Enter valid password (length >= 8)",
+                "Enter valid password (8+ characters)",
                 "Click login button"
             ],
             "expected_result": "User is redirected to the dashboard."
@@ -76,7 +76,7 @@
             "id": "NEG-002",
             "requirement_id": "FR-003",
             "scenario_type": "NEGATIVE",
-            "title": "Login with Password Too Short",
+            "title": "Login with Password Shorter than Minimum Length",
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
@@ -98,7 +98,7 @@
                 "Enter password with exactly 8 characters",
                 "Click login button"
             ],
-            "expected_result": "User is successfully logged in and redirected to the dashboard."
+            "expected_result": "Login is successful and user is redirected to dashboard."
         }
     ]
 }

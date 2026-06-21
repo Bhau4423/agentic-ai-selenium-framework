@@ -12,16 +12,8 @@ from agents.generator_agent.scenario_mapper import (
     ScenarioMapper
 )
 
-from agents.generator_agent.semantic_element_mapper import (
-    SemanticElementMapper
-)
-
 from agents.generator_agent.java_page_generator import (
     JavaPageGenerator
-)
-
-from agents.generator_agent.java_test_generator import (
-    JavaTestGenerator
 )
 
 from agents.generator_agent.traceability_generator import (
@@ -38,6 +30,10 @@ from agents.generator_agent.config_generator import (
 
 from agents.generator_agent.framework_structure_generator import (
     FrameworkStructureGenerator
+)
+
+from agents.generator_agent.test_generation_service import (
+    TestGenerationService
 )
 
 
@@ -238,15 +234,11 @@ class GeneratorAgent:
             ] = scenario
 
         # --------------------------------
-        # SEMANTIC GENERATION
+        # SEMANTIC TEST GENERATION
         # --------------------------------
 
         print(
             "\nGenerating Semantic Tests..."
-        )
-
-        semantic_mapper = (
-            SemanticElementMapper()
         )
 
         generated_tests = []
@@ -271,10 +263,14 @@ class GeneratorAgent:
                         "page_name",
                         ""
                     )
-                    == mapping.page_name
+                    ==
+                    mapping.page_name
                 ):
 
-                    page = inventory_page
+                    page = (
+                        inventory_page
+                    )
+
                     break
 
             if not page:
@@ -286,22 +282,23 @@ class GeneratorAgent:
 
                 continue
 
-            semantic_mapping = (
-                semantic_mapper.map_scenario(
+            result = (
+                TestGenerationService.generate_test(
                     scenario,
                     page
                 )
             )
 
-            print(
-                f"Semantic Confidence: "
-                f"{semantic_mapping.confidence_score}"
+            semantic_mapping = (
+                result[
+                    "semantic_mapping"
+                ]
             )
 
             file_path = (
-                JavaTestGenerator.save(
-                    semantic_mapping
-                )
+                result[
+                    "file_path"
+                ]
             )
 
             generated_tests.append(

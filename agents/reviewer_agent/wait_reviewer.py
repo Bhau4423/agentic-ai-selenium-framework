@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from models.review_finding_model import (
     ReviewFinding
@@ -22,13 +23,9 @@ class WaitReviewer:
 
         finding_counter = 1
 
-        java_files = (
-            tests_folder.glob(
-                "*.java"
-            )
-        )
-
-        for java_file in java_files:
+        for java_file in tests_folder.glob(
+            "*.java"
+        ):
 
             with open(
                 java_file,
@@ -36,114 +33,152 @@ class WaitReviewer:
                 encoding="utf-8"
             ) as file:
 
-                content = (
-                    file.read()
-                )
+                content = file.read()
 
-            click_count = (
-                content.count(
-                    ".click();"
-                )
-            )
-
-            wait_click_count = (
-                content.count(
-                    "elementToBeClickable"
-                )
-            )
-
-            send_keys_count = (
-                content.count(
-                    ".sendKeys("
-                )
-            )
-
-            wait_visibility_count = (
-                content.count(
-                    "visibilityOf"
-                )
-            )
+            lines = content.splitlines()
 
             # -------------------------
             # CLICK VALIDATION
             # -------------------------
 
-            if (
-                click_count >
-                wait_click_count
-            ):
+            for index, line in enumerate(lines):
 
-                findings.append(
+                if ".click();" not in line:
+                    continue
 
-                    ReviewFinding(
+                click_line = line.strip()
 
-                        finding_id=
-                        f"WAIT-{finding_counter:03}",
+                wait_found = False
 
-                        severity=
-                        "MEDIUM",
-
-                        category=
-                        "WAIT",
-
-                        file_name=
-                        java_file.name,
-
-                        description=
-                        "Click action found without explicit wait.",
-
-                        recommendation=
-                        "Add elementToBeClickable wait.",
-
-                        impacted_component=
-                        "Test Script",
-
-                        auto_fixable=
-                        True
-                    )
+                search_start = max(
+                    0,
+                    index - 3
                 )
 
-                finding_counter += 1
+                for previous_index in range(
+                    search_start,
+                    index
+                ):
+
+                    previous_line = (
+                        lines[
+                            previous_index
+                        ]
+                    )
+
+                    if (
+                        "elementToBeClickable"
+                        in previous_line
+                    ):
+
+                        wait_found = True
+                        break
+
+                if not wait_found:
+
+                    findings.append(
+
+                        ReviewFinding(
+
+                            finding_id=
+                            f"WAIT-{finding_counter:03}",
+
+                            severity=
+                            "MEDIUM",
+
+                            category=
+                            "WAIT",
+
+                            file_name=
+                            java_file.name,
+
+                            description=
+                            f"Missing wait before click: {click_line}",
+
+                            recommendation=
+                            "Add elementToBeClickable wait.",
+
+                            impacted_component=
+                            "Test Script",
+
+                            auto_fixable=
+                            True
+                        )
+                    )
+
+                    finding_counter += 1
 
             # -------------------------
             # SEND_KEYS VALIDATION
             # -------------------------
 
-            if (
-                send_keys_count >
-                wait_visibility_count
-            ):
+            for index, line in enumerate(lines):
 
-                findings.append(
+                if ".sendKeys(" not in line:
+                    continue
 
-                    ReviewFinding(
-
-                        finding_id=
-                        f"WAIT-{finding_counter:03}",
-
-                        severity=
-                        "MEDIUM",
-
-                        category=
-                        "WAIT",
-
-                        file_name=
-                        java_file.name,
-
-                        description=
-                        "Input action found without visibility wait.",
-
-                        recommendation=
-                        "Add visibilityOf wait.",
-
-                        impacted_component=
-                        "Test Script",
-
-                        auto_fixable=
-                        True
-                    )
+                input_line = (
+                    line.strip()
                 )
 
-                finding_counter += 1
+                wait_found = False
+
+                search_start = max(
+                    0,
+                    index - 3
+                )
+
+                for previous_index in range(
+                    search_start,
+                    index
+                ):
+
+                    previous_line = (
+                        lines[
+                            previous_index
+                        ]
+                    )
+
+                    if (
+                        "visibilityOf"
+                        in previous_line
+                    ):
+
+                        wait_found = True
+                        break
+
+                if not wait_found:
+
+                    findings.append(
+
+                        ReviewFinding(
+
+                            finding_id=
+                            f"WAIT-{finding_counter:03}",
+
+                            severity=
+                            "MEDIUM",
+
+                            category=
+                            "WAIT",
+
+                            file_name=
+                            java_file.name,
+
+                            description=
+                            f"Missing visibility wait: {input_line}",
+
+                            recommendation=
+                            "Add visibilityOf wait.",
+
+                            impacted_component=
+                            "Test Script",
+
+                            auto_fixable=
+                            True
+                        )
+                    )
+
+                    finding_counter += 1
 
         return findings
