@@ -22,6 +22,7 @@ public class LoginWithMinimumPasswordLengthTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Submit()));
         page.get_Submit().click();
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_Submit()));
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 
     }

@@ -52,7 +52,7 @@
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
-                "Enter valid password (8+ characters)",
+                "Enter valid password (length >= 8)",
                 "Click login button"
             ],
             "expected_result": "User is redirected to the dashboard."
@@ -76,7 +76,7 @@
             "id": "NEG-002",
             "requirement_id": "FR-003",
             "scenario_type": "NEGATIVE",
-            "title": "Login with Password Shorter than Minimum Length",
+            "title": "Login with Password Too Short",
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
@@ -91,7 +91,7 @@
             "id": "BND-001",
             "requirement_id": "FR-003",
             "scenario_type": "BOUNDARY",
-            "title": "Login with Minimum Password Length",
+            "title": "Password at Minimum Length",
             "steps": [
                 "Navigate to login page",
                 "Enter valid email",
