@@ -13,6 +13,8 @@ public class VerifySecureAreaAccessTest extends BaseTest {
 
         LoginPage page = new LoginPage(driver);
 
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
+        page.get_Login().click();
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

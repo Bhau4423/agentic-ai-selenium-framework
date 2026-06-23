@@ -19,6 +19,8 @@ public class LoginWithValidCredentialsTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOf(page.get_password()));
         page.get_password().sendKeys("TEST_DATA");
 
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
+        page.get_Login().click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 

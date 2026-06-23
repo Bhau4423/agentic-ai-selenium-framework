@@ -13,7 +13,7 @@ public class VerifyAdPersistenceTest extends BaseTest {
 
         EntryAdPage page = new EntryAdPage(driver);
 
-        Assert.assertTrue(driver.getCurrentUrl().length() > 0);
+        Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

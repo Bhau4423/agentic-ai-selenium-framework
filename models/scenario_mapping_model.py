@@ -19,6 +19,8 @@ class ScenarioMapping(BaseModel):
 
     confidence_score: float
 
+    mapping_quality: str
+
     matched_elements: list[
         SemanticElement
     ]

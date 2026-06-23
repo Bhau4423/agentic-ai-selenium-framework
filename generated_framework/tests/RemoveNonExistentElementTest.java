@@ -13,6 +13,8 @@ public class RemoveNonExistentElementTest extends BaseTest {
 
         AddRemoveElementsPage page = new AddRemoveElementsPage(driver);
 
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Add_Element()));
+        page.get_Add_Element().click();
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 

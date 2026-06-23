@@ -1,29 +1,13 @@
 {
     "iteration": 5,
     "status": "REVIEWED",
-    "total_findings": 3,
+    "total_findings": 1,
     "findings": [
         {
             "finding_id": "COV-001",
             "severity": "HIGH",
             "category": "COVERAGE",
-            "file_name": "VerifyAdSuppressionTest.java",
-            "description": "Scenario does not have generated test.",
-            "recommendation": "Generate test for missing scenario."
-        },
-        {
-            "finding_id": "COV-002",
-            "severity": "HIGH",
-            "category": "COVERAGE",
-            "file_name": "HideDetailsOnMouseOutTest.java",
-            "description": "Scenario does not have generated test.",
-            "recommendation": "Generate test for missing scenario."
-        },
-        {
-            "finding_id": "COV-003",
-            "severity": "HIGH",
-            "category": "COVERAGE",
-            "file_name": "VerifyAdDisplayOnSubsequentLoadTest.java",
+            "file_name": "AttemptReEnableWithoutAdClosedTest.java",
             "description": "Scenario does not have generated test.",
             "recommendation": "Generate test for missing scenario."
         }

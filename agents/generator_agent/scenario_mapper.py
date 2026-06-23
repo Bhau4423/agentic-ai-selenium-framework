@@ -9,6 +9,9 @@ from models.semantic_element_model import (
     SemanticElement
 )
 
+from agents.generator_agent.semantic_dictionary import (
+    SemanticDictionary
+)
 
 class ScenarioMapper:
 
@@ -426,6 +429,12 @@ class ScenarioMapper:
                 )
             )
 
+            scenario_keywords = (
+                SemanticDictionary.expand_keywords(
+                    scenario_keywords
+                )
+            )
+
             best_page = None
 
             best_score = 0
@@ -465,55 +474,111 @@ class ScenarioMapper:
                 best_score > 0
             ):
 
-                confidence_score = min(
-                    100.0,
-                    float(
-                        best_score
-                    )
-                )
 
-                mappings.append(
-
-                    ScenarioMapping(
-
-                        scenario_id=
-                        scenario.get(
-                            "id",
-                            ""
-                        ),
-
-                        scenario_title=
-                        scenario.get(
-                            "title",
-                            ""
-                        ),
-
-                        scenario_type=
-                        scenario.get(
-                            "scenario_type",
-                            ""
-                        ),
-
-                        page_name=
-                        best_page.get(
-                            "page_name",
-                            ""
-                        ),
-
-                        page_url=
-                        best_page.get(
-                            "url",
-                            ""
-                        ),
-
-                        confidence_score=
-                        confidence_score,
-
-                        matched_elements=
+                    element_count = len(
                         best_elements
+                   )
+
+# --------------------------------
+# PAGE CONFIDENCE
+# --------------------------------
+
+                    page_confidence = min(
+                        round(
+                            best_score / 20,
+                            2
+                        ),
+                        1.0
                     )
 
-                )
+# --------------------------------
+# ELEMENT CONFIDENCE
+# --------------------------------
+
+                    element_confidence = min(
+                        round(
+                            element_count / 3,
+                            2
+                        ),
+                        1.0
+                    )
+
+# --------------------------------
+# FINAL CONFIDENCE
+# --------------------------------
+
+                    confidence_score = round(
+                        (
+                            page_confidence * 0.6
+                            +
+                            element_confidence * 0.4
+                        ),
+                        2
+                    )
+
+                    if confidence_score >= 0.85:
+
+                        mapping_quality = (
+                            "HIGH"
+                        )
+
+                    elif confidence_score >= 0.50:
+
+                        mapping_quality = (
+                            "MEDIUM"
+                        )
+
+                    else:
+
+                        mapping_quality = (
+                            "LOW"
+                        )
+
+                    mappings.append(
+
+                        ScenarioMapping(
+
+                            scenario_id=
+                            scenario.get(
+                                "id",
+                                ""
+                            ),
+
+                            scenario_title=
+                            scenario.get(
+                                "title",
+                                ""
+                           ),
+
+                            scenario_type=
+                            scenario.get(
+                                "scenario_type",
+                                ""
+                            ),
+
+                            page_name=
+                            best_page.get(
+                                "page_name",
+                                ""
+                            ),
+
+                            page_url=
+                            best_page.get(
+                                "url",
+                                ""
+                            ),
+
+                            confidence_score=
+                            confidence_score,
+
+                            mapping_quality=
+                            mapping_quality,
+
+                            matched_elements=
+                            best_elements
+                        )
+                    )
+                
 
             else:
 

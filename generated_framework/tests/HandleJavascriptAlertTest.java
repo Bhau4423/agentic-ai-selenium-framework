@@ -13,6 +13,7 @@ public class HandleJavascriptAlertTest extends BaseTest {
 
         JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
         // UNKNOWN ACTION : ALERT_ACCEPT
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);

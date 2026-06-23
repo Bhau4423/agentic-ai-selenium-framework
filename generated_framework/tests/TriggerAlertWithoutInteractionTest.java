@@ -13,6 +13,7 @@ public class TriggerAlertWithoutInteractionTest extends BaseTest {
 
         JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
         // UNKNOWN ACTION : ALERT_ACCEPT
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));

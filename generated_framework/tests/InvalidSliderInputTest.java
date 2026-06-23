@@ -13,7 +13,10 @@ public class InvalidSliderInputTest extends BaseTest {
 
         HorizontalSliderPage page = new HorizontalSliderPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_input_0()));
+        page.get_input_0().sendKeys("TEST_DATA");
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_input_0()));
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
     }

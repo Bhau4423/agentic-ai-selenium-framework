@@ -13,6 +13,8 @@ public class AdjustSliderViaKeyboardTest extends BaseTest {
 
         HorizontalSliderPage page = new HorizontalSliderPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_input_0()));
+        page.get_input_0().sendKeys("TEST_DATA");
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

@@ -4,16 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class ForgotPasswordPage {
 
     private WebDriver driver;
 
-    @FindBy(id = "file")
-    private WebElement file;
+    @FindBy(id = "email")
+    private WebElement email;
 
     @FindBy(id = "form_submit")
-    private WebElement password;
+    private WebElement Retrieve_password;
 
     public ForgotPasswordPage(WebDriver driver) {
         this.driver = driver;
@@ -21,21 +22,28 @@ public class ForgotPasswordPage {
     }
 
     public WebElement get_email() {
-        return file;
+        return email;
     }
 
     public WebElement get_Retrieve_password() {
-        return password;
+        return Retrieve_password;
     }
 
-
-    public WebElement get_file() {
-        return file;
+    public void enterEmail(String value) {
+        email.clear();
+        email.sendKeys(value);
     }
 
+    public boolean isEmailVisible() {
+        return email.isDisplayed();
+    }
 
-    public WebElement get_password() {
-        return password;
+    public void clickRetrievePassword() {
+        Retrieve_password.click();
+    }
+
+    public boolean isRetrievePasswordVisible() {
+        return Retrieve_password.isDisplayed();
     }
 
 }

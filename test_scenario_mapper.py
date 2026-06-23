@@ -37,8 +37,13 @@ for mapping in mappings[:10]:
     )
 
     print(
-        f"Score    : "
+        f"Confidence : "
         f"{mapping.confidence_score}"
+    )
+
+    print(
+        f"Quality    : "
+        f"{mapping.mapping_quality}"
     )
 
     print(

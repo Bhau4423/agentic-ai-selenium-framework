@@ -30,12 +30,20 @@ from agents.requirement_agent.url_extractor import (
     URLExtractor
 )
 
+from agents.requirement_agent.id_normalizer import (
+    IDNormalizer
+)
+
 from services.llm_service import (
     LLMService
 )
 
 from services.file_service import (
     FileService
+)
+
+from agents.requirement_agent.title_normalizer import (
+    TitleNormalizer
 )
 
 
@@ -154,6 +162,26 @@ class RequirementAgent:
                 merged_result
             )
         )
+
+        print(
+            "\nNormalizing Scenario IDs..."
+       )
+
+        merged_result = (
+            IDNormalizer.normalize(
+                merged_result
+            )
+        )
+
+        print(
+            "\nNormalizing Scenario Titles..."
+      )
+
+        merged_result = (
+            TitleNormalizer.normalize(
+                merged_result
+            )
+       )
 
         print(
             "\nExtracting URLs..."

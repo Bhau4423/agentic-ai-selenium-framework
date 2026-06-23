@@ -5,7 +5,8 @@
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 36.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "username",
@@ -44,12 +45,35 @@
     },
     {
         "scenario_id": "POS-002",
-        "scenario_title": "Logout From Secure Area",
+        "scenario_title": "Logout Functionality",
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 34.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
             {
                 "element_name": "Login",
                 "element_type": "button",
@@ -69,7 +93,8 @@
         "scenario_type": "POSITIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 36.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -97,11 +122,12 @@
     },
     {
         "scenario_id": "POS-004",
-        "scenario_title": "Verify File Upload Persistence",
+        "scenario_title": "Verify File Name Display",
         "scenario_type": "POSITIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 36.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -128,21 +154,23 @@
         ]
     },
     {
-        "scenario_id": "POS-001",
+        "scenario_id": "POS-005",
         "scenario_title": "Verify Home Page Content",
         "scenario_type": "POSITIVE",
         "page_name": "infinite_scroll",
         "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 26.0,
+        "confidence_score": 0.3,
+        "mapping_quality": "LOW",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-002",
+        "scenario_id": "POS-006",
         "scenario_title": "Navigate to Example Page",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -180,148 +208,23 @@
         ]
     },
     {
-        "scenario_id": "POS-003",
+        "scenario_id": "POS-007",
         "scenario_title": "Verify Footer Presence",
         "scenario_type": "POSITIVE",
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "confidence_score": 21.0,
+        "page_name": "infinite_scroll",
+        "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-004",
-        "scenario_title": "Verify Footer on Different Page",
-        "scenario_type": "POSITIVE",
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
-        "matched_elements": [
-            {
-                "element_name": "Login",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Login']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-005",
-        "scenario_title": "Check Unchecked Box",
-        "scenario_type": "POSITIVE",
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "confidence_score": 31.0,
-        "matched_elements": [
-            {
-                "element_name": "checkbox_0",
-                "element_type": "checkbox",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//input[@type='checkbox']",
-                    "css_selector": "input[type='checkbox']"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "checkbox_1",
-                "element_type": "checkbox",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//input[@type='checkbox']",
-                    "css_selector": "input[type='checkbox']"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-006",
-        "scenario_title": "Uncheck Checked Box",
-        "scenario_type": "POSITIVE",
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "confidence_score": 31.0,
-        "matched_elements": [
-            {
-                "element_name": "checkbox_0",
-                "element_type": "checkbox",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//input[@type='checkbox']",
-                    "css_selector": "input[type='checkbox']"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "checkbox_1",
-                "element_type": "checkbox",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//input[@type='checkbox']",
-                    "css_selector": "input[type='checkbox']"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-007",
-        "scenario_title": "Login With Valid Credentials",
-        "scenario_type": "POSITIVE",
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
-        "matched_elements": [
-            {
-                "element_name": "Login",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Login']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
         "scenario_id": "POS-008",
-        "scenario_title": "Verify Login Page Elements",
+        "scenario_title": "Verify Footer on Multiple Pages",
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
-        "matched_elements": [
-            {
-                "element_name": "Login",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Login']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-001",
-        "scenario_title": "Successful Login",
-        "scenario_type": "POSITIVE",
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 36.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "username",
@@ -359,96 +262,102 @@
         ]
     },
     {
-        "scenario_id": "POS-002",
-        "scenario_title": "Select Dropdown Option",
+        "scenario_id": "POS-009",
+        "scenario_title": "Check Unchecked Box",
         "scenario_type": "POSITIVE",
-        "page_name": "dropdown",
-        "page_url": "https://the-internet.herokuapp.com/dropdown",
-        "confidence_score": 31.0,
+        "page_name": "checkboxes",
+        "page_url": "https://the-internet.herokuapp.com/checkboxes",
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
-                "element_name": "dropdown",
-                "element_type": "dropdown",
+                "element_name": "checkbox_0",
+                "element_type": "checkbox",
                 "locator": {
-                    "id": "dropdown",
+                    "id": null,
                     "name": null,
-                    "xpath": "//*[@id='dropdown']",
-                    "css_selector": "#dropdown"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-003",
-        "scenario_title": "Upload Valid File",
-        "scenario_type": "POSITIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 36.0,
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
                 },
                 "confidence_score": 50.0
             },
             {
-                "element_name": "file-submit",
-                "element_type": "input",
+                "element_name": "checkbox_1",
+                "element_type": "checkbox",
                 "locator": {
-                    "id": "file-submit",
+                    "id": null,
                     "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
                 },
                 "confidence_score": 50.0
             }
         ]
     },
     {
-        "scenario_id": "POS-004",
-        "scenario_title": "Change Dropdown Selection",
+        "scenario_id": "POS-010",
+        "scenario_title": "Uncheck Checked Box",
         "scenario_type": "POSITIVE",
-        "page_name": "dropdown",
-        "page_url": "https://the-internet.herokuapp.com/dropdown",
-        "confidence_score": 23.0,
+        "page_name": "checkboxes",
+        "page_url": "https://the-internet.herokuapp.com/checkboxes",
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
-                "element_name": "dropdown",
-                "element_type": "dropdown",
+                "element_name": "checkbox_0",
+                "element_type": "checkbox",
                 "locator": {
-                    "id": "dropdown",
+                    "id": null,
                     "name": null,
-                    "xpath": "//*[@id='dropdown']",
-                    "css_selector": "#dropdown"
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "checkbox_1",
+                "element_type": "checkbox",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
                 },
                 "confidence_score": 50.0
             }
         ]
     },
     {
-        "scenario_id": "POS-005",
-        "scenario_title": "Drag and Drop File Upload",
-        "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 62.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-006",
-        "scenario_title": "Verify Secure Area Access",
+        "scenario_id": "POS-011",
+        "scenario_title": "Login With Valid Credentials 2",
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
             {
                 "element_name": "Login",
                 "element_type": "button",
@@ -463,535 +372,123 @@
         ]
     },
     {
-        "scenario_id": "POS-001",
-        "scenario_title": "Trigger Alert Dialog",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 71.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-002",
-        "scenario_title": "Dismiss Alert Dialog",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 20.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-003",
-        "scenario_title": "Trigger Confirm Dialog",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 71.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-004",
-        "scenario_title": "Trigger Prompt Dialog",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 71.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-005",
-        "scenario_title": "Verify Drag and Drop Rendering",
-        "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 54.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-006",
-        "scenario_title": "Verify Draggable Targets",
-        "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 54.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-007",
-        "scenario_title": "Verify Table Headers",
-        "scenario_type": "POSITIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-008",
-        "scenario_title": "Verify Table Data",
-        "scenario_type": "POSITIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-009",
-        "scenario_title": "Verify Edit Action Presence",
-        "scenario_type": "POSITIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 22.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-010",
-        "scenario_title": "Verify Delete Action Presence",
-        "scenario_type": "POSITIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 22.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-011",
-        "scenario_title": "Verify Notification Display",
-        "scenario_type": "POSITIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "confidence_score": 54.0,
-        "matched_elements": []
-    },
-    {
         "scenario_id": "POS-012",
-        "scenario_title": "Verify Notification Content",
+        "scenario_title": "Verify Login Page Elements",
         "scenario_type": "POSITIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "confidence_score": 54.0,
-        "matched_elements": []
+        "page_name": "login",
+        "page_url": "https://the-internet.herokuapp.com/login",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Login",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Login']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
         "scenario_id": "POS-013",
-        "scenario_title": "Load New Notification",
+        "scenario_title": "Successful Login",
         "scenario_type": "POSITIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "confidence_score": 58.0,
-        "matched_elements": []
+        "page_name": "login",
+        "page_url": "https://the-internet.herokuapp.com/login",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Login",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Login']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
         "scenario_id": "POS-014",
-        "scenario_title": "Multiple Notification Loads",
+        "scenario_title": "Select Dropdown Option",
         "scenario_type": "POSITIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "confidence_score": 20.0,
-        "matched_elements": []
+        "page_name": "dropdown",
+        "page_url": "https://the-internet.herokuapp.com/dropdown",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "dropdown",
+                "element_type": "dropdown",
+                "locator": {
+                    "id": "dropdown",
+                    "name": null,
+                    "xpath": "//*[@id='dropdown']",
+                    "css_selector": "#dropdown"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
         "scenario_id": "POS-015",
-        "scenario_title": "Verify Ad Display on Load",
-        "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-016",
-        "scenario_title": "Verify Ad Visibility",
-        "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-017",
-        "scenario_title": "Close Ad Modal",
-        "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-018",
-        "scenario_title": "Verify Ad Suppression",
-        "scenario_type": "POSITIVE",
-        "page_name": "infinite_scroll",
-        "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 2.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-001",
-        "scenario_title": "Re-enable Ad Successfully",
-        "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 26.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-002",
-        "scenario_title": "Verify Ad Persistence After Re-enablement",
-        "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 26.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-003",
-        "scenario_title": "Observe Typo Presence",
-        "scenario_type": "POSITIVE",
-        "page_name": "typos",
-        "page_url": "https://the-internet.herokuapp.com/typos",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-004",
-        "scenario_title": "Observe Typo Absence",
-        "scenario_type": "POSITIVE",
-        "page_name": "typos",
-        "page_url": "https://the-internet.herokuapp.com/typos",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-005",
-        "scenario_title": "Add Multiple Elements",
-        "scenario_type": "POSITIVE",
-        "page_name": "add_remove_elements",
-        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
-        "confidence_score": 64.0,
-        "matched_elements": [
-            {
-                "element_name": "Add Element",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Add Element']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-006",
-        "scenario_title": "Remove Added Element",
-        "scenario_type": "POSITIVE",
-        "page_name": "add_remove_elements",
-        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
-        "confidence_score": 54.0,
-        "matched_elements": [
-            {
-                "element_name": "Add Element",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Add Element']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-007",
-        "scenario_title": "Reveal Details on Hover",
-        "scenario_type": "POSITIVE",
-        "page_name": "hovers",
-        "page_url": "https://the-internet.herokuapp.com/hovers",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-008",
-        "scenario_title": "Hide Details on Mouse Out",
-        "scenario_type": "POSITIVE",
-        "page_name": "add_remove_elements",
-        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
-        "confidence_score": 8.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "POS-001",
-        "scenario_title": "Trigger Custom Context Menu",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 23.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-002",
-        "scenario_title": "Display Context Menu",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 23.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-003",
-        "scenario_title": "Download File Successfully",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-004",
-        "scenario_title": "Verify File List Display",
+        "scenario_title": "Upload Valid File 2",
         "scenario_type": "POSITIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 10.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -1018,12 +515,405 @@
         ]
     },
     {
-        "scenario_id": "POS-005",
-        "scenario_title": "Submit Password Retrieval",
+        "scenario_id": "POS-016",
+        "scenario_title": "Change Dropdown Selection",
+        "scenario_type": "POSITIVE",
+        "page_name": "dropdown",
+        "page_url": "https://the-internet.herokuapp.com/dropdown",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "dropdown",
+                "element_type": "dropdown",
+                "locator": {
+                    "id": "dropdown",
+                    "name": null,
+                    "xpath": "//*[@id='dropdown']",
+                    "css_selector": "#dropdown"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-017",
+        "scenario_title": "Drag and Drop File Upload",
+        "scenario_type": "POSITIVE",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-018",
+        "scenario_title": "Verify Secure Area Access",
+        "scenario_type": "POSITIVE",
+        "page_name": "login",
+        "page_url": "https://the-internet.herokuapp.com/login",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Login",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Login']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-019",
+        "scenario_title": "Trigger Alert",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-020",
+        "scenario_title": "Dismiss Alert",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-021",
+        "scenario_title": "Trigger Confirm",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-022",
+        "scenario_title": "Trigger Prompt",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-023",
+        "scenario_title": "Load Drag and Drop",
+        "scenario_type": "POSITIVE",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-024",
+        "scenario_title": "Verify Draggable Targets",
+        "scenario_type": "POSITIVE",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-025",
+        "scenario_title": "Verify Table Headers",
+        "scenario_type": "POSITIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-026",
+        "scenario_title": "Verify Table Data",
+        "scenario_type": "POSITIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-027",
+        "scenario_title": "Verify Edit Action",
+        "scenario_type": "POSITIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-028",
+        "scenario_title": "Verify Delete Action",
+        "scenario_type": "POSITIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-029",
+        "scenario_title": "Verify Notification Display",
+        "scenario_type": "POSITIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-030",
+        "scenario_title": "Verify Heading Display",
+        "scenario_type": "POSITIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-031",
+        "scenario_title": "Load New Message",
+        "scenario_type": "POSITIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-032",
+        "scenario_title": "Multiple Message Loads",
+        "scenario_type": "POSITIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-033",
+        "scenario_title": "Ad Display on Load",
+        "scenario_type": "POSITIVE",
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-034",
+        "scenario_title": "Verify Ad Visibility",
+        "scenario_type": "POSITIVE",
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-035",
+        "scenario_title": "Close Ad",
+        "scenario_type": "POSITIVE",
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-036",
+        "scenario_title": "Verify Suppression",
+        "scenario_type": "POSITIVE",
+        "page_name": "infinite_scroll",
+        "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
+        "confidence_score": 0.06,
+        "mapping_quality": "LOW",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-037",
+        "scenario_title": "Re-enable Ad Successfully",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1061,12 +951,340 @@
         ]
     },
     {
-        "scenario_id": "POS-006",
-        "scenario_title": "Navigate to Forgot Password Page",
+        "scenario_id": "POS-038",
+        "scenario_title": "Verify Ad Persistence After Re-enablement",
+        "scenario_type": "POSITIVE",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-039",
+        "scenario_title": "Add Single Element",
+        "scenario_type": "POSITIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-040",
+        "scenario_title": "Add Multiple Elements",
+        "scenario_type": "POSITIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-041",
+        "scenario_title": "Remove Added Element",
+        "scenario_type": "POSITIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-042",
+        "scenario_title": "Remove Multiple Elements",
+        "scenario_type": "POSITIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-043",
+        "scenario_title": "Reveal Profile Details on Hover",
+        "scenario_type": "POSITIVE",
+        "page_name": "hovers",
+        "page_url": "https://the-internet.herokuapp.com/hovers",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-044",
+        "scenario_title": "Hide Profile Details on Mouse Out",
+        "scenario_type": "POSITIVE",
+        "page_name": "hovers",
+        "page_url": "https://the-internet.herokuapp.com/hovers",
+        "confidence_score": 0.18,
+        "mapping_quality": "LOW",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-045",
+        "scenario_title": "Trigger Custom Context Menu",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-046",
+        "scenario_title": "Verify Context Menu Visibility",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-047",
+        "scenario_title": "Download Existing File",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 0.85,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-048",
+        "scenario_title": "View File List",
+        "scenario_type": "POSITIVE",
+        "page_name": "upload",
+        "page_url": "https://the-internet.herokuapp.com/upload",
+        "confidence_score": 0.57,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "file",
+                "element_type": "input",
+                "locator": {
+                    "id": "file-upload",
+                    "name": "file",
+                    "xpath": "//*[@id='file-upload']",
+                    "css_selector": "#file-upload"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "file-submit",
+                "element_type": "input",
+                "locator": {
+                    "id": "file-submit",
+                    "name": null,
+                    "xpath": "//*[@id='file-submit']",
+                    "css_selector": "#file-submit"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-049",
+        "scenario_title": "Submit Valid Email for Password Retrieval",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-050",
+        "scenario_title": "Verify Form Presence",
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 5.0,
+        "confidence_score": 0.28,
+        "mapping_quality": "LOW",
         "matched_elements": [
             {
                 "element_name": "password",
@@ -1082,12 +1300,13 @@
         ]
     },
     {
-        "scenario_id": "POS-007",
+        "scenario_id": "POS-051",
         "scenario_title": "Retrieve Geolocation",
         "scenario_type": "POSITIVE",
         "page_name": "geolocation",
         "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 23.0,
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
         "matched_elements": [
             {
                 "element_name": "Where am I?",
@@ -1103,21 +1322,23 @@
         ]
     },
     {
-        "scenario_id": "POS-008",
-        "scenario_title": "Verify Geolocation UI",
+        "scenario_id": "POS-052",
+        "scenario_title": "Verify Geolocation Button",
         "scenario_type": "POSITIVE",
         "page_name": "geolocation",
         "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 18.0,
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-002",
+        "scenario_id": "POS-053",
         "scenario_title": "Successful File Upload",
         "scenario_type": "POSITIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 33.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -1144,12 +1365,13 @@
         ]
     },
     {
-        "scenario_id": "POS-003",
+        "scenario_id": "POS-054",
         "scenario_title": "Handle JavaScript Alert",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 41.0,
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1165,24 +1387,14 @@
         ]
     },
     {
-        "scenario_id": "POS-004",
-        "scenario_title": "Handle JavaScript Confirm",
+        "scenario_id": "POS-055",
+        "scenario_title": "Handle JavaScript Prompt",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 56.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
             {
                 "element_name": "Click for JS Confirm",
                 "element_type": "button",
@@ -1192,7 +1404,7 @@
                     "xpath": "//button[normalize-space()='Click for JS Confirm']",
                     "css_selector": "button"
                 },
-                "confidence_score": 100.0
+                "confidence_score": 50.0
             },
             {
                 "element_name": "Click for JS Prompt",
@@ -1208,48 +1420,53 @@
         ]
     },
     {
-        "scenario_id": "POS-001",
+        "scenario_id": "POS-056",
         "scenario_title": "Adjust Slider via Mouse",
         "scenario_type": "POSITIVE",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 44.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-002",
+        "scenario_id": "POS-057",
         "scenario_title": "Adjust Slider via Keyboard",
         "scenario_type": "POSITIVE",
         "page_name": "horizontal_slider",
         "page_url": "https://the-internet.herokuapp.com/horizontal_slider",
-        "confidence_score": 44.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-003",
+        "scenario_id": "POS-058",
         "scenario_title": "Trigger Infinite Scroll",
         "scenario_type": "POSITIVE",
         "page_name": "infinite_scroll",
         "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 46.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-004",
-        "scenario_title": "Verify Content Loading Persistence",
+        "scenario_id": "POS-059",
+        "scenario_title": "Verify Continuous Loading",
         "scenario_type": "POSITIVE",
         "page_name": "infinite_scroll",
         "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 36.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-005",
+        "scenario_id": "POS-060",
         "scenario_title": "Grant Geolocation Permission",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 28.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1287,12 +1504,13 @@
         ]
     },
     {
-        "scenario_id": "POS-006",
-        "scenario_title": "Verify Geolocation UI State",
+        "scenario_id": "POS-061",
+        "scenario_title": "Handle Unavailable Location",
         "scenario_type": "POSITIVE",
         "page_name": "geolocation",
         "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 26.0,
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
@@ -1301,7 +1519,8 @@
         "scenario_type": "NEGATIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 36.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "username",
@@ -1344,7 +1563,8 @@
         "scenario_type": "NEGATIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 36.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -1371,30 +1591,33 @@
         ]
     },
     {
-        "scenario_id": "NEG-001",
+        "scenario_id": "NEG-003",
         "scenario_title": "Access Non-Existent Path",
         "scenario_type": "NEGATIVE",
         "page_name": "invalid-path",
         "page_url": "https://the-internet.herokuapp.com/invalid-path",
-        "confidence_score": 60.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "NEG-002",
+        "scenario_id": "NEG-004",
         "scenario_title": "Verify Footer Absence on Invalid Page",
         "scenario_type": "NEGATIVE",
         "page_name": "invalid-path",
         "page_url": "https://the-internet.herokuapp.com/invalid-path",
-        "confidence_score": 18.0,
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "NEG-003",
+        "scenario_id": "NEG-005",
         "scenario_title": "Interact with Disabled Checkbox",
         "scenario_type": "NEGATIVE",
         "page_name": "checkboxes",
         "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "confidence_score": 31.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "checkbox_0",
@@ -1421,13 +1644,36 @@
         ]
     },
     {
-        "scenario_id": "NEG-004",
-        "scenario_title": "Login With Invalid Credentials",
+        "scenario_id": "NEG-006",
+        "scenario_title": "Login With Invalid Credentials 2",
         "scenario_type": "NEGATIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
+            {
+                "element_name": "username",
+                "element_type": "input",
+                "locator": {
+                    "id": "username",
+                    "name": "username",
+                    "xpath": "//*[@id='username']",
+                    "css_selector": "#username"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "password",
+                "element_type": "input",
+                "locator": {
+                    "id": "password",
+                    "name": "password",
+                    "xpath": "//*[@id='password']",
+                    "css_selector": "#password"
+                },
+                "confidence_score": 50.0
+            },
             {
                 "element_name": "Login",
                 "element_type": "button",
@@ -1442,12 +1688,13 @@
         ]
     },
     {
-        "scenario_id": "NEG-002",
-        "scenario_title": "Interaction Without Selection",
+        "scenario_id": "NEG-007",
+        "scenario_title": "Attempt Selection Without Interaction",
         "scenario_type": "NEGATIVE",
         "page_name": "dropdown",
         "page_url": "https://the-internet.herokuapp.com/dropdown",
-        "confidence_score": 23.0,
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
         "matched_elements": [
             {
                 "element_name": "dropdown",
@@ -1463,12 +1710,13 @@
         ]
     },
     {
-        "scenario_id": "NEG-003",
+        "scenario_id": "NEG-008",
         "scenario_title": "Upload Without File Selection",
         "scenario_type": "NEGATIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 28.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -1495,187 +1743,85 @@
         ]
     },
     {
-        "scenario_id": "NEG-001",
-        "scenario_title": "Trigger Alert Without Interaction",
-        "scenario_type": "NEGATIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 41.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "NEG-002",
-        "scenario_title": "Trigger Dialogs Without Interaction",
-        "scenario_type": "NEGATIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 36.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-003",
-        "scenario_title": "Verify Non-Existent Drag Region",
-        "scenario_type": "NEGATIVE",
-        "page_name": "invalid-path",
-        "page_url": "https://the-internet.herokuapp.com/invalid-path",
-        "confidence_score": 36.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-004",
-        "scenario_title": "Verify Missing Table Data",
-        "scenario_type": "NEGATIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-005",
-        "scenario_title": "Verify Action Column Absence",
-        "scenario_type": "NEGATIVE",
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 22.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-006",
-        "scenario_title": "Verify Notification Absence",
-        "scenario_type": "NEGATIVE",
-        "page_name": "invalid-path",
-        "page_url": "https://the-internet.herokuapp.com/invalid-path",
-        "confidence_score": 36.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-007",
-        "scenario_title": "Verify Crash on Load",
-        "scenario_type": "NEGATIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "NEG-008",
-        "scenario_title": "Verify Ad Absence on Revisit",
-        "scenario_type": "NEGATIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
         "scenario_id": "NEG-009",
-        "scenario_title": "Verify Ad Persistence",
+        "scenario_title": "Invalid Alert Interaction",
         "scenario_type": "NEGATIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
-        "scenario_id": "NEG-001",
-        "scenario_title": "Attempt to Re-enable Non-existent Ad",
-        "scenario_type": "NEGATIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 18.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-002",
-        "scenario_title": "Verify No Invalid Characters in Non-typo State",
+        "scenario_id": "NEG-010",
+        "scenario_title": "System Error Handling",
         "scenario_type": "NEGATIVE",
         "page_name": "invalid-path",
         "page_url": "https://the-internet.herokuapp.com/invalid-path",
-        "confidence_score": 18.0,
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "NEG-003",
-        "scenario_title": "Remove Non-existent Element",
+        "scenario_id": "NEG-011",
+        "scenario_title": "Invalid Drag Target",
         "scenario_type": "NEGATIVE",
-        "page_name": "add_remove_elements",
-        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
-        "confidence_score": 64.0,
-        "matched_elements": [
-            {
-                "element_name": "Add Element",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Add Element']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "NEG-004",
-        "scenario_title": "Hover Outside Image Area",
-        "scenario_type": "NEGATIVE",
-        "page_name": "hovers",
-        "page_url": "https://the-internet.herokuapp.com/hovers",
-        "confidence_score": 18.0,
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "NEG-001",
-        "scenario_title": "Left Click in Context Menu Area",
+        "scenario_id": "NEG-012",
+        "scenario_title": "Missing Data Display",
+        "scenario_type": "NEGATIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-013",
+        "scenario_title": "Action Link Absence",
+        "scenario_type": "NEGATIVE",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-014",
+        "scenario_title": "Missing Notification",
+        "scenario_type": "NEGATIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-015",
+        "scenario_title": "Load Failure",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 23.0,
+        "confidence_score": 0.85,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1713,98 +1859,33 @@
         ]
     },
     {
-        "scenario_id": "NEG-002",
-        "scenario_title": "Click Non-Existent File",
+        "scenario_id": "NEG-016",
+        "scenario_title": "Ad Load Failure",
         "scenario_type": "NEGATIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
-        "scenario_id": "NEG-003",
-        "scenario_title": "Submit Empty Email",
+        "scenario_id": "NEG-017",
+        "scenario_title": "Invalid Close Action",
         "scenario_type": "NEGATIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "invalid-path",
+        "page_url": "https://the-internet.herokuapp.com/invalid-path",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
-        "scenario_id": "NEG-004",
-        "scenario_title": "Deny Geolocation Permission",
+        "scenario_id": "NEG-018",
+        "scenario_title": "Attempt Re-enablement Without Closed Ad",
         "scenario_type": "NEGATIVE",
         "page_name": "geolocation",
         "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 23.0,
+        "confidence_score": 0.28,
+        "mapping_quality": "LOW",
         "matched_elements": [
             {
                 "element_name": "Where am I?",
@@ -1820,12 +1901,187 @@
         ]
     },
     {
-        "scenario_id": "NEG-002",
+        "scenario_id": "NEG-019",
+        "scenario_title": "Add Element Failure",
+        "scenario_type": "NEGATIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-020",
+        "scenario_title": "Remove Non-existent Element",
+        "scenario_type": "NEGATIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-021",
+        "scenario_title": "Hover Over Non-existent Profile",
+        "scenario_type": "NEGATIVE",
+        "page_name": "hovers",
+        "page_url": "https://the-internet.herokuapp.com/hovers",
+        "confidence_score": 0.42,
+        "mapping_quality": "LOW",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-022",
+        "scenario_title": "Left Click in Context Menu Area",
+        "scenario_type": "NEGATIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-023",
+        "scenario_title": "Download Non-existent File",
+        "scenario_type": "NEGATIVE",
+        "page_name": "invalid-path",
+        "page_url": "https://the-internet.herokuapp.com/invalid-path",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-024",
+        "scenario_title": "Submit Empty Email",
+        "scenario_type": "NEGATIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 0.85,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-025",
+        "scenario_title": "Deny Geolocation Permission",
+        "scenario_type": "NEGATIVE",
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Where am I?",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Where am I?']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-026",
         "scenario_title": "Submit Upload Without File",
         "scenario_type": "NEGATIVE",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 33.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -1852,12 +2108,13 @@
         ]
     },
     {
-        "scenario_id": "NEG-003",
-        "scenario_title": "Cancel JavaScript Confirm",
+        "scenario_id": "NEG-027",
+        "scenario_title": "Cancel Confirm Dialog",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 56.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1895,12 +2152,13 @@
         ]
     },
     {
-        "scenario_id": "NEG-001",
+        "scenario_id": "NEG-028",
         "scenario_title": "Invalid Slider Input",
         "scenario_type": "NEGATIVE",
         "page_name": "horizontal_slider",
         "page_url": "https://the-internet.herokuapp.com/horizontal_slider",
-        "confidence_score": 41.0,
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
         "matched_elements": [
             {
                 "element_name": "input_0",
@@ -1916,21 +2174,23 @@
         ]
     },
     {
-        "scenario_id": "NEG-002",
+        "scenario_id": "NEG-029",
         "scenario_title": "Scroll Beyond Content Limit",
         "scenario_type": "NEGATIVE",
         "page_name": "infinite_scroll",
         "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 44.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "NEG-003",
-        "scenario_title": "Deny Geolocation Permission",
+        "scenario_id": "NEG-030",
+        "scenario_title": "Deny Geolocation Permission 2",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 28.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -1969,54 +2229,12 @@
     },
     {
         "scenario_id": "BND-001",
-        "scenario_title": "Login With Empty Credentials",
-        "scenario_type": "BOUNDARY",
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 36.0,
-        "matched_elements": [
-            {
-                "element_name": "username",
-                "element_type": "input",
-                "locator": {
-                    "id": "username",
-                    "name": "username",
-                    "xpath": "//*[@id='username']",
-                    "css_selector": "#username"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "password",
-                "element_type": "input",
-                "locator": {
-                    "id": "password",
-                    "name": "password",
-                    "xpath": "//*[@id='password']",
-                    "css_selector": "#password"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Login",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Login']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "BND-002",
-        "scenario_title": "Upload File With Zero Bytes",
+        "scenario_title": "Upload Empty File",
         "scenario_type": "BOUNDARY",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 36.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -2043,85 +2261,57 @@
         ]
     },
     {
-        "scenario_id": "BND-001",
-        "scenario_title": "Login With Empty Credentials",
-        "scenario_type": "BOUNDARY",
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 26.0,
-        "matched_elements": [
-            {
-                "element_name": "Login",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Login']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "BND-001",
-        "scenario_title": "Submit Maximum Email Length",
-        "scenario_type": "BOUNDARY",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 15.0,
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
         "scenario_id": "BND-002",
-        "scenario_title": "Retrieve Geolocation at Extreme Coordinates",
+        "scenario_title": "Add Maximum Supported Elements",
         "scenario_type": "BOUNDARY",
-        "page_name": "geolocation",
-        "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 18.0,
-        "matched_elements": []
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
-        "scenario_id": "BND-001",
+        "scenario_id": "BND-003",
+        "scenario_title": "Remove Last Remaining Element",
+        "scenario_type": "BOUNDARY",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "BND-004",
         "scenario_title": "Login With Empty Fields",
         "scenario_type": "BOUNDARY",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
-        "confidence_score": 36.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "username",
@@ -2159,12 +2349,13 @@
         ]
     },
     {
-        "scenario_id": "BND-002",
+        "scenario_id": "BND-005",
         "scenario_title": "Upload Large File",
         "scenario_type": "BOUNDARY",
         "page_name": "upload",
         "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 33.0,
+        "confidence_score": 0.87,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "file",
@@ -2191,12 +2382,13 @@
         ]
     },
     {
-        "scenario_id": "BND-003",
-        "scenario_title": "Rapid Alert Triggering",
+        "scenario_id": "BND-006",
+        "scenario_title": "Rapid Interaction With Dialogs",
         "scenario_type": "BOUNDARY",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 56.0,
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
         "matched_elements": [
             {
                 "element_name": "Click for JS Alert",
@@ -2234,30 +2426,23 @@
         ]
     },
     {
-        "scenario_id": "BND-001",
-        "scenario_title": "Slider Maximum Limit",
+        "scenario_id": "BND-007",
+        "scenario_title": "Slider Extreme Movement",
         "scenario_type": "BOUNDARY",
         "page_name": "horizontal_slider",
         "page_url": "https://the-internet.herokuapp.com/horizontal_slider",
-        "confidence_score": 44.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "BND-002",
-        "scenario_title": "Slider Minimum Limit",
+        "scenario_id": "BND-008",
+        "scenario_title": "Slider Minimum Movement",
         "scenario_type": "BOUNDARY",
         "page_name": "horizontal_slider",
         "page_url": "https://the-internet.herokuapp.com/horizontal_slider",
-        "confidence_score": 44.0,
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "BND-003",
-        "scenario_title": "Geolocation Service Unavailable",
-        "scenario_type": "BOUNDARY",
-        "page_name": "geolocation",
-        "page_url": "https://the-internet.herokuapp.com/geolocation",
-        "confidence_score": 18.0,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     }
 ]

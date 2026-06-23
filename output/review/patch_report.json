@@ -1,40 +1,16 @@
 {
     "iteration": 1,
-    "total_patches": 4,
-    "successful_patches": 1,
-    "failed_patches": 3,
+    "total_patches": 1,
+    "successful_patches": 0,
+    "failed_patches": 1,
     "patches": [
         {
             "finding_id": "COV-001",
-            "file_name": "VerifyAdSuppressionTest.java",
+            "file_name": "AttemptReEnableWithoutAdClosedTest.java",
             "category": "COVERAGE",
             "patch_action": "GENERATE_MISSING_TEST",
             "reason": "Scenario does not have generated test.",
             "patch_status": "FAILED"
-        },
-        {
-            "finding_id": "COV-002",
-            "file_name": "HideDetailsOnMouseOutTest.java",
-            "category": "COVERAGE",
-            "patch_action": "GENERATE_MISSING_TEST",
-            "reason": "Scenario does not have generated test.",
-            "patch_status": "FAILED"
-        },
-        {
-            "finding_id": "COV-003",
-            "file_name": "VerifyAdDisplayOnSubsequentLoadTest.java",
-            "category": "COVERAGE",
-            "patch_action": "GENERATE_MISSING_TEST",
-            "reason": "Scenario does not have generated test.",
-            "patch_status": "FAILED"
-        },
-        {
-            "finding_id": "LOC-001",
-            "file_name": "ForgotPasswordPage.java",
-            "category": "LOCATOR_MISSING_GETTER",
-            "patch_action": "GENERATE_MISSING_GETTER",
-            "reason": "Getter missing for locator: password",
-            "patch_status": "COMPLETED"
         }
     ]
 }

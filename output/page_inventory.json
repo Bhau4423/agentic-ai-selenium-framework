@@ -136,6 +136,184 @@
             "tables": []
         },
         {
+            "page_name": "context_menu",
+            "url": "https://the-internet.herokuapp.com/context_menu",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "download",
+            "url": "https://the-internet.herokuapp.com/download",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Test.txt",
+                    "href": "download/Test.txt"
+                },
+                {
+                    "text": "hark_eval.txt",
+                    "href": "download/hark_eval.txt"
+                },
+                {
+                    "text": "20MB.bin",
+                    "href": "download/20MB.bin"
+                },
+                {
+                    "text": "Test.pdf",
+                    "href": "download/Test.pdf"
+                },
+                {
+                    "text": "sample.csv",
+                    "href": "download/sample.csv"
+                },
+                {
+                    "text": "tmpa7n4j9to.txt",
+                    "href": "download/tmpa7n4j9to.txt"
+                },
+                {
+                    "text": "sample.xlsx",
+                    "href": "download/sample.xlsx"
+                },
+                {
+                    "text": "some-file.txt",
+                    "href": "download/some-file.txt"
+                },
+                {
+                    "text": "example.json",
+                    "href": "download/example.json"
+                },
+                {
+                    "text": "sample-1mb-test-file.dat",
+                    "href": "download/sample-1mb-test-file.dat"
+                },
+                {
+                    "text": "contacts.csv",
+                    "href": "download/contacts.csv"
+                },
+                {
+                    "text": "test_file_final.txt",
+                    "href": "download/test_file_final.txt"
+                },
+                {
+                    "text": "not_empty.txt",
+                    "href": "download/not_empty.txt"
+                },
+                {
+                    "text": "Myfile.pdf",
+                    "href": "download/Myfile.pdf"
+                },
+                {
+                    "text": "test-file.txt",
+                    "href": "download/test-file.txt"
+                },
+                {
+                    "text": "targetScreenshot (3).png",
+                    "href": "download/targetScreenshot (3).png"
+                },
+                {
+                    "text": "package.json",
+                    "href": "download/package.json"
+                },
+                {
+                    "text": "upload-test.txt",
+                    "href": "download/upload-test.txt"
+                },
+                {
+                    "text": "sample_87e0681d4ea1c1106203274411d1a5083561b657.jpg",
+                    "href": "download/sample_87e0681d4ea1c1106203274411d1a5083561b657.jpg"
+                },
+                {
+                    "text": "tmpfwp3nbfr.txt",
+                    "href": "download/tmpfwp3nbfr.txt"
+                },
+                {
+                    "text": "summit_banner.png",
+                    "href": "download/summit_banner.png"
+                },
+                {
+                    "text": "Note57 _regex.py",
+                    "href": "download/Note57 _regex.py"
+                },
+                {
+                    "text": "tmp5sn7rbw4.txt",
+                    "href": "download/tmp5sn7rbw4.txt"
+                },
+                {
+                    "text": "4.txt",
+                    "href": "download/4.txt"
+                },
+                {
+                    "text": "Screenshot 2026-06-23 040348.png",
+                    "href": "download/Screenshot 2026-06-23 040348.png"
+                },
+                {
+                    "text": "Test (1).txt",
+                    "href": "download/Test (1).txt"
+                },
+                {
+                    "text": "sec.xlsx",
+                    "href": "download/sec.xlsx"
+                },
+                {
+                    "text": "test_upload.txt",
+                    "href": "download/test_upload.txt"
+                },
+                {
+                    "text": "LambdaTest.txt",
+                    "href": "download/LambdaTest.txt"
+                },
+                {
+                    "text": "random_data.txt",
+                    "href": "download/random_data.txt"
+                },
+                {
+                    "text": "examplefile.json",
+                    "href": "download/examplefile.json"
+                },
+                {
+                    "text": "Playright.txt",
+                    "href": "download/Playright.txt"
+                },
+                {
+                    "text": "test.txt",
+                    "href": "download/test.txt"
+                },
+                {
+                    "text": "image-example.jpg",
+                    "href": "download/image-example.jpg"
+                },
+                {
+                    "text": "pdf-1mb.pdf",
+                    "href": "download/pdf-1mb.pdf"
+                },
+                {
+                    "text": "PRD 32 - Hotel listing booking.com.pdf",
+                    "href": "download/PRD 32 - Hotel listing booking.com.pdf"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
             "page_name": "drag_and_drop",
             "url": "https://the-internet.herokuapp.com/drag_and_drop",
             "elements": [],
@@ -203,6 +381,105 @@
                 }
             ],
             "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "forgot_password",
+            "url": "https://the-internet.herokuapp.com/forgot_password",
+            "elements": [
+                {
+                    "element_name": "email",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "email",
+                        "name": "email",
+                        "xpath": "//*[@id='email']",
+                        "css_selector": "#email"
+                    },
+                    "input_type": "text",
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "Retrieve password",
+                    "element_type": "button",
+                    "visible_text": "Retrieve password",
+                    "locator": {
+                        "id": "form_submit",
+                        "name": null,
+                        "xpath": "//*[@id='form_submit']",
+                        "css_selector": "#form_submit"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [
+                {
+                    "form_name": "forgot_password",
+                    "form_id": "forgot_password",
+                    "form_action": null,
+                    "form_method": null,
+                    "elements": [
+                        {
+                            "element_name": "email",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "email",
+                                "name": "email",
+                                "xpath": "//*[@id='email']",
+                                "css_selector": "#email"
+                            },
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "Retrieve password",
+                            "element_type": "button",
+                            "visible_text": "Retrieve password",
+                            "locator": {
+                                "id": "form_submit",
+                                "name": null,
+                                "xpath": "//*[@id='form_submit']",
+                                "css_selector": "#form_submit"
+                            },
+                            "input_type": null,
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        }
+                    ]
+                }
+            ],
             "tables": []
         },
         {

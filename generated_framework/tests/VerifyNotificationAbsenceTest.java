@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.NotificationMessageRenderedPage;
+import pages.InvalidPathPage;
 
 public class VerifyNotificationAbsenceTest extends BaseTest {
 
     @Test
     public void verifyNotificationAbsence() {
 
-        NotificationMessageRenderedPage page = new NotificationMessageRenderedPage(driver);
+        InvalidPathPage page = new InvalidPathPage(driver);
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 
