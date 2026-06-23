@@ -1,9 +1,5 @@
 from models.crawl_state_model import CrawlState
 
-from agents.discovery_agent.url_manager import (
-    URLManager
-)
-
 from agents.discovery_agent.crawler import (
     Crawler
 )
@@ -15,7 +11,10 @@ from models.crawl_graph_model import (
 
 class CrawlController:
 
-    def __init__(self, config):
+    def __init__(
+        self,
+        config
+    ):
 
         self.config = config
 
@@ -25,54 +24,37 @@ class CrawlController:
 
         self.graph = CrawlGraph()
 
-    def is_application_page(
-        self,
-        url: str
-    ):
-
-        url = url.lower()
-
-        allowed_keywords = [
-
-            "login",
-            "register",
-            "signup",
-            "dashboard",
-            "form",
-            "contact",
-            "profile",
-            "account",
-            "checkout"
-        ]
-
-        # Always allow start page
-        if "practice-test-login" in url:
-            return True
-
-        for keyword in allowed_keywords:
-
-            if keyword in url:
-                return True
-
-        return False
-
     def run(
         self,
-        start_url: str
+        start_urls: list[str]
     ):
 
-        self.state.push_url(
-            1.0,
-            start_url
-        )
+        # -------------------------
+        # Seed URLs from Agent 1
+        # -------------------------
+
+        for url in start_urls:
+
+            self.state.push_url(
+                1.0,
+                url
+            )
 
         crawl_results = []
 
+        # -------------------------
+        # Crawl only supplied URLs
+        # -------------------------
+
         while (
+
             not self.state.is_empty()
+
             and
+
             self.state.pages_crawled
             < self.config.max_pages
+
         ):
 
             current_url = (
@@ -89,7 +71,8 @@ class CrawlController:
                 continue
 
             print(
-                f"Discovering: {current_url}"
+                f"Discovering: "
+                f"{current_url}"
             )
 
             try:
@@ -109,9 +92,13 @@ class CrawlController:
                 continue
 
             crawl_results.append(
+
                 {
-                    "url": current_url,
-                    "data": result
+                    "url":
+                        current_url,
+
+                    "data":
+                        result
                 }
             )
 
@@ -120,6 +107,11 @@ class CrawlController:
             )
 
             self.state.pages_crawled += 1
+
+            # -------------------------
+            # Store page relationships
+            # DO NOT enqueue links
+            # -------------------------
 
             links = result.get(
                 "links",
@@ -132,36 +124,17 @@ class CrawlController:
                     "href"
                 )
 
-                normalized = (
-                    URLManager.normalize_url(
-                        current_url,
-                        href
-                    )
-                )
-
-                if not normalized:
-                    continue
-
-                if not URLManager.should_visit(
-                    start_url,
-                    normalized,
-                    self.state.visited_urls
-                ):
-                    continue
-
-                if not self.is_application_page(
-                    normalized
-                ):
+                if not href:
                     continue
 
                 self.graph.add_edge(
                     current_url,
-                    normalized
+                    href
                 )
 
-                self.state.push_url(
-                    0.5,
-                    normalized
-                )
+        print(
+            f"\nTotal Crawled Pages: "
+            f"{len(crawl_results)}"
+        )
 
         return crawl_results

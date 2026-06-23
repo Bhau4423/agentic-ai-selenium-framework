@@ -35,7 +35,7 @@ class DiscoveryAgent:
         if verbose:
 
             print(
-                f"Discovered: {page.title()}"
+                f"Discovered: {page.url}"
             )
 
         try:
@@ -46,7 +46,7 @@ class DiscoveryAgent:
                 )
             )
 
-        except:
+        except Exception:
 
             tables = []
 
@@ -107,9 +107,15 @@ class DiscoveryAgent:
             + textareas
         )
 
+        page_name = (
+            page.url
+            .rstrip("/")
+            .split("/")[-1]
+        )
+
         page_obj = (
             InventoryBuilder.build_page(
-                page_name=page.title(),
+                page_name=page_name,
                 url=page.url,
                 elements=elements,
                 links=links,
@@ -164,9 +170,14 @@ class DiscoveryAgent:
 
     def discover(
         self,
-        url: str,
+        urls: list[str],
         verbose: bool = True
     ):
+
+        print(
+            f"\nURLs Received: "
+            f"{len(urls)}"
+        )
 
         config = CrawlConfig()
 
@@ -175,7 +186,14 @@ class DiscoveryAgent:
         )
 
         crawl_results = (
-            controller.run(url)
+            controller.run(
+                urls
+            )
+        )
+
+        print(
+            f"Crawled Pages: "
+            f"{len(crawl_results)}"
         )
 
         pages = []
@@ -188,7 +206,7 @@ class DiscoveryAgent:
         with sync_playwright() as p:
 
             browser = p.chromium.launch(
-                headless=False
+                headless=True
             )
 
             for result in crawl_results:
@@ -202,7 +220,11 @@ class DiscoveryAgent:
                     page.goto(
                         result["url"],
                         wait_until="domcontentloaded",
-                        timeout=15000
+                        timeout=60000
+                    )
+
+                    page.wait_for_timeout(
+                        1000
                     )
 
                     page_data = (
@@ -238,14 +260,12 @@ class DiscoveryAgent:
 
                 except Exception as e:
 
-                    if verbose:
+                    print(
+                        f"Failed Page: "
+                        f"{result['url']}"
+                    )
 
-                        print(
-                            f"Failed to parse page: "
-                            f"{result['url']}"
-                        )
-
-                        print(e)
+                    print(e)
 
             browser.close()
 
@@ -275,9 +295,7 @@ class DiscoveryAgent:
                 graph_data,
 
             "pages":
-                len(
-                    pages
-                ),
+                len(pages),
 
             "elements":
                 total_elements,

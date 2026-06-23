@@ -1,120 +1,278 @@
-from pathlib import Path
 import json
+from pathlib import Path
+
+from models.traceability_model import (
+    Traceability
+)
 
 
 class TraceabilityGenerator:
 
     @staticmethod
-    def generate():
-
-        requirement_file = Path(
-            "data/intermediate/requirement_analysis.json"
-        )
+    def load_requirements():
 
         with open(
-            requirement_file,
+            "data/intermediate/requirement_analysis.json",
             "r",
             encoding="utf-8"
         ) as file:
 
-            data = json.load(file)
+            return json.load(file)
 
-        rows = []
+    @staticmethod
+    def load_scenario_mappings():
 
-        positive = data.get(
-            "positive_scenarios",
-            []
+        with open(
+            "data/intermediate/scenario_mapping.json",
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            return json.load(file)
+
+    @staticmethod
+    def generate():
+
+        requirement_data = (
+            TraceabilityGenerator
+            .load_requirements()
         )
 
-        negative = data.get(
-            "negative_scenarios",
-            []
+        scenario_mappings = (
+            TraceabilityGenerator
+            .load_scenario_mappings()
         )
 
-        boundary = data.get(
-            "boundary_scenarios",
-            []
+        requirements = (
+            requirement_data.get(
+                "requirements",
+                []
+            )
         )
 
-        scenarios = (
+        acceptance_criteria = (
+            requirement_data.get(
+                "acceptance_criteria",
+                []
+            )
+        )
+
+        positive = (
+            requirement_data.get(
+                "positive_scenarios",
+                []
+            )
+        )
+
+        negative = (
+            requirement_data.get(
+                "negative_scenarios",
+                []
+            )
+        )
+
+        boundary = (
+            requirement_data.get(
+                "boundary_scenarios",
+                []
+            )
+        )
+
+        all_scenarios = (
             positive
             + negative
             + boundary
         )
 
-        for scenario in scenarios:
+        records = []
 
-            rows.append(
-                {
-                    "requirement_id":
-                        scenario.get(
-                            "requirement_id",
-                            ""
-                        ),
+        for requirement in requirements:
 
-                    "scenario_id":
-                        scenario.get(
-                            "id",
-                            ""
-                        ),
-
-                    "scenario_title":
-                        scenario.get(
-                            "title",
-                            ""
-                        ),
-
-                    "scenario_type":
-                        scenario.get(
-                            "scenario_type",
-                            ""
-                        )
-                }
+            requirement_id = (
+                requirement.get(
+                    "id",
+                    ""
+                )
             )
 
-        return rows
+            requirement_title = (
+                requirement.get(
+                    "title",
+                    ""
+                )
+            )
+
+            requirement_ac = [
+
+                ac["id"]
+
+                for ac
+
+                in acceptance_criteria
+
+                if ac.get(
+                    "requirement_id"
+                )
+                ==
+                requirement_id
+            ]
+
+            requirement_scenarios = [
+
+                scenario
+
+                for scenario
+
+                in all_scenarios
+
+                if scenario.get(
+                    "requirement_id"
+                )
+                ==
+                requirement_id
+            ]
+
+            scenario_ids = [
+
+                scenario.get(
+                    "id",
+                    ""
+                )
+
+                for scenario
+
+                in requirement_scenarios
+            ]
+
+            page_name = None
+            page_url = None
+
+            mapped_elements = []
+
+            for mapping in scenario_mappings:
+
+                if (
+                    mapping.get(
+                        "scenario_id"
+                    )
+                    not in
+                    scenario_ids
+                ):
+
+                    continue
+
+                if not page_name:
+
+                    page_name = (
+                        mapping.get(
+                            "page_name"
+                        )
+                    )
+
+                if not page_url:
+
+                    page_url = (
+                        mapping.get(
+                            "page_url"
+                        )
+                    )
+
+                for element in mapping.get(
+                    "matched_elements",
+                    []
+                ):
+
+                    element_name = (
+                        element.get(
+                            "element_name",
+                            ""
+                        )
+                    )
+
+                    if (
+                        element_name
+                        and
+                        element_name
+                        not in mapped_elements
+                    ):
+
+                        mapped_elements.append(
+                            element_name
+                        )
+
+            records.append(
+
+                Traceability(
+
+                    requirement_id=
+                    requirement_id,
+
+                    requirement_title=
+                    requirement_title,
+
+                    acceptance_criteria_ids=
+                    requirement_ac,
+
+                    scenario_ids=
+                    scenario_ids,
+
+                    page_name=
+                    page_name,
+
+                    page_url=
+                    page_url,
+
+                    mapped_elements=
+                    mapped_elements
+                )
+
+            )
+
+        return records
 
     @staticmethod
     def save():
 
-        output_dir = Path(
-            "generated_framework/traceability"
+        records = (
+            TraceabilityGenerator
+            .generate()
         )
 
-        output_dir.mkdir(
+        output_file = Path(
+            "data/intermediate/traceability_matrix.json"
+        )
+
+        output_file.parent.mkdir(
             parents=True,
             exist_ok=True
         )
 
-        rows = (
-            TraceabilityGenerator.generate()
-        )
-
-        file_path = (
-            output_dir
-            / "traceability_matrix.csv"
-        )
-
         with open(
-            file_path,
+            output_file,
             "w",
             encoding="utf-8"
         ) as file:
 
-            file.write(
-                "Requirement ID,"
-                "Scenario ID,"
-                "Scenario Title,"
-                "Scenario Type\n"
+            json.dump(
+                [
+                    record.model_dump()
+                    for record
+                    in records
+                ],
+                file,
+                indent=4
             )
 
-            for row in rows:
+        print(
+            f"\nTraceability Matrix saved: "
+            f"{output_file}"
+        )
 
-                file.write(
-                    f"{row['requirement_id']},"
-                    f"{row['scenario_id']},"
-                    f"{row['scenario_title']},"
-                    f"{row['scenario_type']}\n"
-                )
+        print(
+            f"Traceability Records: "
+            f"{len(records)}"
+        )
 
-        return str(file_path)
+        return str(
+            output_file
+        )

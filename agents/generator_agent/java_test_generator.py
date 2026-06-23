@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 from models.semantic_mapping_model import (
@@ -17,16 +18,40 @@ from agents.generator_agent.assertion_generator import (
 class JavaTestGenerator:
 
     @staticmethod
+    def sanitize_text(
+        text: str
+    ):
+
+        if not text:
+            return ""
+
+        text = re.sub(
+            r"[^A-Za-z0-9 ]",
+            " ",
+            text
+        )
+
+        text = re.sub(
+            r"\s+",
+            " ",
+            text
+        )
+
+        return text.strip()
+
+    @staticmethod
     def create_method_name(
         title: str
     ):
 
-        words = (
-            title
-            .replace("-", " ")
-            .replace("_", " ")
-            .split()
+        title = (
+            JavaTestGenerator
+            .sanitize_text(
+                title
+            )
         )
+
+        words = title.split()
 
         if not words:
             return "generatedTest"
@@ -46,12 +71,14 @@ class JavaTestGenerator:
         scenario_title: str
     ):
 
-        words = (
-            scenario_title
-            .replace("-", " ")
-            .replace("_", " ")
-            .split()
+        scenario_title = (
+            JavaTestGenerator
+            .sanitize_text(
+                scenario_title
+            )
         )
+
+        words = scenario_title.split()
 
         class_name = ""
 
@@ -61,24 +88,42 @@ class JavaTestGenerator:
                 word.capitalize()
             )
 
-        return class_name + "Test"
+        if not class_name:
+
+            class_name = (
+                "Generated"
+            )
+
+        if not class_name.endswith(
+            "Test"
+        ):
+
+            class_name += "Test"
+
+        return class_name
 
     @staticmethod
     def get_page_class_name(
         page_name: str
     ):
 
+        if not page_name:
+
+            return "GeneratedPage"
+
         page_name = (
             page_name.split("|")[0]
             .strip()
         )
 
-        words = (
-            page_name
-            .replace("-", " ")
-            .replace("_", " ")
-            .split()
+        page_name = (
+            JavaTestGenerator
+            .sanitize_text(
+                page_name
+            )
         )
+
+        words = page_name.split()
 
         class_name = ""
 
@@ -88,9 +133,16 @@ class JavaTestGenerator:
                 word.capitalize()
             )
 
+        if not class_name:
+
+            class_name = (
+                "GeneratedPage"
+            )
+
         if not class_name.endswith(
             "Page"
         ):
+
             class_name += "Page"
 
         return class_name
@@ -100,13 +152,23 @@ class JavaTestGenerator:
         element_name: str
     ):
 
-        return (
+        if not element_name:
+
+            return "unknownElement"
+
+        element_name = re.sub(
+            r"[^A-Za-z0-9_]",
+            "_",
             element_name
-            .replace(" ", "_")
-            .replace("-", "_")
-            .replace("[", "_")
-            .replace("]", "_")
         )
+
+        element_name = re.sub(
+            r"_+",
+            "_",
+            element_name
+        )
+
+        return element_name
 
     @staticmethod
     def generate_action(
@@ -145,11 +207,6 @@ class JavaTestGenerator:
                 f'{element_name}'
             )
 
-        #
-        # IMPORTANT
-        # ASSERT actions are handled by
-        # AssertionGenerator
-        #
         if action_type == "ASSERT":
 
             return (
@@ -272,9 +329,6 @@ class JavaTestGenerator:
 
                 lines.append("")
 
-        #
-        # BUSINESS ASSERTION
-        #
         assertion_code = (
             AssertionGenerator.generate(
                 semantic_mapping.scenario_title,

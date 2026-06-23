@@ -13,6 +13,10 @@ from agents.generator_agent.semantic_mapping_validator import (
     SemanticMappingValidator
 )
 
+from agents.generator_agent.action_classifier import (
+    ActionClassifier
+)
+
 
 class SemanticElementMapper:
 
@@ -55,11 +59,200 @@ class SemanticElementMapper:
 
         return response
 
-    def map_scenario(
+    @staticmethod
+    def build_inventory_summary(
+        page: dict
+    ):
+
+        inventory = []
+
+        for element in page.get(
+            "elements",
+            []
+        ):
+
+            inventory.append(
+
+                {
+                    "element_name":
+                        element.get(
+                            "element_name",
+                            ""
+                        ),
+
+                    "element_type":
+                        element.get(
+                            "element_type",
+                            ""
+                        ),
+
+                    "input_type":
+                        element.get(
+                            "input_type",
+                            ""
+                        ),
+
+                    "label":
+                        element.get(
+                            "label",
+                            ""
+                        ),
+
+                    "visible_text":
+                        element.get(
+                            "visible_text",
+                            ""
+                        )
+                }
+            )
+
+        return inventory
+
+    @staticmethod
+    def rule_based_mapping(
+        scenario: dict,
+        page: dict
+    ):
+
+        scenario_text = (
+
+            scenario.get(
+                "title",
+                ""
+            )
+
+            + " "
+
+            + " ".join(
+                scenario.get(
+                    "steps",
+                    []
+                )
+            )
+
+        ).lower()
+
+        matched_elements = []
+
+        for element in page.get(
+            "elements",
+            []
+        ):
+
+            combined_text = (
+
+                str(
+                    element.get(
+                        "element_name",
+                        ""
+                    )
+                )
+
+                + " "
+
+                + str(
+                    element.get(
+                        "label",
+                        ""
+                    )
+                )
+
+                + " "
+
+                + str(
+                    element.get(
+                        "visible_text",
+                        ""
+                    )
+                )
+
+                + " "
+
+                + str(
+                    element.get(
+                        "placeholder",
+                        ""
+                    )
+                )
+
+            ).lower()
+
+            score = 0
+
+            scenario_words = {
+
+                word
+
+                for word
+
+                in scenario_text.split()
+
+                if len(word) > 2
+            }
+
+            element_words = {
+
+                word
+
+                for word
+
+                in combined_text.split()
+
+                if len(word) > 2
+            }
+
+            common_words = (
+                scenario_words.intersection(
+                    element_words
+                )
+            )
+
+            score += len(
+                common_words
+            )
+
+            if score > 0:
+
+                action_type = (
+                    ActionClassifier.classify(
+                        element
+                    )
+                )
+
+                matched_elements.append(
+
+                    SemanticElement(
+
+                        element_name=
+                        element.get(
+                            "element_name",
+                            ""
+                        ),
+
+                        role=
+                        element.get(
+                            "element_type",
+                            ""
+                        ),
+
+                        action_type=
+                        action_type
+                    )
+                )
+
+        return matched_elements
+
+    def llm_mapping(
         self,
         scenario: dict,
         page: dict
     ):
+
+        inventory = (
+            self.build_inventory_summary(
+                page
+            )
+        )
 
         prompt = f"""
 You are a Senior QA Automation Architect.
@@ -68,35 +261,47 @@ Scenario:
 
 {json.dumps(scenario, indent=2)}
 
-Page Inventory:
+Available Elements:
 
-{json.dumps(page, indent=2)}
+{json.dumps(inventory, indent=2)}
 
 Task:
 
-Identify the exact UI elements required to automate this scenario.
+Identify ONLY the UI elements required
+to automate the scenario.
 
-For each element determine:
+Rules:
 
-1. element_name
-2. role
-3. action_type
-
-Allowed action types:
+- Use ONLY elements from inventory.
+- Do not invent elements.
+- Match business intent.
+- Choose best matching elements.
+- Use one of the following action types:
 
 SEND_KEYS
 CLICK
 SELECT
 ASSERT
 
-Rules:
+CHECKBOX
+RADIO
 
-- Use only elements from Page Inventory.
-- Match business meaning.
-- Do not invent elements.
-- Return JSON only.
+FILE_UPLOAD
+FILE_DOWNLOAD
 
-Expected Response:
+ALERT_ACCEPT
+ALERT_DISMISS
+
+FRAME_SWITCH
+WINDOW_SWITCH
+
+TABLE_VALIDATE
+
+MODAL_CLOSE
+
+Return JSON only.
+
+Expected Format:
 
 {{
     "matched_elements": [
@@ -110,111 +315,148 @@ Expected Response:
 }}
 """
 
-        response = self.llm.invoke(
-            prompt
+        response = (
+            self.llm.invoke(
+                prompt
+            )
         )
 
-        try:
+        cleaned_response = (
+            SemanticElementMapper.extract_json(
+                response
+            )
+        )
 
-            cleaned_response = (
-                SemanticElementMapper.extract_json(
-                    response
+        result = json.loads(
+            cleaned_response
+        )
+
+        raw_elements = (
+            result.get(
+                "matched_elements",
+                []
+            )
+        )
+
+        semantic_elements = []
+
+        for item in raw_elements:
+
+            if not isinstance(
+                item,
+                dict
+            ):
+                continue
+
+            element_name = (
+                item.get(
+                    "element_name",
+                    ""
                 )
             )
 
-            result = json.loads(
-                cleaned_response
-            )
+            if not element_name:
+                continue
 
-            raw_elements = (
-                result.get(
-                    "matched_elements",
-                    []
-                )
-            )
+            semantic_elements.append(
 
-            semantic_elements = []
+                SemanticElement(
 
-            for item in raw_elements:
+                    element_name=
+                    element_name,
 
-                if not isinstance(
-                    item,
-                    dict
-                ):
-                    continue
-
-                element_name = (
-                    item.get(
-                        "element_name",
-                        ""
-                    )
-                )
-
-                role = (
+                    role=
                     item.get(
                         "role",
                         ""
-                    )
-                )
+                    ),
 
-                action_type = (
+                    action_type=
                     item.get(
                         "action_type",
-                        ""
+                        "CLICK"
                     )
-                )
-
-                if not element_name:
-                    continue
-
-                semantic_elements.append(
-                    SemanticElement(
-                        element_name=element_name,
-                        role=role,
-                        action_type=action_type
-                    )
-                )
-
-            confidence_score = float(
-                result.get(
-                    "confidence_score",
-                    0.0
                 )
             )
 
-            # --------------------------------
-            # HALLUCINATION VALIDATION
-            # --------------------------------
+        confidence_score = float(
+
+            result.get(
+                "confidence_score",
+                0.0
+            )
+        )
+
+        return (
+            semantic_elements,
+            confidence_score
+        )
+
+    def map_scenario(
+        self,
+        scenario: dict,
+        page: dict
+    ):
+
+        try:
+
+            rule_based_elements = (
+                SemanticElementMapper
+                .rule_based_mapping(
+                    scenario,
+                    page
+                )
+            )
 
             semantic_elements = (
-                SemanticMappingValidator.validate(
+                rule_based_elements
+            )
+
+            confidence_score = 0.75
+
+            if len(
+                semantic_elements
+            ) == 0:
+
+                (
+                    semantic_elements,
+                    confidence_score
+                ) = self.llm_mapping(
+                    scenario,
+                    page
+                )
+
+            semantic_elements = (
+
+                SemanticMappingValidator
+                .validate(
                     semantic_elements,
                     page
                 )
             )
 
-            # --------------------------------
-            # RETURN CLEAN MAPPING
-            # --------------------------------
-
             return SemanticMapping(
 
-                scenario_id=scenario.get(
+                scenario_id=
+                scenario.get(
                     "id",
                     ""
                 ),
 
-                scenario_title=scenario.get(
+                scenario_title=
+                scenario.get(
                     "title",
                     ""
                 ),
 
-                scenario_type=scenario.get(
+                scenario_type=
+                scenario.get(
                     "scenario_type",
                     "POSITIVE"
                 ),
 
-                page_name=page.get(
+                page_name=
+                page.get(
                     "page_name",
                     ""
                 ),
@@ -234,22 +476,26 @@ Expected Response:
 
             return SemanticMapping(
 
-                scenario_id=scenario.get(
+                scenario_id=
+                scenario.get(
                     "id",
                     ""
                 ),
 
-                scenario_title=scenario.get(
+                scenario_title=
+                scenario.get(
                     "title",
                     ""
                 ),
 
-                scenario_type=scenario.get(
+                scenario_type=
+                scenario.get(
                     "scenario_type",
                     "POSITIVE"
                 ),
 
-                page_name=page.get(
+                page_name=
+                page.get(
                     "page_name",
                     ""
                 ),

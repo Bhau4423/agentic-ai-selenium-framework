@@ -6,7 +6,7 @@ from langgraph_workflow.workflow import (
 
 
 requirement_file = Path(
-    "input/requirements.txt"
+    "input/srs_document.txt"
 )
 
 requirement_document = (
@@ -36,6 +36,8 @@ result = graph.invoke(
 
         "review_result":
             {},
+
+        "review_iteration": 1,
 
         "status":
             "STARTED"

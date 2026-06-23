@@ -1,8 +1,415 @@
 {
     "pages": [
         {
-            "page_name": "Test Login | Practice Test Automation",
-            "url": "https://practicetestautomation.com/practice-test-login/",
+            "page_name": "add_remove_elements",
+            "url": "https://the-internet.herokuapp.com/add_remove_elements/",
+            "elements": [
+                {
+                    "element_name": "Add Element",
+                    "element_type": "button",
+                    "visible_text": "Add Element",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//button[normalize-space()='Add Element']",
+                        "css_selector": "button"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "checkboxes",
+            "url": "https://the-internet.herokuapp.com/checkboxes",
+            "elements": [
+                {
+                    "element_name": "checkbox_0",
+                    "element_type": "checkbox",
+                    "visible_text": "",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//input[@type='checkbox']",
+                        "css_selector": "input[type='checkbox']"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "checkbox_1",
+                    "element_type": "checkbox",
+                    "visible_text": "",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//input[@type='checkbox']",
+                        "css_selector": "input[type='checkbox']"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [
+                {
+                    "form_name": "checkboxes",
+                    "form_id": "checkboxes",
+                    "form_action": null,
+                    "form_method": null,
+                    "elements": [
+                        {
+                            "element_name": "checkbox_0",
+                            "element_type": "checkbox",
+                            "visible_text": "",
+                            "locator": {
+                                "id": null,
+                                "name": null,
+                                "xpath": "//input[@type='checkbox']",
+                                "css_selector": "input[type='checkbox']"
+                            },
+                            "input_type": null,
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "checkbox_1",
+                            "element_type": "checkbox",
+                            "visible_text": "",
+                            "locator": {
+                                "id": null,
+                                "name": null,
+                                "xpath": "//input[@type='checkbox']",
+                                "css_selector": "input[type='checkbox']"
+                            },
+                            "input_type": null,
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        }
+                    ]
+                }
+            ],
+            "tables": []
+        },
+        {
+            "page_name": "drag_and_drop",
+            "url": "https://the-internet.herokuapp.com/drag_and_drop",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "dropdown",
+            "url": "https://the-internet.herokuapp.com/dropdown",
+            "elements": [
+                {
+                    "element_name": "dropdown",
+                    "element_type": "dropdown",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "dropdown",
+                        "name": null,
+                        "xpath": "//*[@id='dropdown']",
+                        "css_selector": "#dropdown"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "entry_ad",
+            "url": "https://the-internet.herokuapp.com/entry_ad",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "geolocation",
+            "url": "https://the-internet.herokuapp.com/geolocation",
+            "elements": [
+                {
+                    "element_name": "Where am I?",
+                    "element_type": "button",
+                    "visible_text": "Where am I?",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//button[normalize-space()='Where am I?']",
+                        "css_selector": "button"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "horizontal_slider",
+            "url": "https://the-internet.herokuapp.com/horizontal_slider",
+            "elements": [
+                {
+                    "element_name": "input_0",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//input[@type='range']",
+                        "css_selector": "input[type='range']"
+                    },
+                    "input_type": "range",
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "hovers",
+            "url": "https://the-internet.herokuapp.com/hovers",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "View profile",
+                    "href": "/users/1"
+                },
+                {
+                    "text": "View profile",
+                    "href": "/users/2"
+                },
+                {
+                    "text": "View profile",
+                    "href": "/users/3"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "infinite_scroll",
+            "url": "https://the-internet.herokuapp.com/infinite_scroll",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "next page",
+                    "href": "/infinite_scroll/3"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "invalid-path",
+            "url": "https://the-internet.herokuapp.com/invalid-path",
+            "elements": [],
+            "links": [],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "javascript_alerts",
+            "url": "https://the-internet.herokuapp.com/javascript_alerts",
+            "elements": [
+                {
+                    "element_name": "Click for JS Alert",
+                    "element_type": "button",
+                    "visible_text": "Click for JS Alert",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//button[normalize-space()='Click for JS Alert']",
+                        "css_selector": "button"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "Click for JS Confirm",
+                    "element_type": "button",
+                    "visible_text": "Click for JS Confirm",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                        "css_selector": "button"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "Click for JS Prompt",
+                    "element_type": "button",
+                    "visible_text": "Click for JS Prompt",
+                    "locator": {
+                        "id": null,
+                        "name": null,
+                        "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                        "css_selector": "button"
+                    },
+                    "input_type": null,
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                }
+            ],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "login",
+            "url": "https://the-internet.herokuapp.com/login",
             "elements": [
                 {
                     "element_name": "username",
@@ -41,50 +448,14 @@
                     "visible": true
                 },
                 {
-                    "element_name": "button_0",
+                    "element_name": "Login",
                     "element_type": "button",
-                    "visible_text": "",
+                    "visible_text": "Login",
                     "locator": {
                         "id": null,
                         "name": null,
-                        "xpath": null,
-                        "css_selector": null
-                    },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": false
-                },
-                {
-                    "element_name": "open menu",
-                    "element_type": "button",
-                    "visible_text": "open menu",
-                    "locator": {
-                        "id": "toggle-navigation",
-                        "name": "toggle-navigation",
-                        "xpath": "//*[@id='toggle-navigation']",
-                        "css_selector": "#toggle-navigation"
-                    },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": false
-                },
-                {
-                    "element_name": "Submit",
-                    "element_type": "button",
-                    "visible_text": "Submit",
-                    "locator": {
-                        "id": "submit",
-                        "name": null,
-                        "xpath": "//*[@id='submit']",
-                        "css_selector": "#submit"
+                        "xpath": "//button[normalize-space()='Login']",
+                        "css_selector": "button"
                     },
                     "input_type": null,
                     "label": null,
@@ -97,132 +468,179 @@
             ],
             "links": [
                 {
-                    "text": "Press \"Enter\" to skip to content",
-                    "href": "#main-container"
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
                 },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [
+                {
+                    "form_name": "login",
+                    "form_id": "login",
+                    "form_action": null,
+                    "form_method": null,
+                    "elements": [
+                        {
+                            "element_name": "username",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "username",
+                                "name": "username",
+                                "xpath": "//*[@id='username']",
+                                "css_selector": "#username"
+                            },
+                            "input_type": "text",
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "password",
+                            "element_type": "input",
+                            "visible_text": "",
+                            "locator": {
+                                "id": "password",
+                                "name": "password",
+                                "xpath": "//*[@id='password']",
+                                "css_selector": "#password"
+                            },
+                            "input_type": "password",
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        },
+                        {
+                            "element_name": "Login",
+                            "element_type": "button",
+                            "visible_text": "Login",
+                            "locator": {
+                                "id": null,
+                                "name": null,
+                                "xpath": "//button[normalize-space()='Login']",
+                                "css_selector": "button"
+                            },
+                            "input_type": null,
+                            "label": null,
+                            "aria_label": null,
+                            "placeholder": null,
+                            "required": false,
+                            "enabled": true,
+                            "visible": true
+                        }
+                    ]
+                }
+            ],
+            "tables": []
+        },
+        {
+            "page_name": "notification_message_rendered",
+            "url": "https://the-internet.herokuapp.com/notification_message_rendered",
+            "elements": [],
+            "links": [
                 {
                     "text": "",
-                    "href": "https://practicetestautomation.com/"
+                    "href": "https://github.com/tourdedave/the-internet"
                 },
                 {
-                    "text": "HOME",
-                    "href": "https://practicetestautomation.com/"
+                    "text": "Click here",
+                    "href": "/notification_message"
                 },
                 {
-                    "text": "PRACTICE",
-                    "href": "https://practicetestautomation.com/practice/"
-                },
-                {
-                    "text": "COURSES",
-                    "href": "https://practicetestautomation.com/courses/"
-                },
-                {
-                    "text": "BLOG",
-                    "href": "https://practicetestautomation.com/blog/"
-                },
-                {
-                    "text": "CONTACT",
-                    "href": "https://practicetestautomation.com/contact/"
-                },
-                {
-                    "text": "Practice Test Automation.",
-                    "href": "https://practicetestautomation.com/"
-                },
-                {
-                    "text": "Privacy Policy",
-                    "href": "https://practicetestautomation.com/privacy-policy/"
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
                 }
             ],
             "forms": [],
             "tables": []
         },
         {
-            "page_name": "Contact | Practice Test Automation | Selenium WebDriver",
-            "url": "https://practicetestautomation.com/contact/",
+            "page_name": "tables",
+            "url": "https://the-internet.herokuapp.com/tables",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": [
+                {
+                    "table_name": "table1",
+                    "table_id": "table1",
+                    "row_count": 5,
+                    "column_count": 6,
+                    "headers": [
+                        "Last Name",
+                        "First Name",
+                        "Email",
+                        "Due",
+                        "Web Site",
+                        "Action"
+                    ]
+                },
+                {
+                    "table_name": "table2",
+                    "table_id": "table2",
+                    "row_count": 5,
+                    "column_count": 6,
+                    "headers": [
+                        "Last Name",
+                        "First Name",
+                        "Email",
+                        "Due",
+                        "Web Site",
+                        "Action"
+                    ]
+                }
+            ]
+        },
+        {
+            "page_name": "typos",
+            "url": "https://the-internet.herokuapp.com/typos",
+            "elements": [],
+            "links": [
+                {
+                    "text": "",
+                    "href": "https://github.com/tourdedave/the-internet"
+                },
+                {
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
+                }
+            ],
+            "forms": [],
+            "tables": []
+        },
+        {
+            "page_name": "upload",
+            "url": "https://the-internet.herokuapp.com/upload",
             "elements": [
                 {
-                    "element_name": "wpforms[fields][0][first]",
+                    "element_name": "file",
                     "element_type": "input",
                     "visible_text": "",
                     "locator": {
-                        "id": "wpforms-161-field_0",
-                        "name": "wpforms[fields][0][first]",
-                        "xpath": "//*[@id='wpforms-161-field_0']",
-                        "css_selector": "#wpforms-161-field_0"
+                        "id": "file-upload",
+                        "name": "file",
+                        "xpath": "//*[@id='file-upload']",
+                        "css_selector": "#file-upload"
                     },
-                    "input_type": "text",
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": true,
-                    "enabled": true,
-                    "visible": true
-                },
-                {
-                    "element_name": "wpforms[fields][0][last]",
-                    "element_type": "input",
-                    "visible_text": "",
-                    "locator": {
-                        "id": "wpforms-161-field_0-last",
-                        "name": "wpforms[fields][0][last]",
-                        "xpath": "//*[@id='wpforms-161-field_0-last']",
-                        "css_selector": "#wpforms-161-field_0-last"
-                    },
-                    "input_type": "text",
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": true,
-                    "enabled": true,
-                    "visible": true
-                },
-                {
-                    "element_name": "wpforms[fields][1]",
-                    "element_type": "input",
-                    "visible_text": "",
-                    "locator": {
-                        "id": "wpforms-161-field_1",
-                        "name": "wpforms[fields][1]",
-                        "xpath": "//*[@id='wpforms-161-field_1']",
-                        "css_selector": "#wpforms-161-field_1"
-                    },
-                    "input_type": "email",
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": true,
-                    "enabled": true,
-                    "visible": true
-                },
-                {
-                    "element_name": "wpforms[hp]",
-                    "element_type": "input",
-                    "visible_text": "",
-                    "locator": {
-                        "id": "wpforms-161-field-hp",
-                        "name": "wpforms[hp]",
-                        "xpath": "//*[@id='wpforms-161-field-hp']",
-                        "css_selector": "#wpforms-161-field-hp"
-                    },
-                    "input_type": "text",
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": false
-                },
-                {
-                    "element_name": "g-recaptcha-hidden",
-                    "element_type": "input",
-                    "visible_text": "",
-                    "locator": {
-                        "id": null,
-                        "name": "g-recaptcha-hidden",
-                        "xpath": "//*[@name='g-recaptcha-hidden']",
-                        "css_selector": "[name='g-recaptcha-hidden']"
-                    },
-                    "input_type": "text",
+                    "input_type": "file",
                     "label": null,
                     "aria_label": null,
                     "placeholder": null,
@@ -231,88 +649,34 @@
                     "visible": true
                 },
                 {
-                    "element_name": "button_0",
-                    "element_type": "button",
+                    "element_name": "file-submit",
+                    "element_type": "input",
+                    "visible_text": "",
+                    "locator": {
+                        "id": "file-submit",
+                        "name": null,
+                        "xpath": "//*[@id='file-submit']",
+                        "css_selector": "#file-submit"
+                    },
+                    "input_type": "submit",
+                    "label": null,
+                    "aria_label": null,
+                    "placeholder": null,
+                    "required": false,
+                    "enabled": true,
+                    "visible": true
+                },
+                {
+                    "element_name": "input_2",
+                    "element_type": "input",
                     "visible_text": "",
                     "locator": {
                         "id": null,
                         "name": null,
-                        "xpath": null,
-                        "css_selector": null
+                        "xpath": "//input[@type='file']",
+                        "css_selector": "input[type='file']"
                     },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": false
-                },
-                {
-                    "element_name": "open menu",
-                    "element_type": "button",
-                    "visible_text": "open menu",
-                    "locator": {
-                        "id": "toggle-navigation",
-                        "name": "toggle-navigation",
-                        "xpath": "//*[@id='toggle-navigation']",
-                        "css_selector": "#toggle-navigation"
-                    },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": false
-                },
-                {
-                    "element_name": "Submit",
-                    "element_type": "button",
-                    "visible_text": "Submit",
-                    "locator": {
-                        "id": "wpforms-submit-161",
-                        "name": "wpforms[submit]",
-                        "xpath": "//*[@id='wpforms-submit-161']",
-                        "css_selector": "#wpforms-submit-161"
-                    },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": false,
-                    "enabled": true,
-                    "visible": true
-                },
-                {
-                    "element_name": "wpforms[fields][2]",
-                    "element_type": "textarea",
-                    "visible_text": "",
-                    "locator": {
-                        "id": "wpforms-161-field_2",
-                        "name": "wpforms[fields][2]",
-                        "xpath": "//*[@id='wpforms-161-field_2']",
-                        "css_selector": "#wpforms-161-field_2"
-                    },
-                    "input_type": null,
-                    "label": null,
-                    "aria_label": null,
-                    "placeholder": null,
-                    "required": true,
-                    "enabled": true,
-                    "visible": true
-                },
-                {
-                    "element_name": "g-recaptcha-response",
-                    "element_type": "textarea",
-                    "visible_text": "",
-                    "locator": {
-                        "id": "g-recaptcha-response",
-                        "name": "g-recaptcha-response",
-                        "xpath": "//*[@id='g-recaptcha-response']",
-                        "css_selector": "#g-recaptcha-response"
-                    },
-                    "input_type": null,
+                    "input_type": "file",
                     "label": null,
                     "aria_label": null,
                     "placeholder": null,
@@ -323,132 +687,32 @@
             ],
             "links": [
                 {
-                    "text": "Press \"Enter\" to skip to content",
-                    "href": "#main-container"
-                },
-                {
                     "text": "",
-                    "href": "https://practicetestautomation.com/"
+                    "href": "https://github.com/tourdedave/the-internet"
                 },
                 {
-                    "text": "HOME",
-                    "href": "https://practicetestautomation.com/"
-                },
-                {
-                    "text": "PRACTICE",
-                    "href": "https://practicetestautomation.com/practice/"
-                },
-                {
-                    "text": "COURSES",
-                    "href": "https://practicetestautomation.com/courses/"
-                },
-                {
-                    "text": "BLOG",
-                    "href": "https://practicetestautomation.com/blog/"
-                },
-                {
-                    "text": "CONTACT",
-                    "href": "https://practicetestautomation.com/contact/"
-                },
-                {
-                    "text": "Practice Test Automation.",
-                    "href": "https://practicetestautomation.com/"
-                },
-                {
-                    "text": "Privacy Policy",
-                    "href": "https://practicetestautomation.com/privacy-policy/"
+                    "text": "Elemental Selenium",
+                    "href": "http://elementalselenium.com/"
                 }
             ],
             "forms": [
                 {
-                    "form_name": "wpforms-form-161",
-                    "form_id": "wpforms-form-161",
+                    "form_name": "form_0",
+                    "form_id": null,
                     "form_action": null,
                     "form_method": null,
                     "elements": [
                         {
-                            "element_name": "wpforms[fields][0][first]",
+                            "element_name": "file",
                             "element_type": "input",
                             "visible_text": "",
                             "locator": {
-                                "id": "wpforms-161-field_0",
-                                "name": "wpforms[fields][0][first]",
-                                "xpath": "//*[@id='wpforms-161-field_0']",
-                                "css_selector": "#wpforms-161-field_0"
+                                "id": "file-upload",
+                                "name": "file",
+                                "xpath": "//*[@id='file-upload']",
+                                "css_selector": "#file-upload"
                             },
-                            "input_type": "text",
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": true,
-                            "enabled": true,
-                            "visible": true
-                        },
-                        {
-                            "element_name": "wpforms[fields][0][last]",
-                            "element_type": "input",
-                            "visible_text": "",
-                            "locator": {
-                                "id": "wpforms-161-field_0-last",
-                                "name": "wpforms[fields][0][last]",
-                                "xpath": "//*[@id='wpforms-161-field_0-last']",
-                                "css_selector": "#wpforms-161-field_0-last"
-                            },
-                            "input_type": "text",
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": true,
-                            "enabled": true,
-                            "visible": true
-                        },
-                        {
-                            "element_name": "wpforms[fields][1]",
-                            "element_type": "input",
-                            "visible_text": "",
-                            "locator": {
-                                "id": "wpforms-161-field_1",
-                                "name": "wpforms[fields][1]",
-                                "xpath": "//*[@id='wpforms-161-field_1']",
-                                "css_selector": "#wpforms-161-field_1"
-                            },
-                            "input_type": "email",
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": true,
-                            "enabled": true,
-                            "visible": true
-                        },
-                        {
-                            "element_name": "wpforms[hp]",
-                            "element_type": "input",
-                            "visible_text": "",
-                            "locator": {
-                                "id": "wpforms-161-field-hp",
-                                "name": "wpforms[hp]",
-                                "xpath": "//*[@id='wpforms-161-field-hp']",
-                                "css_selector": "#wpforms-161-field-hp"
-                            },
-                            "input_type": "text",
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": false,
-                            "enabled": true,
-                            "visible": false
-                        },
-                        {
-                            "element_name": "g-recaptcha-hidden",
-                            "element_type": "input",
-                            "visible_text": "",
-                            "locator": {
-                                "id": null,
-                                "name": "g-recaptcha-hidden",
-                                "xpath": "//*[@name='g-recaptcha-hidden']",
-                                "css_selector": "[name='g-recaptcha-hidden']"
-                            },
-                            "input_type": "text",
+                            "input_type": "file",
                             "label": null,
                             "aria_label": null,
                             "placeholder": null,
@@ -457,52 +721,16 @@
                             "visible": true
                         },
                         {
-                            "element_name": "wpforms[fields][2]",
-                            "element_type": "textarea",
+                            "element_name": "file-submit",
+                            "element_type": "input",
                             "visible_text": "",
                             "locator": {
-                                "id": "wpforms-161-field_2",
-                                "name": "wpforms[fields][2]",
-                                "xpath": "//*[@id='wpforms-161-field_2']",
-                                "css_selector": "#wpforms-161-field_2"
+                                "id": "file-submit",
+                                "name": null,
+                                "xpath": "//*[@id='file-submit']",
+                                "css_selector": "#file-submit"
                             },
-                            "input_type": null,
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": true,
-                            "enabled": true,
-                            "visible": true
-                        },
-                        {
-                            "element_name": "g-recaptcha-response",
-                            "element_type": "textarea",
-                            "visible_text": "",
-                            "locator": {
-                                "id": "g-recaptcha-response",
-                                "name": "g-recaptcha-response",
-                                "xpath": "//*[@id='g-recaptcha-response']",
-                                "css_selector": "#g-recaptcha-response"
-                            },
-                            "input_type": null,
-                            "label": null,
-                            "aria_label": null,
-                            "placeholder": null,
-                            "required": false,
-                            "enabled": true,
-                            "visible": false
-                        },
-                        {
-                            "element_name": "Submit",
-                            "element_type": "button",
-                            "visible_text": "Submit",
-                            "locator": {
-                                "id": "wpforms-submit-161",
-                                "name": "wpforms[submit]",
-                                "xpath": "//*[@id='wpforms-submit-161']",
-                                "css_selector": "#wpforms-submit-161"
-                            },
-                            "input_type": null,
+                            "input_type": "submit",
                             "label": null,
                             "aria_label": null,
                             "placeholder": null,

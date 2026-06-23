@@ -1,5 +1,9 @@
 from pydantic import BaseModel
 
+from models.semantic_element_model import (
+    SemanticElement
+)
+
 
 class ScenarioMapping(BaseModel):
 
@@ -11,4 +15,10 @@ class ScenarioMapping(BaseModel):
 
     page_name: str
 
-    matched_elements: list[str]
+    page_url: str
+
+    confidence_score: float
+
+    matched_elements: list[
+        SemanticElement
+    ]

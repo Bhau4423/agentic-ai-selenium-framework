@@ -1,105 +1,476 @@
-You are a Senior Business Analyst, QA Architect, and Test Automation Expert.
+You are a Senior Business Analyst, QA Architect, Test Architect, and Requirement Engineering Expert.
 
-Analyze the requirement document provided below.
+Your task is to analyze the provided Software Requirement Specification (SRS) document and extract ONLY genuine Functional Requirements.
 
-Your responsibilities:
+==================================================
+APPLICATION URL EXTRACTION
+==================================================
 
-1. Extract Functional Requirements.
-2. Generate Acceptance Criteria.
-3. Generate Positive Test Scenarios.
-4. Generate Negative Test Scenarios.
-5. Generate Boundary Test Scenarios.
+Extract:
 
-Important Rules:
+1. Base URL
+2. Application URLs
+3. Module URLs
+4. Feature URLs
 
-* Do not invent requirements.
-* Use only information present in the document.
-* Generate comprehensive test coverage.
-* Ensure requirements are uniquely identified.
-* Ensure acceptance criteria are uniquely identified.
-* Ensure every acceptance criterion references its parent requirement using requirement_id.
-* Ensure every test scenario references its parent requirement using requirement_id.
-* Ensure scenarios contain meaningful test steps.
-* Generate multiple scenarios when appropriate.
-* Return valid JSON only.
-* Do not include markdown.
-* Do not include explanations.
-* Do not include any text before or after the JSON.
-* All IDs must be unique.
-* Requirement IDs must follow format: FR-001, FR-002, FR-003...
-* Acceptance Criteria IDs must follow format: AC-001, AC-002, AC-003...
-* Positive Scenario IDs must follow format: POS-001, POS-002...
-* Negative Scenario IDs must follow format: NEG-001, NEG-002...
-* Boundary Scenario IDs must follow format: BND-001, BND-002...
+Rules:
 
-Requirement Document:
+- Do not invent URLs.
+- Extract only URLs present in the document.
+- If only paths exist, extract the paths.
+- If URL does not exist, return:
+  "base_url": null
+  "application_urls": []
+
+--------------------------------------------------
+BASE URL EXTRACTION RULES
+--------------------------------------------------
+
+If a complete URL exists in the document:
+
+Extract only:
+
+- Protocol
+- Domain
+
+Do not include:
+
+- Page paths
+- Query parameters
+- URL fragments
+
+Example:
+
+Input:
+https://domain.com/login
+
+Output:
+https://domain.com
+
+Example:
+
+Input:
+https://bank.com/accounts/create
+
+Output:
+https://bank.com
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+Generate:
+
+1. Functional Requirements
+2. Acceptance Criteria
+3. Positive Test Scenarios
+4. Negative Test Scenarios
+5. Boundary Test Scenarios
+
+==================================================
+ANTI-HALLUCINATION RULES
+==================================================
+
+Do NOT invent:
+
+- Functional Requirements
+- URLs
+- Acceptance Criteria
+- Test Scenarios
+- Features
+- Modules
+
+Every generated item must be traceable to information present in the requirement document.
+
+If information does not exist in the document:
+
+Do NOT generate it.
+
+If uncertain:
+
+Exclude the item.
+
+==================================================
+CRITICAL EXTRACTION RULES
+==================================================
+
+Extract ONLY Functional Requirements.
+
+A Functional Requirement represents a complete business capability or user behavior.
+
+Examples of Functional Requirements:
+
+- User Login
+- User Registration
+- Password Reset
+- File Upload
+- File Download
+- Search Functionality
+- Report Generation
+- User Logout
+- User Profile Update
+- Shopping Cart Management
+
+--------------------------------------------------
+REQUIREMENT QUALITY RULES
+--------------------------------------------------
+
+A Functional Requirement must represent:
+
+- A business capability
+- A user goal
+- A system behavior
+
+Do NOT create Functional Requirements for UI interactions alone.
+
+Invalid Requirement Examples:
+
+- Checkbox Selection
+- Dropdown Selection
+- Button Click
+- Text Entry
+- Hyperlink Navigation
+- Field Validation Message
+
+These are UI interactions and not business capabilities.
+
+Valid Requirement Examples:
+
+- User Authentication
+- User Registration
+- Password Reset
+- File Upload
+- File Download
+- Notification Management
+- Report Generation
+- Shopping Cart Management
+
+
+--------------------------------------------------
+DO NOT CREATE REQUIREMENTS FOR:
+--------------------------------------------------
+
+- Field Labels
+- Input Controls
+- Buttons
+- Checkboxes
+- Radio Buttons
+- Dropdowns
+- Hyperlinks
+- Validation Messages
+- Error Messages
+- UI Components
+- Page Titles
+- Help Text
+- Examples
+- Sample Data
+- Notes
+- Assumptions
+- References
+- Glossary
+- Introduction
+- Scope Statements
+- Document Metadata
+- Browser Information
+- Environment Details
+- Technical Notes
+
+--------------------------------------------------
+DO NOT SPLIT REQUIREMENTS
+--------------------------------------------------
+
+Bad Example:
+
+User Login functionality
+
+Generated as:
+
+FR-001 Username Entry
+FR-002 Password Entry
+FR-003 Login Button
+FR-004 Authentication
+
+This is WRONG.
+
+Correct Output:
+
+FR-001 User Authentication
+
+--------------------------------------------------
+NON FUNCTIONAL REQUIREMENTS
+--------------------------------------------------
+
+Do NOT generate Functional Requirements for:
+
+- Performance
+- Scalability
+- Reliability
+- Security
+- Accessibility
+- Browser Compatibility
+- Availability
+- Load Testing Requirements
+- Response Time Requirements
+
+Ignore them completely.
+
+==================================================
+ACCEPTANCE CRITERIA RULES
+==================================================
+
+Generate meaningful acceptance criteria.
+
+Every acceptance criterion must reference its parent requirement.
+
+For EVERY Functional Requirement:
+
+Generate:
+
+- Minimum 2 Acceptance Criteria
+- Maximum 4 Acceptance Criteria
+
+Do not leave any requirement without Acceptance Criteria.
+
+Example:
+
+FR-001 User Authentication
+
+AC-001
+User shall be able to login using valid credentials.
+
+AC-002
+User shall receive an error for invalid credentials.
+
+==================================================
+TEST SCENARIO RULES
+==================================================
+
+Generate comprehensive test coverage.
+
+For EVERY Functional Requirement generate:
+
+Minimum:
+
+- 2 Positive Scenarios
+- 1 Negative Scenario
+- Boundary Scenarios (when applicable)
+
+Generate:
+
+- 1 Boundary Scenario when a boundary condition exists
+
+Do not skip scenario generation for any Functional Requirement.
+
+
+Rules:
+
+- Every scenario must reference a requirement_id.
+- Every scenario must contain scenario_type.
+- Every scenario must contain title.
+- Every scenario must contain steps.
+- Every scenario must contain expected_result.
+
+==================================================
+MANDATORY COVERAGE RULES
+==================================================
+
+For EVERY Functional Requirement generate:
+
+1. Exactly 2 Positive Scenarios
+2. Exactly 1 Negative Scenario
+3. Exactly 1 Boundary Scenario
+
+Exception:
+
+If a Boundary Scenario is not applicable:
+
+Generate exactly:
+
+2 Positive Scenarios
+1 Negative Scenario
+
+and set:
+
+"boundary_scenarios": []
+
+Do NOT skip scenario generation.
+
+Do NOT generate more than the required count.
+
+Do NOT generate fewer than the required count.
+
+Every Functional Requirement must have at least:
+
+- 2 Positive Scenarios
+- 1 Negative Scenario
+
+before returning JSON.
+
+==================================================
+SCENARIO QUALITY RULES
+==================================================
+
+Do not generate generic scenarios.
+
+Bad Example:
+
+Title:
+Test Login
+
+Good Example:
+
+Title:
+Login Using Valid Credentials
+
+Steps:
+1. Navigate to Login Page
+2. Enter valid username
+3. Enter valid password
+4. Click Login
+
+Expected Result:
+User is redirected to Dashboard.
+
+==================================================
+ID RULES
+==================================================
+
+Requirement IDs:
+
+FR-001
+FR-002
+FR-003
+
+Acceptance Criteria IDs:
+
+AC-001
+AC-002
+AC-003
+
+Positive Scenario IDs:
+
+POS-001
+POS-002
+POS-003
+
+Negative Scenario IDs:
+
+NEG-001
+NEG-002
+NEG-003
+
+Boundary Scenario IDs:
+
+BND-001
+BND-002
+BND-003
+
+All IDs must be unique.
+
+==================================================
+TRACEABILITY RULES
+==================================================
+
+Every Acceptance Criteria must reference:
+
+requirement_id
+
+Every Scenario must reference:
+
+requirement_id
+
+No orphan records allowed.
+
+==================================================
+OUTPUT RULES
+==================================================
+
+Return VALID JSON ONLY.
+
+Do NOT return markdown.
+
+Do NOT return explanations.
+
+Do NOT return comments.
+
+Do NOT return code blocks.
+
+Do NOT return text before JSON.
+
+Do NOT return text after JSON.
+
+==================================================
+REQUIREMENT DOCUMENT
+==================================================
 
 {requirement_document}
 
-Return JSON in exactly this format:
+==================================================
+RETURN JSON USING EXACT STRUCTURE
+==================================================
 
 {
-"requirements": [
-{
-"id": "FR-001",
-"title": "User Login",
-"description": "User should be able to login using valid credentials."
-}
-],
+  "requirements": [
+    {
+      "id": "FR-001",
+      "title": "User Authentication",
+      "description": "The system shall allow users to authenticate using valid credentials."
+    }
+  ],
 
-"acceptance_criteria": [
-{
-"id": "AC-001",
-"requirement_id": "FR-001",
-"description": "User should successfully login with valid credentials."
-}
-],
+  "acceptance_criteria": [
+    {
+      "id": "AC-001",
+      "requirement_id": "FR-001",
+      "description": "User shall successfully login using valid credentials."
+    }
+  ],
 
-"positive_scenarios": [
-{
-"id": "POS-001",
-"requirement_id": "FR-001",
-"scenario_type": "POSITIVE",
-"title": "Login with Valid Credentials",
-"steps": [
-"Open Login Page",
-"Enter valid username",
-"Enter valid password",
-"Click Login button"
-],
-"expected_result": "User should be redirected to Dashboard."
-}
-],
+  "positive_scenarios": [
+    {
+      "id": "POS-001",
+      "requirement_id": "FR-001",
+      "scenario_type": "POSITIVE",
+      "title": "Login Using Valid Credentials",
+      "steps": [
+        "Navigate to Login Page",
+        "Enter valid username",
+        "Enter valid password",
+        "Click Login"
+      ],
+      "expected_result": "User is redirected successfully."
+    }
+  ],
 
-"negative_scenarios": [
-{
-"id": "NEG-001",
-"requirement_id": "FR-001",
-"scenario_type": "NEGATIVE",
-"title": "Login with Invalid Password",
-"steps": [
-"Open Login Page",
-"Enter valid username",
-"Enter invalid password",
-"Click Login button"
-],
-"expected_result": "System should display an invalid credentials message."
-}
-],
+  "negative_scenarios": [
+    {
+      "id": "NEG-001",
+      "requirement_id": "FR-001",
+      "scenario_type": "NEGATIVE",
+      "title": "Login Using Invalid Password",
+      "steps": [
+        "Navigate to Login Page",
+        "Enter valid username",
+        "Enter invalid password",
+        "Click Login"
+      ],
+      "expected_result": "Error message is displayed."
+    }
+  ],
 
-"boundary_scenarios": [
-{
-"id": "BND-001",
-"requirement_id": "FR-001",
-"scenario_type": "BOUNDARY",
-"title": "Password at Maximum Allowed Length",
-"steps": [
-"Open Login Page",
-"Enter valid username",
-"Enter password with maximum allowed length",
-"Click Login button"
-],
-"expected_result": "System should process the login request successfully."
-}
-]
+  "boundary_scenarios": [
+    {
+      "id": "BND-001",
+      "requirement_id": "FR-001",
+      "scenario_type": "BOUNDARY",
+      "title": "Password At Maximum Length",
+      "steps": [
+        "Navigate to Login Page",
+        "Enter valid username",
+        "Enter maximum supported password length",
+        "Click Login"
+      ],
+      "expected_result": "Login request is processed successfully."
+    }
+  ]
 }

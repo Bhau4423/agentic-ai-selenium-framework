@@ -9,6 +9,28 @@ from models.review_finding_model import (
 class CoverageReviewer:
 
     @staticmethod
+    def create_test_name(
+        title: str
+    ):
+
+        words = (
+            title
+            .replace("-", " ")
+            .replace("_", " ")
+            .split()
+        )
+
+        class_name = ""
+
+        for word in words:
+
+            class_name += (
+                word.capitalize()
+            )
+
+        return class_name + "Test"
+
+    @staticmethod
     def review():
 
         findings = []
@@ -83,11 +105,9 @@ class CoverageReviewer:
             )
 
             expected_test_name = (
-                "".join(
-                    word.capitalize()
-                    for word in scenario_title.split()
+                CoverageReviewer.create_test_name(
+                    scenario_title
                 )
-                + "Test"
             )
 
             if (

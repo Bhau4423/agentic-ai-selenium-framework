@@ -34,4 +34,22 @@ def patch_node(
         "patch_result"
     ] = patch_result
 
+    current_iteration = (
+        state.get(
+            "review_iteration",
+            1
+        )
+    )
+
+    state[
+        "review_iteration"
+    ] = (
+        current_iteration + 1
+    )
+
+    print(
+        f"Next Review Iteration: "
+        f"{state['review_iteration']}"
+    )
+
     return state

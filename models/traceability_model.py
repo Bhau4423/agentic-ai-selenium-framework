@@ -5,8 +5,14 @@ class Traceability(BaseModel):
 
     requirement_id: str
 
-    page_name: str
+    requirement_title: str
 
-    generated_page_object: str
+    acceptance_criteria_ids: list[str]
 
-    generated_test_class: str
+    scenario_ids: list[str]
+
+    page_name: str | None = None
+
+    page_url: str | None = None
+
+    mapped_elements: list[str] = []

@@ -260,10 +260,32 @@ class PageParser:
 
             anchor = anchors.nth(index)
 
+            href = (
+                anchor.get_attribute(
+                    "href"
+                )
+            )
+
+            if not href:
+                continue
+
+            if href.startswith("#"):
+                continue
+
+            if href.startswith(
+                "javascript:"
+            ):
+                continue
+
+            if href.startswith(
+                "mailto:"
+            ):
+                continue
+
             link = Link(
                 text=anchor.inner_text().strip(),
-                href=anchor.get_attribute("href")
-            )
+                href=href
+           )
 
             links.append(link)
 

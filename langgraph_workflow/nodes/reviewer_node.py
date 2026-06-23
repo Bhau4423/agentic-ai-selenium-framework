@@ -1,5 +1,5 @@
-from agents.reviewer_agent.review_cycle_manager import (
-    ReviewCycleManager
+from agents.reviewer_agent.agent import (
+    ReviewerAgent
 )
 
 
@@ -11,19 +11,25 @@ def reviewer_node(
         "\n[LangGraph] Reviewer Node"
     )
 
+    iteration = (
+        state.get(
+            "review_iteration",
+            1
+        )
+    )
+
+    reviewer = (
+        ReviewerAgent()
+    )
+
     result = (
-        ReviewCycleManager.execute()
+        reviewer.review(
+            iteration
+        )
     )
 
     state[
         "review_result"
     ] = result
-
-    state[
-        "status"
-    ] = result.get(
-        "status",
-        "REJECTED"
-    )
 
     return state

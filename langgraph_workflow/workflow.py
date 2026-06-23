@@ -23,12 +23,12 @@ from langgraph_workflow.nodes.reviewer_node import (
     reviewer_node
 )
 
-from langgraph_workflow.nodes.patch_node import (
-    patch_node
-)
-
 from langgraph_workflow.nodes.approval_node import (
     approval_node
+)
+
+from langgraph_workflow.nodes.patch_node import (
+    patch_node
 )
 
 
@@ -54,6 +54,10 @@ class LangGraphWorkflow:
 
             return "approved"
 
+        if status == "REJECTED":
+
+            return "rejected"
+
         return "patch"
 
     @staticmethod
@@ -63,9 +67,9 @@ class LangGraphWorkflow:
             GraphState
         )
 
-        # --------------------------------
+        # =================================
         # NODES
-        # --------------------------------
+        # =================================
 
         workflow.add_node(
             "requirement",
@@ -97,17 +101,17 @@ class LangGraphWorkflow:
             patch_node
         )
 
-        # --------------------------------
-        # ENTRY
-        # --------------------------------
+        # =================================
+        # ENTRY POINT
+        # =================================
 
         workflow.set_entry_point(
             "requirement"
         )
 
-        # --------------------------------
+        # =================================
         # MAIN FLOW
-        # --------------------------------
+        # =================================
 
         workflow.add_edge(
             "requirement",
@@ -129,9 +133,9 @@ class LangGraphWorkflow:
             "approval"
         )
 
-        # --------------------------------
+        # =================================
         # CONDITIONAL ROUTING
-        # --------------------------------
+        # =================================
 
         workflow.add_conditional_edges(
 
@@ -140,18 +144,29 @@ class LangGraphWorkflow:
             LangGraphWorkflow.approval_router,
 
             {
-                "approved": END,
-                "patch": "patch"
+
+                "approved":
+                    END,
+
+                "rejected":
+                    END,
+
+                "patch":
+                    "patch"
             }
         )
 
-        # --------------------------------
-        # SELF HEAL LOOP
-        # --------------------------------
+        # =================================
+        # SELF-HEALING LOOP
+        # =================================
 
         workflow.add_edge(
             "patch",
             "reviewer"
         )
+
+        # =================================
+        # COMPILE
+        # =================================
 
         return workflow.compile()

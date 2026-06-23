@@ -1,3 +1,6 @@
+MAX_ITERATIONS = 5
+
+
 def approval_node(
     state
 ):
@@ -13,11 +16,50 @@ def approval_node(
         )
     )
 
-    state[
-        "status"
-    ] = review_result.get(
-        "status",
-        "REJECTED"
+    findings = (
+        review_result.get(
+            "total_findings",
+            0
+        )
+    )
+
+    current_iteration = (
+        state.get(
+            "review_iteration",
+            1
+        )
+    )
+
+    if findings == 0:
+
+        state[
+            "status"
+        ] = "APPROVED"
+
+    elif (
+        current_iteration
+        >=
+        MAX_ITERATIONS
+    ):
+
+        state[
+            "status"
+        ] = "REJECTED"
+
+    else:
+
+        state[
+            "status"
+        ] = "REVIEWED"
+
+    print(
+        f"Approval Status: "
+        f"{state['status']}"
+    )
+
+    print(
+        f"Review Iteration: "
+        f"{current_iteration}"
     )
 
     return state

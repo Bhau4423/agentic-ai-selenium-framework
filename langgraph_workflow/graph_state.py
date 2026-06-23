@@ -15,4 +15,6 @@ class GraphState(TypedDict):
 
     patch_result: dict
 
+    review_iteration: int
+
     status: str
