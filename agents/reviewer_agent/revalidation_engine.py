@@ -35,6 +35,23 @@ class RevalidationEngine:
     ]
 
     @staticmethod
+    def validate(
+        iteration: int
+    ):
+
+        reviewer = ReviewerAgent()
+
+        review_result = (
+            reviewer.review(
+                iteration
+            )
+        )
+
+        return review_result[
+            "findings"
+        ]
+
+    @staticmethod
     def execute():
 
         reviewer = (

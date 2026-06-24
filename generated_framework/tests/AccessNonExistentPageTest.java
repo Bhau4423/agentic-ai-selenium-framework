@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.InvalidPathPage;
+import pages.NonExistentPage;
 
 public class AccessNonExistentPageTest extends BaseTest {
 
     @Test
     public void accessNonExistentPage() {
 
-        InvalidPathPage page = new InvalidPathPage(driver);
+        NonExistentPage page = new NonExistentPage(driver);
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 

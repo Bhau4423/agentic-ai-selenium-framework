@@ -78,6 +78,22 @@ class ReviewCycleManager:
 
             if len(findings) == 0:
 
+                print(
+                    "\n====================================="
+                )
+
+                print(
+                    "NO FINDINGS DETECTED"
+                )
+
+                print(
+                    "FRAMEWORK APPROVED"
+                )
+
+                print(
+                    "====================================="
+                )
+
                 report = (
                     FinalValidationReportGenerator.generate(
 
@@ -148,13 +164,30 @@ class ReviewCycleManager:
             # -------------------------
 
             remaining_findings = (
-                RevalidationEngine.validate()
+                RevalidationEngine.validate(
+                    iteration + 1
+                )
             )
 
             if len(
                 remaining_findings
             ) == 0:
 
+                print(
+                    "\n====================================="   
+                )
+
+                print(
+                    "NO FINDINGS DETECTED"
+                )
+
+                print(
+                    "FRAMEWORK APPROVED"
+                )
+
+                print(
+                    "====================================="
+                )
                 report = (
                     FinalValidationReportGenerator.generate(
 

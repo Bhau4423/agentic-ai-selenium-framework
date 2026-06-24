@@ -4,23 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.JavascriptAlertsPage;
+import pages.NotificationMessageRenderedPage;
 
 public class DismissAlertDialogTest extends BaseTest {
 
     @Test
     public void dismissAlertDialog() {
 
-        JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
-
-        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
-        // UNKNOWN ACTION : ALERT_ACCEPT
-
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Confirm()));
-        page.get_Click_for_JS_Confirm().click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Prompt()));
-        page.get_Click_for_JS_Prompt().click();
+        NotificationMessageRenderedPage page = new NotificationMessageRenderedPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

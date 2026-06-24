@@ -10,11 +10,11 @@ public class ForgotPasswordPage {
 
     private WebDriver driver;
 
-    @FindBy(id = "email")
-    private WebElement email;
+    @FindBy(id = "file")
+    private WebElement file;
 
     @FindBy(id = "form_submit")
-    private WebElement Retrieve_password;
+    private WebElement password;
 
     public ForgotPasswordPage(WebDriver driver) {
         this.driver = driver;
@@ -22,28 +22,38 @@ public class ForgotPasswordPage {
     }
 
     public WebElement get_email() {
-        return email;
+        return file;
     }
 
     public WebElement get_Retrieve_password() {
-        return Retrieve_password;
+        return password;
     }
 
     public void enterEmail(String value) {
-        email.clear();
-        email.sendKeys(value);
+        file.clear();
+        file.sendKeys(value);
     }
 
     public boolean isEmailVisible() {
-        return email.isDisplayed();
+        return file.isDisplayed();
     }
 
     public void clickRetrievePassword() {
-        Retrieve_password.click();
+        password.click();
     }
 
     public boolean isRetrievePasswordVisible() {
-        return Retrieve_password.isDisplayed();
+        return password.isDisplayed();
+    }
+
+
+    public WebElement get_file() {
+        return file;
+    }
+
+
+    public WebElement get_password() {
+        return password;
     }
 
 }

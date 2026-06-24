@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.JavascriptAlertsPage;
+import pages.ContextMenuPage;
 
 public class VerifyContextMenuVisibilityTest extends BaseTest {
 
     @Test
     public void verifyContextMenuVisibility() {
 
-        JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
+        ContextMenuPage page = new ContextMenuPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

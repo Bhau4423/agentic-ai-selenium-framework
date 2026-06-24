@@ -1,15 +1,6 @@
 {
-    "iteration": 5,
-    "status": "REVIEWED",
-    "total_findings": 1,
-    "findings": [
-        {
-            "finding_id": "COV-001",
-            "severity": "HIGH",
-            "category": "COVERAGE",
-            "file_name": "AttemptReEnableWithoutAdClosedTest.java",
-            "description": "Scenario does not have generated test.",
-            "recommendation": "Generate test for missing scenario."
-        }
-    ]
+    "iteration": 1,
+    "status": "APPROVED",
+    "total_findings": 0,
+    "findings": []
 }

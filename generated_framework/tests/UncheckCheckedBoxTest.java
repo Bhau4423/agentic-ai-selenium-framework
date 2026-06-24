@@ -13,8 +13,8 @@ public class UncheckCheckedBoxTest extends BaseTest {
 
         CheckboxesPage page = new CheckboxesPage(driver);
 
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_checkbox_1()));
-        page.get_checkbox_1().click();
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_checkbox_0()));
+        page.get_checkbox_0().click();
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

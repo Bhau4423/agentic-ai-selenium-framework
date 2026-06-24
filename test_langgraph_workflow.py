@@ -37,8 +37,6 @@ result = graph.invoke(
         "review_result":
             {},
 
-        "review_iteration": 1,
-
         "status":
             "STARTED"
     }

@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class Requirement(BaseModel):
 
-    id: str
+    id: str = ""
 
     title: str
 

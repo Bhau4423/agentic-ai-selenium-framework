@@ -4,23 +4,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.JavascriptAlertsPage;
+import pages.ForgotPasswordPage;
 
 public class SubmitValidEmailForPasswordRetrievalTest extends BaseTest {
 
     @Test
     public void submitValidEmailForPasswordRetrieval() {
 
-        JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
+        ForgotPasswordPage page = new ForgotPasswordPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
-        // UNKNOWN ACTION : ALERT_ACCEPT
+        wait.until(ExpectedConditions.visibilityOf(page.get_email()));
+        page.get_email().sendKeys("TEST_DATA");
 
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Confirm()));
-        page.get_Click_for_JS_Confirm().click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Prompt()));
-        page.get_Click_for_JS_Prompt().click();
+        wait.until(ExpectedConditions.visibilityOf(page.get_Retrieve_password()));
+        page.get_Retrieve_password().sendKeys("TEST_DATA");
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

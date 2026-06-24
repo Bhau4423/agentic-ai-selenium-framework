@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.InfiniteScrollPage;
+import pages.DynamicContentPage;
 
 public class VerifyHomePageContentTest extends BaseTest {
 
     @Test
     public void verifyHomePageContent() {
 
-        InfiniteScrollPage page = new InfiniteScrollPage(driver);
+        DynamicContentPage page = new DynamicContentPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

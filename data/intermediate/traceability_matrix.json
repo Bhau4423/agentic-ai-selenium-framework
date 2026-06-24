@@ -1,64 +1,22 @@
 [
     {
         "requirement_id": "FR-001",
-        "requirement_title": "User Authentication",
+        "requirement_title": "Form Authentication",
         "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
             "AC-001",
             "AC-002"
         ],
         "scenario_ids": [
             "POS-001",
             "POS-002",
-            "POS-005",
-            "POS-006",
-            "POS-013",
-            "POS-018",
-            "POS-019",
-            "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
-            "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
-            "BND-006",
-            "BND-009",
-            "BND-010"
+            "NEG-001"
         ],
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
         "mapped_elements": [
             "username",
             "password",
-            "Login",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
+            "Login"
         ]
     },
     {
@@ -67,613 +25,62 @@
         "acceptance_criteria_ids": [
             "AC-003",
             "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
+            "AC-021",
+            "AC-022",
+            "AC-068",
+            "AC-069"
         ],
         "scenario_ids": [
             "POS-003",
             "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
             "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
             "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
             "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
+            "NEG-005",
+            "NEG-021",
+            "BND-001",
+            "BND-009"
         ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
         "mapped_elements": [
             "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
+            "file-submit"
         ]
     },
     {
-        "requirement_id": "FR-001",
-        "requirement_title": "Home Page Examples Listing",
+        "requirement_id": "FR-003",
+        "requirement_title": "File Download",
         "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002"
+            "AC-005",
+            "AC-006",
+            "AC-061",
+            "AC-062"
         ],
         "scenario_ids": [
-            "POS-001",
-            "POS-002",
             "POS-005",
             "POS-006",
-            "POS-013",
-            "POS-018",
-            "POS-019",
-            "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
-            "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
-            "BND-006",
-            "BND-009",
-            "BND-010"
+            "POS-045",
+            "POS-046",
+            "NEG-003"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
-        ]
-    },
-    {
-        "requirement_id": "FR-002",
-        "requirement_title": "Footer Attribution",
-        "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
-        ],
-        "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
-        ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
-        ]
-    },
-    {
-        "requirement_id": "FR-003",
-        "requirement_title": "Checkbox State Toggle",
-        "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
-        ],
-        "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
-            "POS-023",
-            "POS-024",
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
-        ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
-            "username",
-            "password",
-            "Login"
-        ]
-    },
-    {
-        "requirement_id": "FR-002",
-        "requirement_title": "Dropdown Selection Management",
-        "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
-        ],
-        "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
-        ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
-        ]
-    },
-    {
-        "requirement_id": "FR-003",
-        "requirement_title": "File Upload Capability",
-        "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
-        ],
-        "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
-            "POS-023",
-            "POS-024",
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
-        ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
-            "username",
-            "password",
-            "Login"
-        ]
-    },
-    {
-        "requirement_id": "FR-001",
-        "requirement_title": "Basic Alert Trigger",
-        "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002"
-        ],
-        "scenario_ids": [
-            "POS-001",
-            "POS-002",
-            "POS-005",
-            "POS-006",
-            "POS-013",
-            "POS-018",
-            "POS-019",
-            "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
-            "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
-            "BND-006",
-            "BND-009",
-            "BND-010"
-        ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
-        ]
-    },
-    {
-        "requirement_id": "FR-002",
-        "requirement_title": "Confirm and Prompt Triggers",
-        "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
-        ],
-        "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
-        ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
-        ]
-    },
-    {
-        "requirement_id": "FR-003",
-        "requirement_title": "Drag and Drop Rendering",
-        "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
-        ],
-        "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
-            "POS-023",
-            "POS-024",
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
-        ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
-            "username",
-            "password",
-            "Login"
-        ]
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "mapped_elements": []
     },
     {
         "requirement_id": "FR-004",
-        "requirement_title": "Data Tables Rendering",
+        "requirement_title": "Home Page Examples List",
         "acceptance_criteria_ids": [
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
             "AC-007",
             "AC-008"
         ],
         "scenario_ids": [
-            "POS-011",
-            "POS-012",
-            "POS-025",
-            "POS-026",
-            "POS-043",
-            "POS-044",
-            "POS-053",
-            "POS-054",
-            "NEG-006",
-            "NEG-012",
-            "NEG-021",
-            "NEG-026",
-            "BND-003",
-            "BND-005"
+            "POS-007",
+            "POS-008"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
-        "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "file",
-            "file-submit",
-            "Click for JS Alert",
-            "Add Element"
-        ]
-    },
-    {
-        "requirement_id": "FR-005",
-        "requirement_title": "Row Actions Representation",
-        "acceptance_criteria_ids": [
-            "AC-009",
-            "AC-010",
-            "AC-009",
-            "AC-010"
-        ],
-        "scenario_ids": [
-            "POS-027",
-            "POS-028",
-            "POS-045",
-            "POS-046",
-            "NEG-013",
-            "NEG-022"
-        ],
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
+        "page_name": "dynamic_content",
+        "page_url": "https://the-internet.herokuapp.com/dynamic_content",
         "mapped_elements": [
             "Click for JS Alert",
             "Click for JS Confirm",
@@ -681,317 +88,120 @@
         ]
     },
     {
+        "requirement_id": "FR-005",
+        "requirement_title": "Footer Attribution",
+        "acceptance_criteria_ids": [
+            "AC-009",
+            "AC-010"
+        ],
+        "scenario_ids": [],
+        "page_name": null,
+        "page_url": null,
+        "mapped_elements": []
+    },
+    {
         "requirement_id": "FR-006",
-        "requirement_title": "Notification Message Rendering",
+        "requirement_title": "Checkbox State Toggle",
         "acceptance_criteria_ids": [
             "AC-011",
             "AC-012"
         ],
         "scenario_ids": [
-            "POS-029",
-            "POS-030",
-            "NEG-014"
+            "POS-009",
+            "POS-010",
+            "BND-002"
         ],
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "mapped_elements": []
+        "page_name": "checkboxes",
+        "page_url": "https://the-internet.herokuapp.com/checkboxes",
+        "mapped_elements": [
+            "checkbox_0",
+            "checkbox_1"
+        ]
     },
     {
         "requirement_id": "FR-007",
-        "requirement_title": "Load New Notification Message",
+        "requirement_title": "Successful Login with Valid Credentials",
         "acceptance_criteria_ids": [
             "AC-013",
             "AC-014"
         ],
         "scenario_ids": [
-            "POS-031",
-            "POS-032",
-            "NEG-015"
+            "POS-011",
+            "POS-012"
         ],
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "page_name": "login",
+        "page_url": "https://the-internet.herokuapp.com/login",
         "mapped_elements": [
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt"
+            "username",
+            "password",
+            "Login"
         ]
     },
     {
         "requirement_id": "FR-008",
-        "requirement_title": "Entry Ad Display",
+        "requirement_title": "User Authentication",
         "acceptance_criteria_ids": [
             "AC-015",
-            "AC-016"
+            "AC-016",
+            "AC-067"
         ],
         "scenario_ids": [
-            "POS-033",
-            "POS-034",
-            "NEG-016"
-        ],
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "mapped_elements": []
-    },
-    {
-        "requirement_id": "FR-009",
-        "requirement_title": "Ad Suppression",
-        "acceptance_criteria_ids": [
-            "AC-017",
-            "AC-018"
-        ],
-        "scenario_ids": [
-            "POS-035",
-            "POS-036",
-            "NEG-017"
-        ],
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "mapped_elements": []
-    },
-    {
-        "requirement_id": "FR-001",
-        "requirement_title": "Ad Re-enablement",
-        "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002"
-        ],
-        "scenario_ids": [
-            "POS-001",
-            "POS-002",
-            "POS-005",
-            "POS-006",
             "POS-013",
-            "POS-018",
-            "POS-019",
-            "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
-            "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
-            "BND-006",
-            "BND-009",
-            "BND-010"
+            "BND-008"
         ],
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
         "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
-        ]
-    },
-    {
-        "requirement_id": "FR-002",
-        "requirement_title": "Dynamic Typo Generation",
-        "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
-        ],
-        "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
-        ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
-        ]
-    },
-    {
-        "requirement_id": "FR-003",
-        "requirement_title": "Dynamic Element Addition",
-        "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
-        ],
-        "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
-            "POS-023",
-            "POS-024",
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
-        ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
             "username",
             "password",
             "Login"
         ]
     },
     {
-        "requirement_id": "FR-004",
-        "requirement_title": "Dynamic Element Removal",
+        "requirement_id": "FR-009",
+        "requirement_title": "Error Handling for Invalid Credentials",
         "acceptance_criteria_ids": [
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008"
+            "AC-017",
+            "AC-018"
+        ],
+        "scenario_ids": [],
+        "page_name": null,
+        "page_url": null,
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-010",
+        "requirement_title": "Dropdown Selection",
+        "acceptance_criteria_ids": [
+            "AC-019",
+            "AC-020"
         ],
         "scenario_ids": [
-            "POS-011",
-            "POS-012",
-            "POS-025",
-            "POS-026",
-            "POS-043",
-            "POS-044",
-            "POS-053",
-            "POS-054",
-            "NEG-006",
-            "NEG-012",
-            "NEG-021",
-            "NEG-026",
-            "BND-003",
-            "BND-005"
+            "POS-014",
+            "POS-015",
+            "NEG-004",
+            "BND-003"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
+        "page_name": "dropdown",
+        "page_url": "https://the-internet.herokuapp.com/dropdown",
         "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "file",
-            "file-submit",
-            "Click for JS Alert",
-            "Add Element"
+            "dropdown"
         ]
     },
     {
-        "requirement_id": "FR-005",
-        "requirement_title": "Hover-to-Reveal Information",
+        "requirement_id": "FR-011",
+        "requirement_title": "Basic Alert Trigger",
         "acceptance_criteria_ids": [
-            "AC-009",
-            "AC-010",
-            "AC-009",
-            "AC-010"
+            "AC-023",
+            "AC-024"
         ],
         "scenario_ids": [
-            "POS-027",
-            "POS-028",
-            "POS-045",
-            "POS-046",
-            "NEG-013",
-            "NEG-022"
+            "POS-017",
+            "POS-018",
+            "NEG-006"
         ],
-        "page_name": "tables",
-        "page_url": "https://the-internet.herokuapp.com/tables",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
         "mapped_elements": [
             "Click for JS Alert",
             "Click for JS Confirm",
@@ -999,412 +209,387 @@
         ]
     },
     {
-        "requirement_id": "FR-001",
-        "requirement_title": "Custom Context Menu Triggering",
+        "requirement_id": "FR-012",
+        "requirement_title": "Confirm and Prompt Triggers",
         "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002"
+            "AC-025",
+            "AC-026"
         ],
         "scenario_ids": [
-            "POS-001",
-            "POS-002",
-            "POS-005",
-            "POS-006",
-            "POS-013",
-            "POS-018",
             "POS-019",
             "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
-            "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
-            "BND-006",
-            "BND-009",
-            "BND-010"
+            "NEG-007"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
         "mapped_elements": [
-            "username",
-            "password",
-            "Login",
             "Click for JS Alert",
             "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
+            "Click for JS Prompt"
         ]
     },
     {
-        "requirement_id": "FR-002",
-        "requirement_title": "File Download Initiation",
+        "requirement_id": "FR-013",
+        "requirement_title": "Drag and Drop Example Rendering",
         "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
+            "AC-027",
+            "AC-028"
         ],
         "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
             "POS-021",
             "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
-            "BND-007"
+            "NEG-008"
         ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
-        ]
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "mapped_elements": []
     },
     {
-        "requirement_id": "FR-003",
-        "requirement_title": "Password Retrieval",
+        "requirement_id": "FR-014",
+        "requirement_title": "Data Tables Rendering",
         "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
+            "AC-029",
+            "AC-030"
         ],
         "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
             "POS-023",
             "POS-024",
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
+            "NEG-009",
+            "BND-004"
         ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
-            "username",
-            "password",
-            "Login"
-        ]
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "mapped_elements": []
     },
     {
-        "requirement_id": "FR-004",
-        "requirement_title": "Geolocation Access",
+        "requirement_id": "FR-015",
+        "requirement_title": "Row Actions Representation",
         "acceptance_criteria_ids": [
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008",
-            "AC-007",
-            "AC-008"
+            "AC-031",
+            "AC-032"
         ],
         "scenario_ids": [
-            "POS-011",
-            "POS-012",
             "POS-025",
             "POS-026",
-            "POS-043",
-            "POS-044",
-            "POS-053",
-            "POS-054",
-            "NEG-006",
-            "NEG-012",
-            "NEG-021",
-            "NEG-026",
-            "BND-003",
-            "BND-005"
+            "NEG-010"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
+        "page_name": "tables",
+        "page_url": "https://the-internet.herokuapp.com/tables",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-016",
+        "requirement_title": "Notification Message Rendering",
+        "acceptance_criteria_ids": [
+            "AC-033",
+            "AC-034"
+        ],
+        "scenario_ids": [
+            "POS-027",
+            "POS-028",
+            "NEG-011"
+        ],
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-017",
+        "requirement_title": "Load New Notification Message",
+        "acceptance_criteria_ids": [
+            "AC-035",
+            "AC-036"
+        ],
+        "scenario_ids": [
+            "POS-029",
+            "POS-030",
+            "NEG-012"
+        ],
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-018",
+        "requirement_title": "Entry Ad Display on First Load",
+        "acceptance_criteria_ids": [
+            "AC-037",
+            "AC-038"
+        ],
+        "scenario_ids": [
+            "POS-031",
+            "POS-032",
+            "NEG-013"
+        ],
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-019",
+        "requirement_title": "Close Ad and Prevent Reappearance",
+        "acceptance_criteria_ids": [
+            "AC-039",
+            "AC-040"
+        ],
+        "scenario_ids": [
+            "POS-033",
+            "POS-034",
+            "NEG-014"
+        ],
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
         "mapped_elements": [
-            "username",
-            "password",
-            "Login",
-            "file",
-            "file-submit",
             "Click for JS Alert",
+            "Click for JS Confirm",
+            "Click for JS Prompt"
+        ]
+    },
+    {
+        "requirement_id": "FR-020",
+        "requirement_title": "Ad Re-enablement",
+        "acceptance_criteria_ids": [
+            "AC-041",
+            "AC-042"
+        ],
+        "scenario_ids": [
+            "POS-035"
+        ],
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-021",
+        "requirement_title": "Random Typo Behavior",
+        "acceptance_criteria_ids": [
+            "AC-043",
+            "AC-044"
+        ],
+        "scenario_ids": [
+            "POS-040",
+            "NEG-015"
+        ],
+        "page_name": "typos",
+        "page_url": "https://the-internet.herokuapp.com/typos",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-022",
+        "requirement_title": "Add Element Action",
+        "acceptance_criteria_ids": [
+            "AC-045",
+            "AC-046"
+        ],
+        "scenario_ids": [
+            "POS-036"
+        ],
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "mapped_elements": [
             "Add Element"
         ]
     },
     {
-        "requirement_id": "FR-003",
-        "requirement_title": "JavaScript Dialog Handling",
+        "requirement_id": "FR-023",
+        "requirement_title": "Remove Added Elements",
         "acceptance_criteria_ids": [
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006",
-            "AC-005",
-            "AC-006"
+            "AC-047",
+            "AC-048"
         ],
         "scenario_ids": [
-            "POS-009",
-            "POS-010",
-            "POS-015",
-            "POS-017",
-            "POS-023",
-            "POS-024",
+            "NEG-016"
+        ],
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "mapped_elements": [
+            "Add Element"
+        ]
+    },
+    {
+        "requirement_id": "FR-024",
+        "requirement_title": "Hover-to-Reveal Behavior",
+        "acceptance_criteria_ids": [
+            "AC-049",
+            "AC-050"
+        ],
+        "scenario_ids": [
+            "POS-037"
+        ],
+        "page_name": "hovers",
+        "page_url": "https://the-internet.herokuapp.com/hovers",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-025",
+        "requirement_title": "Dynamic Content Refresh",
+        "acceptance_criteria_ids": [
+            "AC-051",
+            "AC-052"
+        ],
+        "scenario_ids": [
+            "POS-038"
+        ],
+        "page_name": "dynamic_content",
+        "page_url": "https://the-internet.herokuapp.com/dynamic_content",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-026",
+        "requirement_title": "Numeric Input Handling",
+        "acceptance_criteria_ids": [
+            "AC-053",
+            "AC-054"
+        ],
+        "scenario_ids": [
+            "POS-039",
+            "NEG-017",
+            "BND-005"
+        ],
+        "page_name": "inputs",
+        "page_url": "https://the-internet.herokuapp.com/inputs",
+        "mapped_elements": [
+            "input_0"
+        ]
+    },
+    {
+        "requirement_id": "FR-027",
+        "requirement_title": "Horizontal Slider Interaction",
+        "acceptance_criteria_ids": [
+            "AC-055",
+            "AC-056",
+            "AC-072",
+            "AC-073"
+        ],
+        "scenario_ids": [
             "POS-041",
             "POS-042",
             "POS-051",
-            "POS-052",
-            "POS-057",
-            "POS-062",
-            "POS-063",
-            "NEG-005",
-            "NEG-008",
-            "NEG-011",
-            "NEG-020",
-            "NEG-025",
-            "NEG-028",
-            "NEG-031",
-            "BND-004",
-            "BND-008",
-            "BND-011"
-        ],
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "mapped_elements": [
-            "checkbox_0",
-            "checkbox_1",
-            "file",
-            "file-submit",
-            "Add Element",
-            "Where am I?",
-            "input_0",
-            "username",
-            "password",
-            "Login"
-        ]
-    },
-    {
-        "requirement_id": "FR-001",
-        "requirement_title": "Horizontal Slider Interaction",
-        "acceptance_criteria_ids": [
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002",
-            "AC-001",
-            "AC-002"
-        ],
-        "scenario_ids": [
-            "POS-001",
-            "POS-002",
-            "POS-005",
-            "POS-006",
-            "POS-013",
-            "POS-018",
-            "POS-019",
-            "POS-020",
-            "POS-037",
-            "POS-038",
-            "POS-047",
-            "POS-048",
-            "POS-055",
-            "POS-058",
-            "POS-059",
-            "NEG-001",
-            "NEG-003",
-            "NEG-009",
             "NEG-018",
-            "NEG-023",
-            "NEG-029",
-            "BND-001",
             "BND-006",
-            "BND-009",
             "BND-010"
         ],
-        "page_name": "login",
-        "page_url": "https://the-internet.herokuapp.com/login",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-028",
+        "requirement_title": "Custom Context Menu",
+        "acceptance_criteria_ids": [
+            "AC-057",
+            "AC-058"
+        ],
+        "scenario_ids": [
+            "POS-043",
+            "POS-044",
+            "NEG-019"
+        ],
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
         "mapped_elements": [
-            "username",
-            "password",
-            "Login",
             "Click for JS Alert",
             "Click for JS Confirm",
-            "Click for JS Prompt",
-            "file",
-            "file-submit",
-            "Where am I?"
+            "Click for JS Prompt"
         ]
     },
     {
-        "requirement_id": "FR-002",
-        "requirement_title": "Infinite Scroll Content Loading",
+        "requirement_id": "FR-029",
+        "requirement_title": "Exit Intent Detection",
         "acceptance_criteria_ids": [
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004",
-            "AC-003",
-            "AC-004"
+            "AC-059",
+            "AC-060"
+        ],
+        "scenario_ids": [],
+        "page_name": null,
+        "page_url": null,
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-030",
+        "requirement_title": "Password Retrieval",
+        "acceptance_criteria_ids": [
+            "AC-063",
+            "AC-064"
         ],
         "scenario_ids": [
-            "POS-003",
-            "POS-004",
-            "POS-007",
-            "POS-008",
-            "POS-014",
-            "POS-016",
-            "POS-021",
-            "POS-022",
-            "POS-039",
-            "POS-040",
-            "POS-049",
-            "POS-050",
-            "POS-056",
-            "POS-060",
-            "POS-061",
-            "NEG-002",
-            "NEG-004",
-            "NEG-007",
-            "NEG-010",
-            "NEG-019",
-            "NEG-024",
-            "NEG-027",
-            "NEG-030",
-            "BND-002",
             "BND-007"
         ],
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
         "mapped_elements": [
-            "file",
-            "file-submit",
-            "username",
-            "password",
-            "Login",
-            "dropdown",
             "Click for JS Alert",
             "Click for JS Confirm",
-            "Click for JS Prompt",
-            "Add Element"
+            "Click for JS Prompt"
         ]
+    },
+    {
+        "requirement_id": "FR-031",
+        "requirement_title": "Geolocation Access",
+        "acceptance_criteria_ids": [
+            "AC-065",
+            "AC-066",
+            "AC-076",
+            "AC-077"
+        ],
+        "scenario_ids": [
+            "POS-047",
+            "POS-048",
+            "NEG-020",
+            "NEG-023"
+        ],
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "mapped_elements": [
+            "Where am I?",
+            "Click for JS Alert",
+            "Click for JS Confirm",
+            "Click for JS Prompt"
+        ]
+    },
+    {
+        "requirement_id": "FR-032",
+        "requirement_title": "JavaScript Dialog Handling",
+        "acceptance_criteria_ids": [
+            "AC-070",
+            "AC-071"
+        ],
+        "scenario_ids": [
+            "POS-050",
+            "NEG-022"
+        ],
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "mapped_elements": [
+            "Click for JS Alert",
+            "Click for JS Confirm",
+            "Click for JS Prompt"
+        ]
+    },
+    {
+        "requirement_id": "FR-033",
+        "requirement_title": "Infinite Scroll Content Loading",
+        "acceptance_criteria_ids": [
+            "AC-074",
+            "AC-075"
+        ],
+        "scenario_ids": [
+            "POS-052"
+        ],
+        "page_name": "infinite_scroll",
+        "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
+        "mapped_elements": []
+    },
+    {
+        "requirement_id": "FR-034",
+        "requirement_title": "New Window Management",
+        "acceptance_criteria_ids": [
+            "AC-078",
+            "AC-079"
+        ],
+        "scenario_ids": [],
+        "page_name": null,
+        "page_url": null,
+        "mapped_elements": []
     }
 ]

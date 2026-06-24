@@ -214,56 +214,45 @@ class RequirementAgent:
             )
         )
 
+        # --------------------------------
+        # TRACEABILITY SUMMARY
+        # --------------------------------
+
         print(
-             "\n===== REQUIREMENTS ====="
-       )
-
-        for requirement in merged_result.requirements:
-
-         print(
-             f"{requirement.id} "
-             f"-> "
-             f"{requirement.title}"
+            "\n========== TRACEABILITY SUMMARY =========="
         )
 
         print(
-             "\n===== ACCEPTANCE CRITERIA ====="
-       )
-
-        for ac in merged_result.acceptance_criteria:
-
-         print(
-             f"{ac.id} "
-             f"-> "
-             f"{ac.requirement_id}"
-       )
-
-         print(
-             "\n===== POSITIVE SCENARIOS ====="
-       )
-
-        for scenario in merged_result.positive_scenarios:
-
-         print(
-             f"{scenario.id} "
-             f"-> "
-             f"{scenario.requirement_id}"
-        )
-
-         print(
-             "\n===== NEGATIVE SCENARIOS ====="
-        )
-
-        for scenario in merged_result.negative_scenarios:
-
-         print(
-             f"{scenario.id} "
-             f"-> "
-             f"{scenario.requirement_id}"
+            f"Requirements         : "
+            f"{len(merged_result.requirements)}"
         )
 
         print(
-            f"Coverage Findings: "
+            f"Acceptance Criteria  : "
+            f"{len(merged_result.acceptance_criteria)}"
+        )
+
+        print(
+            f"Positive Scenarios   : "
+            f"{len(merged_result.positive_scenarios)}"
+        )
+
+        print(
+            f"Negative Scenarios   : "
+            f"{len(merged_result.negative_scenarios)}"
+        )
+
+        print(
+            f"Boundary Scenarios   : "
+            f"{len(merged_result.boundary_scenarios)}"
+        )
+
+        print(
+            "\nRunning Coverage Validation..."
+        )
+
+        print(
+            f"Coverage Findings : "
             f"{len(coverage_findings)}"
         )
 

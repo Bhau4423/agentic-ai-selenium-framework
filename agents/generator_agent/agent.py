@@ -158,9 +158,20 @@ class GeneratorAgent:
             ScenarioMapper.map_scenarios()
         )
 
+        scenario_mapping_file = (
+            ScenarioMapper.save_mappings(
+                scenario_mappings
+            )
+        )
+
         print(
             f"Scenario Mappings: "
             f"{len(scenario_mappings)}"
+        )
+
+        print(
+            f"Saved Mapping File: "
+            f"{scenario_mapping_file}"
         )
 
         # --------------------------------

@@ -13,6 +13,8 @@ public class VerifyGeolocationUiTest extends BaseTest {
 
         GeolocationPage page = new GeolocationPage(driver);
 
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Where_am_I?()));
+
         wait.until(ExpectedConditions.visibilityOf(page.get_Where_am_I?()));
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

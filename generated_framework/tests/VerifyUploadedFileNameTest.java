@@ -6,10 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
 import pages.UploadPage;
 
-public class VerifyUploadedFileNameTest extends BaseTest {
+public class VerifyUploadedFilenameTest extends BaseTest {
 
     @Test
-    public void verifyUploadedFileName() {
+    public void verifyUploadedFilename() {
 
         UploadPage page = new UploadPage(driver);
 

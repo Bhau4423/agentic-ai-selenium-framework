@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.TyposPage;
+import pages.NonExistentPage;
 
 public class ObserveCorrectTextTest extends BaseTest {
 
     @Test
     public void observeCorrectText() {
 
-        TyposPage page = new TyposPage(driver);
+        NonExistentPage page = new NonExistentPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

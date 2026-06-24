@@ -3,9 +3,11 @@ from pydantic import BaseModel
 
 class TestScenario(BaseModel):
 
-    id: str
+    id: str = ""
 
-    requirement_id: str
+    requirement_id: str = ""
+
+    requirement_title: str
 
     scenario_type: str
 

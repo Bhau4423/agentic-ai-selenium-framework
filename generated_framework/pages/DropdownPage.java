@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class DropdownPage {
 
@@ -19,6 +20,14 @@ public class DropdownPage {
 
     public WebElement get_dropdown() {
         return dropdown;
+    }
+
+    public void selectDropdown(String value) {
+        new Select(dropdown).selectByVisibleText(value);
+    }
+
+    public boolean isDropdownVisible() {
+        return dropdown.isDisplayed();
     }
 
 }
