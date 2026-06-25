@@ -1,8 +1,8 @@
 {
-    "iteration": 5,
+    "iteration": 1,
     "total_patches": 1,
-    "successful_patches": 0,
-    "failed_patches": 1,
+    "successful_patches": 1,
+    "failed_patches": 0,
     "patches": [
         {
             "finding_id": "AST-001",
@@ -10,7 +10,7 @@
             "category": "ASSERTION",
             "patch_action": "ADD_ASSERTION",
             "reason": "Missing assertion",
-            "patch_status": "FAILED"
+            "patch_status": "COMPLETED"
         }
     ]
 }

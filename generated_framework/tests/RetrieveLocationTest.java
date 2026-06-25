@@ -14,6 +14,7 @@ public class RetrieveLocationTest extends BaseTest {
         GeolocationPage page = new GeolocationPage(driver);
 
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Where_am_I?()));
+        page.get_Where_am_I_().click();
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

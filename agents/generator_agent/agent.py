@@ -63,10 +63,10 @@ class GeneratorAgent:
             FrameworkStructureGenerator.create()
         )
 
-        print(
-            f"Folders Created: "
-            f"{len(folders)}"
-        )
+        # print(
+        #     f"Folders Created: "
+        #     f"{len(folders)}"
+        # )
 
         # --------------------------------
         # REQUIREMENT MAPPING
@@ -80,10 +80,10 @@ class GeneratorAgent:
             RequirementMapper.create_mappings()
         )
 
-        print(
-            f"Requirement Mappings: "
-            f"{len(requirement_mappings)}"
-        )
+        # print(
+        #     f"Requirement Mappings: "
+        #     f"{len(requirement_mappings)}"
+        # )
 
         # --------------------------------
         # CONFIG
@@ -97,10 +97,10 @@ class GeneratorAgent:
             ConfigGenerator.save()
         )
 
-        print(
-            f"Generated Config: "
-            f"{config_file}"
-        )
+        # print(
+        #     f"Generated Config: "
+        #     f"{config_file}"
+        # )
 
         # --------------------------------
         # BASE TEST
@@ -114,10 +114,10 @@ class GeneratorAgent:
             BaseTestGenerator.save()
         )
 
-        print(
-            f"Generated Base Test: "
-            f"{base_file}"
-        )
+        # print(
+        #     f"Generated Base Test: "
+        #     f"{base_file}"
+        # )
 
         # --------------------------------
         # PAGE OBJECTS
@@ -147,10 +147,10 @@ class GeneratorAgent:
                 file_path
             )
 
-            print(
-                f"Generated Page: "
-                f"{file_path}"
-            )
+            # print(
+            #     f"Generated Page: "
+            #     f"{file_path}"
+            # )
 
         # --------------------------------
         # SCENARIO MAPPING
@@ -170,15 +170,15 @@ class GeneratorAgent:
             )
         )
 
-        print(
-            f"Scenario Mappings: "
-            f"{len(scenario_mappings)}"
-        )
+        # print(
+        #     f"Scenario Mappings: "
+        #     f"{len(scenario_mappings)}"
+        # )
 
-        print(
-            f"Saved Mapping File: "
-            f"{scenario_mapping_file}"
-        )
+        # print(
+        #     f"Saved Mapping File: "
+        #     f"{scenario_mapping_file}"
+        # )
 
         # --------------------------------
         # LOAD REQUIREMENTS
@@ -322,10 +322,10 @@ class GeneratorAgent:
                 file_path
             )
 
-            print(
-                f"Generated Test: "
-                f"{file_path}"
-            )
+            # print(
+            #     f"Generated Test: "
+            #     f"{file_path}"
+            # )
 
         # --------------------------------
         # TRACEABILITY

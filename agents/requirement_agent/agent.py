@@ -111,15 +111,6 @@ class RequirementAgent:
                     result
                 )
 
-                print(
-                    f"Chunk {index}: SUCCESS"
-                )
-
-                print(
-                    f"Requirements: "
-                    f"{len(result.requirements)}"
-                )
-
             except Exception as e:
 
                 failed_chunks.append(
@@ -204,9 +195,9 @@ class RequirementAgent:
             f"{len(merged_result.application_urls)}"
         )
 
-        print(
-            "\nRunning Coverage Validation..."
-        )
+        # print(
+        #     "\nRunning Coverage Validation..."
+        # )
 
         coverage_findings = (
             CoverageValidator.validate(
@@ -218,34 +209,34 @@ class RequirementAgent:
         # TRACEABILITY SUMMARY
         # --------------------------------
 
-        print(
-            "\n========== TRACEABILITY SUMMARY =========="
-        )
+        # print(
+        #     "\n========== TRACEABILITY SUMMARY =========="
+        # )
 
-        print(
-            f"Requirements         : "
-            f"{len(merged_result.requirements)}"
-        )
+        # print(
+        #     f"Requirements         : "
+        #     f"{len(merged_result.requirements)}"
+        # )
 
-        print(
-            f"Acceptance Criteria  : "
-            f"{len(merged_result.acceptance_criteria)}"
-        )
+        # print(
+        #     f"Acceptance Criteria  : "
+        #     f"{len(merged_result.acceptance_criteria)}"
+        # )
 
-        print(
-            f"Positive Scenarios   : "
-            f"{len(merged_result.positive_scenarios)}"
-        )
+        # print(
+        #     f"Positive Scenarios   : "
+        #     f"{len(merged_result.positive_scenarios)}"
+        # )
 
-        print(
-            f"Negative Scenarios   : "
-            f"{len(merged_result.negative_scenarios)}"
-        )
+        # print(
+        #     f"Negative Scenarios   : "
+        #     f"{len(merged_result.negative_scenarios)}"
+        # )
 
-        print(
-            f"Boundary Scenarios   : "
-            f"{len(merged_result.boundary_scenarios)}"
-        )
+        # print(
+        #     f"Boundary Scenarios   : "
+        #     f"{len(merged_result.boundary_scenarios)}"
+        # )
 
         print(
             "\nRunning Coverage Validation..."
@@ -258,9 +249,9 @@ class RequirementAgent:
 
         if coverage_findings:
 
-            print(
-                "\n========== COVERAGE DETAILS =========="
-            )
+            # print(
+            #     "\n========== COVERAGE DETAILS =========="
+            # )
 
             high_count = 0
             medium_count = 0
@@ -279,62 +270,62 @@ class RequirementAgent:
                 ):
                     medium_count += 1
 
-                print(
-                    f"\n[{finding.severity}] "
-                    f"{finding.finding_id}"
-                )
+                # print(
+                #     f"\n[{finding.severity}] "
+                #     f"{finding.finding_id}"
+                # )
 
-                print(
-                    f"Requirement ID: "
-                    f"{finding.requirement_id}"
-                )
+                # print(
+                #     f"Requirement ID: "
+                #     f"{finding.requirement_id}"
+                # )
 
-                print(
-                    f"Description: "
-                    f"{finding.description}"
-                )
+                # print(
+                #     f"Description: "
+                #     f"{finding.description}"
+                # )
 
-                print(
-                    f"Recommendation: "
-                    f"{finding.recommendation}"
-                )
+                # print(
+                #     f"Recommendation: "
+                #     f"{finding.recommendation}"
+                # )
 
-            print(
-                "\n========== COVERAGE SUMMARY =========="
-            )
+            # print(
+            #     "\n========== COVERAGE SUMMARY =========="
+            # )
 
-            print(
-                f"HIGH   : {high_count}"
-            )
+            # print(
+            #     f"HIGH   : {high_count}"
+            # )
 
-            print(
-                f"MEDIUM : {medium_count}"
-            )
+            # print(
+            #     f"MEDIUM : {medium_count}"
+            # )
 
-        print(
-            f"\nTotal Requirements: "
-            f"{len(merged_result.requirements)}"
-        )
+        # print(
+        #     f"\nTotal Requirements: "
+        #     f"{len(merged_result.requirements)}"
+        # )
 
-        print(
-            f"Total Acceptance Criteria: "
-            f"{len(merged_result.acceptance_criteria)}"
-        )
+        # print(
+        #     f"Total Acceptance Criteria: "
+        #     f"{len(merged_result.acceptance_criteria)}"
+        # )
 
-        print(
-            f"Total Positive Scenarios: "
-            f"{len(merged_result.positive_scenarios)}"
-        )
+        # print(
+        #     f"Total Positive Scenarios: "
+        #     f"{len(merged_result.positive_scenarios)}"
+        # )
 
-        print(
-            f"Total Negative Scenarios: "
-            f"{len(merged_result.negative_scenarios)}"
-        )
+        # print(
+        #     f"Total Negative Scenarios: "
+        #     f"{len(merged_result.negative_scenarios)}"
+        # )
 
-        print(
-            f"Total Boundary Scenarios: "
-            f"{len(merged_result.boundary_scenarios)}"
-        )
+        # print(
+        #     f"Total Boundary Scenarios: "
+        #     f"{len(merged_result.boundary_scenarios)}"
+        # )
 
         errors = (
             RequirementValidator.validate(

@@ -32,12 +32,6 @@ class DiscoveryAgent:
         verbose: bool = True
     ):
 
-        if verbose:
-
-            print(
-                f"Discovered: {page.url}"
-            )
-
         try:
 
             tables = (
@@ -155,13 +149,6 @@ class DiscoveryAgent:
                 inventory.model_dump(),
                 file,
                 indent=4
-            )
-
-        if verbose:
-
-            print(
-                f"\nPage Inventory saved to: "
-                f"{inventory_file}"
             )
 
         return str(

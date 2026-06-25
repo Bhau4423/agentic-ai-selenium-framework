@@ -4,17 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.UploadPage;
+import pages.DownloadPage;
 
 public class UploadWithoutSelectingFileTest extends BaseTest {
 
     @Test
     public void uploadWithoutSelectingFile() {
 
-        UploadPage page = new UploadPage(driver);
-
-        wait.until(ExpectedConditions.visibilityOf(page.get_file()));
-        // UNKNOWN ACTION : FILE_UPLOAD
+        DownloadPage page = new DownloadPage(driver);
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 

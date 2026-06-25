@@ -193,20 +193,15 @@ class PatchExecutor:
             ==
             "ADD_ASSERTION"
         ):
-
-            print("\n===== ASSERTION PATCH DEBUG =====")
-            print("Scenario :", scenario_title)
-            print("Assertion:", assertion_code)
-            content = (
+            if "Assert." not in content:
+                content = (
                
-                content.replace(
-                    "\n    }\n",
-                    f"\n        {assertion_code}\n\n    }}\n"
+                    content.replace(
+                        "\n    }\n",
+                        f"\n        {assertion_code}\n\n    }}\n"
+                    )
                 )
-            )
 
-            print("Assertion inserted.")
-            print("===== END ASSERTION PATCH DEBUG =====\n")
 
         return content
 
@@ -223,9 +218,9 @@ class PatchExecutor:
            )
         )
 
-        print("\n===== WAIT PATCH DEBUG =====")
-        print(f"Reason        : {plan.reason}")
-        print(f"Target Action : {target_action}")
+        # print("\n===== WAIT PATCH DEBUG =====")
+        # print(f"Reason        : {plan.reason}")
+        # print(f"Target Action : {target_action}")
 
         if not target_action:
 
@@ -236,7 +231,7 @@ class PatchExecutor:
             target_action
         )
 
-        print(f"Element Match : {element_match}")
+        # print(f"Element Match : {element_match}")
         if not element_match:
 
             return content
@@ -245,7 +240,7 @@ class PatchExecutor:
             element_match.group(1)
         )
 
-        print(f"Element Name  : {element_name}")
+        # print(f"Element Name  : {element_name}")
 
         interaction_keywords = [
 
@@ -291,11 +286,11 @@ class PatchExecutor:
                 )
             )
 
-            print(f"Checking Line : {stripped_line}")
+            # print(f"Checking Line : {stripped_line}")
 
             if is_target_interaction:
 
-                print("Interaction Found")
+                # print("Interaction Found")
 
                 wait_already_exists = False
 
@@ -350,14 +345,14 @@ class PatchExecutor:
                 line
             )
 
-        if wait_inserted:
+        # if wait_inserted:
 
-            print(
-                f"Inserted wait for element: {element_name}"
-            )
+            # print(
+            #     f"Inserted wait for element: {element_name}"
+            # )
 
-            print(f"Wait Inserted : {wait_inserted}")
-            print("===== END WAIT PATCH DEBUG =====\n")
+            # print(f"Wait Inserted : {wait_inserted}")
+            # print("===== END WAIT PATCH DEBUG =====\n")
 
         return "\n".join(
             updated_lines
@@ -391,23 +386,23 @@ class PatchExecutor:
             )
         )
 
-        print(
-            "\n===== HALLUCINATION PATCH DEBUG ====="
-        )
+        # print(
+        #     "\n===== HALLUCINATION PATCH DEBUG ====="
+        # )
 
-        print(
-            f"Invalid Getter : {invalid_getter}"
-        )
+        # print(
+        #     f"Invalid Getter : {invalid_getter}"
+        # )
 
-        print(
-            f"Replacement    : {replacement}"
-        )
+        # print(
+        #     f"Replacement    : {replacement}"
+        # )
 
         if not replacement:
 
-            print(
-                "No replacement found."
-            )
+            # print(
+            #     "No replacement found."
+            # )
 
             return content
 
@@ -417,13 +412,13 @@ class PatchExecutor:
             content
         )
 
-        print(
-            "Getter replaced successfully."
-        )
+        # print(
+        #     "Getter replaced successfully."
+        # )
 
-        print(
-            "===== END DEBUG =====\n"
-        )
+        # print(
+        #     "===== END DEBUG =====\n"
+        # )
 
         return content
 
@@ -456,10 +451,10 @@ class PatchExecutor:
             getter_code + "\n}"
         )
 
-        print(
-            f"Generated Getter: "
-            f"get_{element_name}()"
-        )
+        # print(
+        #     f"Generated Getter: "
+        #     f"get_{element_name}()"
+        # )
 
         return content
 
@@ -486,10 +481,10 @@ class PatchExecutor:
             )
         )
 
-        print(
-            f"Generated Missing Test: "
-            f"{generated_file}"
-        )
+        # print(
+        #     f"Generated Missing Test: "
+        #     f"{generated_file}"
+        # )
 
         return generated_file
 
@@ -516,10 +511,10 @@ class PatchExecutor:
             )
         )
 
-        print(
-            f"Generated Coverage Test: "
-            f"{generated_file}"
-        )
+        # print(
+        #     f"Generated Coverage Test: "
+        #     f"{generated_file}"
+        # )
 
         return generated_file
 
@@ -546,10 +541,10 @@ class PatchExecutor:
             )
         )
 
-        print(
-            f"Generated Edge Case Test: "
-            f"{generated_file}"
-        )
+        # print(
+        #     f"Generated Edge Case Test: "
+        #     f"{generated_file}"
+        # )
 
         return generated_file
 
@@ -583,25 +578,6 @@ class PatchExecutor:
 
                 print(
                     "----------------------------------------"
-                )
-
-                plan.patch_status = "SKIPPED"
-
-                results.append(
-                    plan
-                )
-
-                continue
-
-            if PatchExecutor.should_skip_patch(
-                plan,
-                completed_patches
-            ):
-
-                print(
-                    "\nSkipping Patch "
-                    f"({plan.category}) - "
-                    "Already resolved."
                 )
 
                 plan.patch_status = "SKIPPED"

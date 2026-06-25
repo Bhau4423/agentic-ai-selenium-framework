@@ -4,23 +4,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.JavascriptAlertsPage;
+import pages.GeolocationPage;
 
 public class DenyLocationPermissionTest extends BaseTest {
 
     @Test
     public void denyLocationPermission() {
 
-        JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
+        GeolocationPage page = new GeolocationPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
-        // UNKNOWN ACTION : ALERT_ACCEPT
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Where_am_I?()));
+        page.get_Where_am_I_().click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Confirm()));
-        page.get_Click_for_JS_Confirm().click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Prompt()));
-        page.get_Click_for_JS_Prompt().click();
+        wait.until(ExpectedConditions.visibilityOf(page.get_Where_am_I?()));
+        // UNKNOWN ACTION : ALERT_DISMISS
 
         Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
 

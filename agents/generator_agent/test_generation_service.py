@@ -26,10 +26,10 @@ class TestGenerationService:
             )
         )
 
-        print(
-            f"Semantic Confidence: "
-            f"{semantic_mapping.confidence_score}"
-        )
+        # print(
+        #     f"Semantic Confidence: "
+        #     f"{semantic_mapping.confidence_score}"
+        # )
 
         file_path = (
             JavaTestGenerator.save(

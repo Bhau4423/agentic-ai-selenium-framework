@@ -13,6 +13,12 @@ public class LoginWithValidCredentialsTest extends BaseTest {
 
         LoginPage page = new LoginPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_username()));
+        page.get_username().sendKeys("TEST_DATA");
+
+        wait.until(ExpectedConditions.visibilityOf(page.get_password()));
+        page.get_password().sendKeys("TEST_DATA");
+
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
         page.get_Login().click();
 

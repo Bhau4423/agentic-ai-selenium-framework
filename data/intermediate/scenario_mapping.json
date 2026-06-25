@@ -91,85 +91,39 @@
         "scenario_id": "POS-003",
         "scenario_title": "Upload Valid File",
         "scenario_type": "POSITIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 0.87,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "file-submit",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-submit",
-                    "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
         "scenario_id": "POS-004",
-        "scenario_title": "Verify File Name Display",
-        "scenario_type": "POSITIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 0.87,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "file-submit",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-submit",
-                    "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "POS-005",
-        "scenario_title": "Download Available File",
+        "scenario_title": "Verify Uploaded Filename",
         "scenario_type": "POSITIVE",
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-005",
+        "scenario_title": "Download Existing File",
+        "scenario_type": "POSITIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
         "scenario_id": "POS-006",
-        "scenario_title": "Verify File List Presence",
+        "scenario_title": "Verify File Integrity",
         "scenario_type": "POSITIVE",
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
+        "confidence_score": 0.6,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
@@ -383,7 +337,7 @@
     },
     {
         "scenario_id": "POS-013",
-        "scenario_title": "Verify No Error Message On Success",
+        "scenario_title": "No Error Message on Success",
         "scenario_type": "POSITIVE",
         "page_name": "login",
         "page_url": "https://the-internet.herokuapp.com/login",
@@ -471,6 +425,16 @@
     },
     {
         "scenario_id": "POS-016",
+        "scenario_title": "Upload File via Selection",
+        "scenario_type": "POSITIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-017",
         "scenario_title": "Upload File via Drag and Drop",
         "scenario_type": "POSITIVE",
         "page_name": "drag_and_drop",
@@ -480,52 +444,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-017",
-        "scenario_title": "Trigger Alert Successfully",
-        "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 1.0,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
-    },
-    {
         "scenario_id": "POS-018",
-        "scenario_title": "Dismiss Alert Successfully",
+        "scenario_title": "Trigger Alert Dialog",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -569,6 +489,50 @@
     },
     {
         "scenario_id": "POS-019",
+        "scenario_title": "Dismiss Alert Dialog",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-020",
         "scenario_title": "Trigger Confirm Dialog",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
@@ -612,7 +576,7 @@
         ]
     },
     {
-        "scenario_id": "POS-020",
+        "scenario_id": "POS-021",
         "scenario_title": "Trigger Prompt Dialog",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
@@ -656,18 +620,8 @@
         ]
     },
     {
-        "scenario_id": "POS-021",
-        "scenario_title": "Load Drag and Drop Page",
-        "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
         "scenario_id": "POS-022",
-        "scenario_title": "Verify Drag and Drop Visibility",
+        "scenario_title": "Verify Drag and Drop Region",
         "scenario_type": "POSITIVE",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
@@ -677,6 +631,16 @@
     },
     {
         "scenario_id": "POS-023",
+        "scenario_title": "Verify Drag and Drop Content",
+        "scenario_type": "POSITIVE",
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-024",
         "scenario_title": "Verify Table Columns",
         "scenario_type": "POSITIVE",
         "page_name": "tables",
@@ -686,7 +650,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-024",
+        "scenario_id": "POS-025",
         "scenario_title": "Verify Table Data",
         "scenario_type": "POSITIVE",
         "page_name": "tables",
@@ -696,7 +660,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-025",
+        "scenario_id": "POS-026",
         "scenario_title": "Verify Edit Action Presence",
         "scenario_type": "POSITIVE",
         "page_name": "tables",
@@ -706,7 +670,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-026",
+        "scenario_id": "POS-027",
         "scenario_title": "Verify Delete Action Presence",
         "scenario_type": "POSITIVE",
         "page_name": "tables",
@@ -716,18 +680,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-027",
-        "scenario_title": "Verify Message Display",
-        "scenario_type": "POSITIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
         "scenario_id": "POS-028",
-        "scenario_title": "Verify Heading Display",
+        "scenario_title": "Verify Initial Notification",
         "scenario_type": "POSITIVE",
         "page_name": "notification_message_rendered",
         "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
@@ -737,7 +691,7 @@
     },
     {
         "scenario_id": "POS-029",
-        "scenario_title": "Load New Message",
+        "scenario_title": "Verify Notification Content",
         "scenario_type": "POSITIVE",
         "page_name": "notification_message_rendered",
         "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
@@ -747,7 +701,7 @@
     },
     {
         "scenario_id": "POS-030",
-        "scenario_title": "Multiple Message Loads",
+        "scenario_title": "Trigger New Message",
         "scenario_type": "POSITIVE",
         "page_name": "notification_message_rendered",
         "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
@@ -757,17 +711,17 @@
     },
     {
         "scenario_id": "POS-031",
-        "scenario_title": "Verify Ad on Load",
+        "scenario_title": "Verify Multiple Message Loads",
         "scenario_type": "POSITIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 0.54,
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
         "scenario_id": "POS-032",
-        "scenario_title": "Verify Ad Distinction",
+        "scenario_title": "Verify Ad Appearance",
         "scenario_type": "POSITIVE",
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
@@ -777,7 +731,7 @@
     },
     {
         "scenario_id": "POS-033",
-        "scenario_title": "Close Ad",
+        "scenario_title": "Verify Ad Visibility",
         "scenario_type": "POSITIVE",
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
@@ -787,16 +741,26 @@
     },
     {
         "scenario_id": "POS-034",
-        "scenario_title": "Verify Suppression",
+        "scenario_title": "Close Advertisement",
         "scenario_type": "POSITIVE",
-        "page_name": "infinite_scroll",
-        "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
-        "confidence_score": 0.06,
-        "mapping_quality": "LOW",
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
         "scenario_id": "POS-035",
+        "scenario_title": "Verify Ad Suppression",
+        "scenario_type": "POSITIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.3,
+        "mapping_quality": "LOW",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-036",
         "scenario_title": "Re-enable Ad Successfully",
         "scenario_type": "POSITIVE",
         "page_name": "entry_ad",
@@ -806,17 +770,17 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-036",
-        "scenario_title": "Verify Ad Persistence",
+        "scenario_id": "POS-037",
+        "scenario_title": "Verify Ad Remains Hidden",
         "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "page_name": "entry_ad",
+        "page_url": "https://the-internet.herokuapp.com/entry_ad",
         "confidence_score": 0.6,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-037",
+        "scenario_id": "POS-038",
         "scenario_title": "Observe Typo Presence",
         "scenario_type": "POSITIVE",
         "page_name": "typos",
@@ -826,7 +790,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-038",
+        "scenario_id": "POS-039",
         "scenario_title": "Observe Typo Absence",
         "scenario_type": "POSITIVE",
         "page_name": "typos",
@@ -836,7 +800,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-039",
+        "scenario_id": "POS-040",
         "scenario_title": "Add Single Element",
         "scenario_type": "POSITIVE",
         "page_name": "add_remove_elements",
@@ -858,7 +822,7 @@
         ]
     },
     {
-        "scenario_id": "POS-040",
+        "scenario_id": "POS-041",
         "scenario_title": "Add Multiple Elements",
         "scenario_type": "POSITIVE",
         "page_name": "add_remove_elements",
@@ -880,30 +844,8 @@
         ]
     },
     {
-        "scenario_id": "POS-041",
-        "scenario_title": "Remove Single Element",
-        "scenario_type": "POSITIVE",
-        "page_name": "add_remove_elements",
-        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
-        "confidence_score": 0.73,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": [
-            {
-                "element_name": "Add Element",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Add Element']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
         "scenario_id": "POS-042",
-        "scenario_title": "Remove Multiple Elements",
+        "scenario_title": "Remove Single Added Element",
         "scenario_type": "POSITIVE",
         "page_name": "add_remove_elements",
         "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
@@ -925,6 +867,28 @@
     },
     {
         "scenario_id": "POS-043",
+        "scenario_title": "Remove Multiple Added Elements",
+        "scenario_type": "POSITIVE",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Add Element",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Add Element']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 100.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-044",
         "scenario_title": "Reveal Details on Hover",
         "scenario_type": "POSITIVE",
         "page_name": "hovers",
@@ -934,7 +898,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-044",
+        "scenario_id": "POS-045",
         "scenario_title": "Hide Details on Mouse Out",
         "scenario_type": "POSITIVE",
         "page_name": "hovers",
@@ -944,18 +908,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-045",
-        "scenario_title": "Refresh Content",
-        "scenario_type": "POSITIVE",
-        "page_name": "dynamic_content",
-        "page_url": "https://the-internet.herokuapp.com/dynamic_content",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
         "scenario_id": "POS-046",
-        "scenario_title": "Enable Static Content",
+        "scenario_title": "Refresh Dynamic Content",
         "scenario_type": "POSITIVE",
         "page_name": "dynamic_content",
         "page_url": "https://the-internet.herokuapp.com/dynamic_content",
@@ -965,6 +919,16 @@
     },
     {
         "scenario_id": "POS-047",
+        "scenario_title": "Load Static Content",
+        "scenario_type": "POSITIVE",
+        "page_name": "dynamic_content",
+        "page_url": "https://the-internet.herokuapp.com/dynamic_content",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-048",
         "scenario_title": "Enter Valid Number",
         "scenario_type": "POSITIVE",
         "page_name": "inputs",
@@ -974,8 +938,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-048",
-        "scenario_title": "Increment Value",
+        "scenario_id": "POS-049",
+        "scenario_title": "Increment Number",
         "scenario_type": "POSITIVE",
         "page_name": "inputs",
         "page_url": "https://the-internet.herokuapp.com/inputs",
@@ -984,18 +948,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-049",
-        "scenario_title": "Update Slider Value via Mouse",
-        "scenario_type": "POSITIVE",
-        "page_name": "drag_and_drop",
-        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
         "scenario_id": "POS-050",
-        "scenario_title": "Update Slider Value via Keyboard",
+        "scenario_title": "Update Slider via Mouse",
         "scenario_type": "POSITIVE",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
@@ -1005,51 +959,17 @@
     },
     {
         "scenario_id": "POS-051",
-        "scenario_title": "Trigger Custom Context Menu",
+        "scenario_title": "Update Slider via Keyboard",
         "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 1.0,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "Click for JS Alert",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "drag_and_drop",
+        "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
         "scenario_id": "POS-052",
-        "scenario_title": "Select Context Menu Item",
+        "scenario_title": "Trigger Context Menu",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -1093,27 +1013,125 @@
     },
     {
         "scenario_id": "POS-053",
-        "scenario_title": "Download File",
+        "scenario_title": "Select Context Menu Item",
         "scenario_type": "POSITIVE",
-        "page_name": "download",
-        "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
     },
     {
         "scenario_id": "POS-054",
-        "scenario_title": "Verify File List",
+        "scenario_title": "Trigger Modal on Exit",
         "scenario_type": "POSITIVE",
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
-        "mapping_quality": "MEDIUM",
+        "confidence_score": 0.3,
+        "mapping_quality": "LOW",
         "matched_elements": []
     },
     {
         "scenario_id": "POS-055",
-        "scenario_title": "Retrieve Geolocation",
+        "scenario_title": "Close Modal",
+        "scenario_type": "POSITIVE",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
+        "confidence_score": 1.0,
+        "mapping_quality": "HIGH",
+        "matched_elements": [
+            {
+                "element_name": "Click for JS Alert",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Confirm",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            },
+            {
+                "element_name": "Click for JS Prompt",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "POS-056",
+        "scenario_title": "Download File",
+        "scenario_type": "POSITIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-057",
+        "scenario_title": "Verify File List",
+        "scenario_type": "POSITIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-058",
+        "scenario_title": "Submit Valid Email",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -1156,51 +1174,49 @@
         ]
     },
     {
-        "scenario_id": "POS-056",
-        "scenario_title": "Grant Location Permission",
+        "scenario_id": "POS-059",
+        "scenario_title": "Verify Form Elements",
         "scenario_type": "POSITIVE",
-        "page_name": "javascript_alerts",
-        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 1.0,
-        "mapping_quality": "HIGH",
+        "page_name": "add_remove_elements",
+        "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-060",
+        "scenario_title": "Retrieve Location",
+        "scenario_type": "POSITIVE",
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
         "matched_elements": [
             {
-                "element_name": "Click for JS Alert",
+                "element_name": "Where am I?",
                 "element_type": "button",
                 "locator": {
                     "id": null,
                     "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Alert']",
+                    "xpath": "//button[normalize-space()='Where am I?']",
                     "css_selector": "button"
                 },
                 "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Confirm",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Confirm']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "Click for JS Prompt",
-                "element_type": "button",
-                "locator": {
-                    "id": null,
-                    "name": null,
-                    "xpath": "//button[normalize-space()='Click for JS Prompt']",
-                    "css_selector": "button"
-                },
-                "confidence_score": 100.0
             }
         ]
     },
     {
-        "scenario_id": "POS-057",
+        "scenario_id": "POS-061",
+        "scenario_title": "Verify Button Presence",
+        "scenario_type": "POSITIVE",
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "POS-062",
         "scenario_title": "Handle Alert Dialog",
         "scenario_type": "POSITIVE",
         "page_name": "javascript_alerts",
@@ -1222,7 +1238,7 @@
         ]
     },
     {
-        "scenario_id": "POS-058",
+        "scenario_id": "POS-063",
         "scenario_title": "Adjust Slider via Mouse",
         "scenario_type": "POSITIVE",
         "page_name": "drag_and_drop",
@@ -1232,7 +1248,7 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "POS-059",
+        "scenario_id": "POS-064",
         "scenario_title": "Load Additional Content",
         "scenario_type": "POSITIVE",
         "page_name": "infinite_scroll",
@@ -1289,34 +1305,11 @@
         "scenario_id": "NEG-002",
         "scenario_title": "Upload Without Selecting File",
         "scenario_type": "NEGATIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 0.87,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "file-submit",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-submit",
-                    "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
         "scenario_id": "NEG-003",
@@ -1324,13 +1317,13 @@
         "scenario_type": "NEGATIVE",
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
+        "confidence_score": 0.6,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
         "scenario_id": "NEG-004",
-        "scenario_title": "Attempt Selection Without Interaction",
+        "scenario_title": "Attempt Selection without Interaction",
         "scenario_type": "NEGATIVE",
         "page_name": "dropdown",
         "page_url": "https://the-internet.herokuapp.com/dropdown",
@@ -1352,36 +1345,13 @@
     },
     {
         "scenario_id": "NEG-005",
-        "scenario_title": "Upload Without File Selection",
+        "scenario_title": "Upload without File Selection",
         "scenario_type": "NEGATIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 0.87,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
-                },
-                "confidence_score": 50.0
-            },
-            {
-                "element_name": "file-submit",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-submit",
-                    "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
-                },
-                "confidence_score": 50.0
-            }
-        ]
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
     },
     {
         "scenario_id": "NEG-006",
@@ -1417,7 +1387,7 @@
     },
     {
         "scenario_id": "NEG-008",
-        "scenario_title": "Verify No Drag and Drop Outside Region",
+        "scenario_title": "Verify Page Load Failure",
         "scenario_type": "NEGATIVE",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
@@ -1427,7 +1397,7 @@
     },
     {
         "scenario_id": "NEG-009",
-        "scenario_title": "Verify No Data Modification",
+        "scenario_title": "Verify Missing Data",
         "scenario_type": "NEGATIVE",
         "page_name": "tables",
         "page_url": "https://the-internet.herokuapp.com/tables",
@@ -1437,27 +1407,27 @@
     },
     {
         "scenario_id": "NEG-010",
-        "scenario_title": "Verify No Action Execution",
+        "scenario_title": "Verify Missing Actions",
         "scenario_type": "NEGATIVE",
         "page_name": "tables",
         "page_url": "https://the-internet.herokuapp.com/tables",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
-        "scenario_id": "NEG-011",
-        "scenario_title": "Verify No Message Without Load",
-        "scenario_type": "NEGATIVE",
-        "page_name": "notification_message_rendered",
-        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
         "confidence_score": 0.54,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
+        "scenario_id": "NEG-011",
+        "scenario_title": "Verify Missing Message",
+        "scenario_type": "NEGATIVE",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
         "scenario_id": "NEG-012",
-        "scenario_title": "Verify No Crash on Load",
+        "scenario_title": "Verify Error Handling on Load",
         "scenario_type": "NEGATIVE",
         "page_name": "notification_message_rendered",
         "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
@@ -1467,7 +1437,7 @@
     },
     {
         "scenario_id": "NEG-013",
-        "scenario_title": "Verify No Ad After Close",
+        "scenario_title": "Verify Ad Not Displayed",
         "scenario_type": "NEGATIVE",
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
@@ -1477,17 +1447,17 @@
     },
     {
         "scenario_id": "NEG-014",
-        "scenario_title": "Verify No Close Without Ad",
+        "scenario_title": "Verify Ad Reappearance",
         "scenario_type": "NEGATIVE",
-        "page_name": "entry_ad",
-        "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "confidence_score": 0.54,
-        "mapping_quality": "MEDIUM",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.3,
+        "mapping_quality": "LOW",
         "matched_elements": []
     },
     {
         "scenario_id": "NEG-015",
-        "scenario_title": "Re-enable Without Closing",
+        "scenario_title": "Attempt Re-enablement Without Closing",
         "scenario_type": "NEGATIVE",
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
@@ -1497,7 +1467,7 @@
     },
     {
         "scenario_id": "NEG-016",
-        "scenario_title": "Force Consistent Text",
+        "scenario_title": "Verify Non-Typo Text Integrity",
         "scenario_type": "NEGATIVE",
         "page_name": "typos",
         "page_url": "https://the-internet.herokuapp.com/typos",
@@ -1507,7 +1477,7 @@
     },
     {
         "scenario_id": "NEG-017",
-        "scenario_title": "Add Element Without Navigation",
+        "scenario_title": "Add Element Without Interaction",
         "scenario_type": "NEGATIVE",
         "page_name": "add_remove_elements",
         "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
@@ -1529,7 +1499,7 @@
     },
     {
         "scenario_id": "NEG-018",
-        "scenario_title": "Remove Non-existent Element",
+        "scenario_title": "Remove Non-Existent Element",
         "scenario_type": "NEGATIVE",
         "page_name": "add_remove_elements",
         "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
@@ -1551,7 +1521,7 @@
     },
     {
         "scenario_id": "NEG-019",
-        "scenario_title": "Hover Outside Target Area",
+        "scenario_title": "Hover Outside Image Area",
         "scenario_type": "NEGATIVE",
         "page_name": "hovers",
         "page_url": "https://the-internet.herokuapp.com/hovers",
@@ -1571,7 +1541,7 @@
     },
     {
         "scenario_id": "NEG-021",
-        "scenario_title": "Enter Non-numeric Characters",
+        "scenario_title": "Enter Non-Numeric Character",
         "scenario_type": "NEGATIVE",
         "page_name": "inputs",
         "page_url": "https://the-internet.herokuapp.com/inputs",
@@ -1581,17 +1551,17 @@
     },
     {
         "scenario_id": "NEG-022",
-        "scenario_title": "Slider Interaction Without Focus",
+        "scenario_title": "Invalid Slider Interaction",
         "scenario_type": "NEGATIVE",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
-        "confidence_score": 0.6,
+        "confidence_score": 0.54,
         "mapping_quality": "MEDIUM",
         "matched_elements": []
     },
     {
         "scenario_id": "NEG-023",
-        "scenario_title": "Right-click Outside Designated Area",
+        "scenario_title": "Click Outside Box",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -1635,21 +1605,31 @@
     },
     {
         "scenario_id": "NEG-024",
-        "scenario_title": "Click Non-existent File",
+        "scenario_title": "Mouse Movement Inside Viewport",
         "scenario_type": "NEGATIVE",
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
-        "confidence_score": 0.54,
-        "mapping_quality": "MEDIUM",
+        "confidence_score": 0.3,
+        "mapping_quality": "LOW",
         "matched_elements": []
     },
     {
         "scenario_id": "NEG-025",
-        "scenario_title": "Deny Location Permission",
+        "scenario_title": "Click Non-existent File",
+        "scenario_type": "NEGATIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-026",
+        "scenario_title": "Submit Empty Form",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
-        "confidence_score": 1.0,
+        "confidence_score": 0.85,
         "mapping_quality": "HIGH",
         "matched_elements": [
             {
@@ -1683,45 +1663,44 @@
                     "xpath": "//button[normalize-space()='Click for JS Prompt']",
                     "css_selector": "button"
                 },
-                "confidence_score": 100.0
-            }
-        ]
-    },
-    {
-        "scenario_id": "NEG-026",
-        "scenario_title": "Submit Without File",
-        "scenario_type": "NEGATIVE",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
-        "confidence_score": 0.87,
-        "mapping_quality": "HIGH",
-        "matched_elements": [
-            {
-                "element_name": "file",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
-                },
                 "confidence_score": 50.0
-            },
-            {
-                "element_name": "file-submit",
-                "element_type": "input",
-                "locator": {
-                    "id": "file-submit",
-                    "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
-                },
-                "confidence_score": 100.0
             }
         ]
     },
     {
         "scenario_id": "NEG-027",
+        "scenario_title": "Deny Location Access",
+        "scenario_type": "NEGATIVE",
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "confidence_score": 0.73,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": [
+            {
+                "element_name": "Where am I?",
+                "element_type": "button",
+                "locator": {
+                    "id": null,
+                    "name": null,
+                    "xpath": "//button[normalize-space()='Where am I?']",
+                    "css_selector": "button"
+                },
+                "confidence_score": 50.0
+            }
+        ]
+    },
+    {
+        "scenario_id": "NEG-028",
+        "scenario_title": "Submit Without File",
+        "scenario_type": "NEGATIVE",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "NEG-029",
         "scenario_title": "Cancel Confirm Dialog",
         "scenario_type": "NEGATIVE",
         "page_name": "javascript_alerts",
@@ -1765,51 +1744,61 @@
         ]
     },
     {
+        "scenario_id": "NEG-030",
+        "scenario_title": "Deny Location Permission",
+        "scenario_type": "NEGATIVE",
+        "page_name": "geolocation",
+        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "confidence_score": 0.54,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
         "scenario_id": "BND-001",
-        "scenario_title": "Upload Large File",
+        "scenario_title": "Upload Empty File",
         "scenario_type": "BOUNDARY",
-        "page_name": "upload",
-        "page_url": "https://the-internet.herokuapp.com/upload",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "BND-002",
+        "scenario_title": "Rapid Toggle Interaction",
+        "scenario_type": "BOUNDARY",
+        "page_name": "checkboxes",
+        "page_url": "https://the-internet.herokuapp.com/checkboxes",
         "confidence_score": 0.87,
         "mapping_quality": "HIGH",
         "matched_elements": [
             {
-                "element_name": "file",
-                "element_type": "input",
+                "element_name": "checkbox_0",
+                "element_type": "checkbox",
                 "locator": {
-                    "id": "file-upload",
-                    "name": "file",
-                    "xpath": "//*[@id='file-upload']",
-                    "css_selector": "#file-upload"
+                    "id": null,
+                    "name": null,
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
                 },
                 "confidence_score": 50.0
             },
             {
-                "element_name": "file-submit",
-                "element_type": "input",
+                "element_name": "checkbox_1",
+                "element_type": "checkbox",
                 "locator": {
-                    "id": "file-submit",
+                    "id": null,
                     "name": null,
-                    "xpath": "//*[@id='file-submit']",
-                    "css_selector": "#file-submit"
+                    "xpath": "//input[@type='checkbox']",
+                    "css_selector": "input[type='checkbox']"
                 },
                 "confidence_score": 50.0
             }
         ]
     },
     {
-        "scenario_id": "BND-002",
-        "scenario_title": "Toggle Multiple Checkboxes",
-        "scenario_type": "BOUNDARY",
-        "page_name": "checkboxes",
-        "page_url": "https://the-internet.herokuapp.com/checkboxes",
-        "confidence_score": 0.6,
-        "mapping_quality": "MEDIUM",
-        "matched_elements": []
-    },
-    {
         "scenario_id": "BND-003",
-        "scenario_title": "Verify Default Prompt State",
+        "scenario_title": "Verify Default Prompt",
         "scenario_type": "BOUNDARY",
         "page_name": "dropdown",
         "page_url": "https://the-internet.herokuapp.com/dropdown",
@@ -1831,7 +1820,7 @@
     },
     {
         "scenario_id": "BND-004",
-        "scenario_title": "Verify Minimum Table Rows",
+        "scenario_title": "Verify Table With Minimum Rows",
         "scenario_type": "BOUNDARY",
         "page_name": "tables",
         "page_url": "https://the-internet.herokuapp.com/tables",
@@ -1841,6 +1830,16 @@
     },
     {
         "scenario_id": "BND-005",
+        "scenario_title": "Verify Rapid Message Loading",
+        "scenario_type": "BOUNDARY",
+        "page_name": "notification_message_rendered",
+        "page_url": "https://the-internet.herokuapp.com/notification_message_rendered",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "BND-006",
         "scenario_title": "Enter Maximum Integer Value",
         "scenario_type": "BOUNDARY",
         "page_name": "inputs",
@@ -1850,8 +1849,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "BND-006",
-        "scenario_title": "Move Slider to Maximum Value",
+        "scenario_id": "BND-007",
+        "scenario_title": "Slider Maximum Value",
         "scenario_type": "BOUNDARY",
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
@@ -1860,8 +1859,8 @@
         "matched_elements": []
     },
     {
-        "scenario_id": "BND-007",
-        "scenario_title": "Submit Empty Email",
+        "scenario_id": "BND-008",
+        "scenario_title": "Maximum Email Length",
         "scenario_type": "BOUNDARY",
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -1904,7 +1903,7 @@
         ]
     },
     {
-        "scenario_id": "BND-008",
+        "scenario_id": "BND-009",
         "scenario_title": "Login With Empty Fields",
         "scenario_type": "BOUNDARY",
         "page_name": "login",
@@ -1948,7 +1947,17 @@
         ]
     },
     {
-        "scenario_id": "BND-009",
+        "scenario_id": "BND-010",
+        "scenario_title": "Upload Large File",
+        "scenario_type": "BOUNDARY",
+        "page_name": "download",
+        "page_url": "https://the-internet.herokuapp.com/download",
+        "confidence_score": 0.6,
+        "mapping_quality": "MEDIUM",
+        "matched_elements": []
+    },
+    {
+        "scenario_id": "BND-011",
         "scenario_title": "Exceed Slider Extremes",
         "scenario_type": "BOUNDARY",
         "page_name": "horizontal_slider",

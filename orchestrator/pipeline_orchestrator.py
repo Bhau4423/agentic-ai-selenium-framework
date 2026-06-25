@@ -2,6 +2,7 @@ import time
 
 from pathlib import Path
 
+from agents import requirement_agent
 from agents.requirement_agent.agent import (
     RequirementAgent
 )
@@ -105,6 +106,8 @@ class PipelineOrchestrator:
                 )
             )
 
+            agent_start = time.time()
+
             requirement_agent = (
                 RequirementAgent()
             )
@@ -115,11 +118,20 @@ class PipelineOrchestrator:
                 )
             )
 
+            agent_time = (
+                time.time()
+                - agent_start
+            )
+
             self.print_status(
                 "COMPLETED"
             )
 
             self.print_success()
+
+            self.print_execution_time(
+                agent_time
+            )
 
             print(
                 f"Requirements Extracted : "
@@ -158,6 +170,8 @@ class PipelineOrchestrator:
                 "RUNNING"
             )
 
+            agent_start = time.time()
+
             discovery_agent = (
                 DiscoveryAgent()
             )
@@ -168,11 +182,20 @@ class PipelineOrchestrator:
                 )
             )
 
+            agent_time = (
+                time.time()
+                - agent_start
+            )
+
             self.print_status(
                 "COMPLETED"
             )
 
             self.print_success()
+
+            self.print_execution_time(
+                agent_time
+            )
 
             print(
                 f"Pages Found           : "
@@ -216,6 +239,8 @@ class PipelineOrchestrator:
                 "RUNNING"
             )
 
+            agent_start = time.time()
+
             generator_agent = (
                 GeneratorAgent()
             )
@@ -224,11 +249,20 @@ class PipelineOrchestrator:
                 generator_agent.generate_framework()
             )
 
+            agent_time = (
+                time.time()
+                - agent_start
+            )
+
             self.print_status(
                 "COMPLETED"
             )
 
             self.print_success()
+
+            self.print_execution_time(
+                agent_time
+            )
 
             print(
                 f"Generated Pages       : "
@@ -267,8 +301,15 @@ class PipelineOrchestrator:
                 "RUNNING"
             )
 
+            agent_start = time.time()
+
             review_result = (
                 ReviewCycleManager.execute()
+            )
+
+            agent_time = (
+                time.time()
+                - agent_start
             )
 
             self.print_status(
@@ -276,6 +317,10 @@ class PipelineOrchestrator:
             )
 
             self.print_success()
+
+            self.print_execution_time(
+                agent_time
+            )
 
             print(
                 f"Review Status         : "
@@ -310,15 +355,38 @@ class PipelineOrchestrator:
                 f"{review_result['status']}"
             )
 
-            print(
-                f"Execution Time        : "
-                f"{total_time} sec"
+            self.print_execution_time(
+                total_time
             )
+
+            print("\nRequirement Analysis")
 
             print(
                 f"Requirements          : "
                 f"{len(requirement_result.requirements)}"
             )
+
+            print(
+                f"Acceptance Criteria   : "
+                f"{len(requirement_result.acceptance_criteria)}"
+            )
+
+            print(
+                f"Positive Scenarios    : "
+                f"{len(requirement_result.positive_scenarios)}"
+            )
+
+            print(
+                f"Negative Scenarios    : "
+                f"{len(requirement_result.negative_scenarios)}"
+            )
+
+            print(
+                f"Boundary Scenarios    : "
+                f"{len(requirement_result.boundary_scenarios)}"
+            )
+
+            print("\nApplication Discovery")
 
             print(
                 f"Pages                 : "
@@ -331,6 +399,23 @@ class PipelineOrchestrator:
             )
 
             print(
+                f"Forms                 : "
+                f"{discovery_result['forms']}"
+            )
+
+            print(
+                f"Links                 : "
+                f"{discovery_result['links']}"
+            )
+
+            print(
+                f"Tables                : "
+                f"{discovery_result['tables']}"
+            )
+
+            print("\nFramework Generation")
+
+            print(
                 f"Generated Pages       : "
                 f"{len(generation_result['generated_pages'])}"
             )
@@ -340,13 +425,15 @@ class PipelineOrchestrator:
                 f"{len(generation_result['generated_tests'])}"
             )
 
+            print("\nReview & Validation")
+
             print(
                 f"Review Iterations     : "
                 f"{review_result['iteration']}"
             )
 
             print(
-                f"Final Report          : "
+                f"Validation Report     : "
                 f"{review_result['report']}"
             )
 
@@ -445,25 +532,57 @@ class PipelineOrchestrator:
 
             print("\n")
 
+            print("=" * 70)
+
+            print(
+                " PIPELINE STATUS "
+            )
+
+            print("=" * 70)
+
+            print()
+
+            print(
+                f"{'Requirement Agent':<25}"
+               f": COMPLETED"
+            )
+
+            print(
+                f"{'Discovery Agent':<25}"
+                f": COMPLETED"
+            )
+
+            print(
+                f"{'Generator Agent':<25}"
+                f": COMPLETED"
+            )
+
+            print(
+                f"{'Reviewer Agent':<25}"
+                f": {review_result['status']}"
+            )
+
+            print()
+
+            print("=" * 70)
+
             if (
                 review_result["status"]
                 ==
                 "APPROVED"
             ):
 
-                print("=" * 70)
                 print(
                     " FRAMEWORK APPROVED "
                 )
-                print("=" * 70)
 
             else:
 
-                print("=" * 70)
                 print(
                     " FRAMEWORK REJECTED "
                 )
-                print("=" * 70)
+
+            print("=" * 70)
 
         except Exception as error:
 
@@ -477,4 +596,31 @@ class PipelineOrchestrator:
 
             print(
                 f"Error : {error}"
+            )
+    
+    @staticmethod
+    def print_execution_time(
+        seconds: float
+    ):
+
+        minutes = int(
+            seconds // 60
+        )
+
+        remaining = int(
+            seconds % 60
+        )
+
+        if minutes == 0:
+
+            print(
+                f"Execution Time : {remaining} sec"
+            )
+
+        else:
+
+            print(
+                f"Execution Time : "
+                f"{minutes} min "
+                f"{remaining} sec"
             )

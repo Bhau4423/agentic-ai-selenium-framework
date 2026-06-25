@@ -4,17 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.UploadPage;
+import pages.DownloadPage;
 
 public class UploadLargeFileTest extends BaseTest {
 
     @Test
     public void uploadLargeFile() {
 
-        UploadPage page = new UploadPage(driver);
-
-        wait.until(ExpectedConditions.visibilityOf(page.get_file()));
-        // UNKNOWN ACTION : FILE_UPLOAD
+        DownloadPage page = new DownloadPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 

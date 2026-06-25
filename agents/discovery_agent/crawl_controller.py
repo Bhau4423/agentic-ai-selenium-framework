@@ -70,10 +70,10 @@ class CrawlController:
             ):
                 continue
 
-            print(
-                f"Discovering: "
-                f"{current_url}"
-            )
+            # print(
+            #     f"Discovering: "
+            #     f"{current_url}"
+            # )
 
             try:
 

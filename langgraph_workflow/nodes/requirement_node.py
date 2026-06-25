@@ -1,3 +1,6 @@
+
+
+
 from agents.requirement_agent.agent import (
     RequirementAgent
 )
@@ -10,7 +13,6 @@ def requirement_node(
     print(
         "\n[LangGraph] Requirement Node"
     )
-
     agent = (
         RequirementAgent()
     )

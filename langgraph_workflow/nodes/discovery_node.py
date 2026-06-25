@@ -1,5 +1,6 @@
 import json
 
+
 from agents.discovery_agent.agent import (
     DiscoveryAgent
 )
@@ -12,7 +13,7 @@ def discovery_node(
     print(
         "\n[LangGraph] Discovery Node"
     )
-
+    
     with open(
         "data/intermediate/requirement_analysis.json",
         "r",

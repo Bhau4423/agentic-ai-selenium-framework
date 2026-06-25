@@ -24,7 +24,7 @@ class Crawler:
 
                 page = browser.new_page()
 
-                print( f"Opening URL: {url}")
+                # print( f"Opening URL: {url}")
                 page.goto(
                      url,
                      wait_until="domcontentloaded",

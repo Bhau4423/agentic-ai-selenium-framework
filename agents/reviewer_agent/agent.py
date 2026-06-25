@@ -264,12 +264,12 @@ class ReviewerAgent:
             len(findings)
         )
 
-        if removed_count > 0:
+        # if removed_count > 0:
 
-            print(
-                f"\nDuplicate Findings Removed: "
-                f"{removed_count}"
-            )
+            # print(
+            #     f"\nDuplicate Findings Removed: "
+            #     f"{removed_count}"
+            # )
 
         # --------------------------------
         # STATUS
@@ -346,35 +346,35 @@ class ReviewerAgent:
             ]
         )
 
-        print(
-            f"\nReview Report: "
-            f"{report_file}"
-        )
+        # print(
+        #     f"\nReview Report: "
+        #     f"{report_file}"
+        # )
 
         print(
             f"Total Findings: "
             f"{len(findings)}"
         )
 
-        print(
-            f"Critical Findings: "
-            f"{critical_count}"
-        )
+        # print(
+        #     f"Critical Findings: "
+        #     f"{critical_count}"
+        # )
 
-        print(
-            f"High Findings: "
-            f"{high_count}"
-        )
+        # print(
+        #     f"High Findings: "
+        #     f"{high_count}"
+        # )
 
-        print(
-            f"Medium Findings: "
-            f"{medium_count}"
-        )
+        # print(
+        #     f"Medium Findings: "
+        #     f"{medium_count}"
+        # )
 
-        print(
-            f"Low Findings: "
-            f"{low_count}"
-        )
+        # print(
+        #     f"Low Findings: "
+        #     f"{low_count}"
+        # )
 
         print(
             f"Status: "
