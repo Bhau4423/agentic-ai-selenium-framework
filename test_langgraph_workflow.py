@@ -1,56 +1,38 @@
-from pathlib import Path
-
 from langgraph_workflow.workflow import (
     LangGraphWorkflow
 )
 
+from pathlib import Path
 
-requirement_file = Path(
-    "input/srs_document.txt"
-)
 
-requirement_document = (
-    requirement_file.read_text(
+def main():
+
+    document = Path(
+        "input/srs_document.txt"
+    ).read_text(
         encoding="utf-8"
     )
-)
 
-graph = (
-    LangGraphWorkflow.build()
-)
+    graph = (
+        LangGraphWorkflow.build()
+    )
 
-result = graph.invoke(
+    result = graph.invoke(
 
-    {
-        "requirement_document":
-            requirement_document,
+        {
+            "requirement_document": document,
+            "review_iteration": 1
+        }
 
-        "requirement_result":
-            {},
+    )
 
-        "discovery_result":
-            {},
+    print(
+        "\n========== FINAL STATE =========="
+    )
 
-        "generation_result":
-            {},
+    print(result)
 
-        "review_result":
-            {},
 
-        "status":
-            "STARTED"
-    }
-)
+if __name__ == "__main__":
 
-print(
-    "\n========== LANGGRAPH RESULT =========="
-)
-
-print(
-    f"Status: {result['status']}"
-)
-
-print(
-    f"Review Result: "
-    f"{result['review_result']}"
-)
+    main()

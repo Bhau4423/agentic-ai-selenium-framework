@@ -19,6 +19,8 @@ public class ToggleMultipleCheckboxesTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_checkbox_1()));
         page.get_checkbox_1().click();
 
+        wait.until(ExpectedConditions.visibilityOf(page.get_checkbox_0()));
+        wait.until(ExpectedConditions.visibilityOf(page.get_checkbox_1()));
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 
     }

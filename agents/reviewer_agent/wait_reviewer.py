@@ -5,6 +5,10 @@ from models.review_finding_model import (
     ReviewFinding
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class WaitReviewer:
 
@@ -13,19 +17,39 @@ class WaitReviewer:
 
         findings = []
 
-        tests_folder = Path(
-            "generated_framework/tests"
+        reported_interactions = set()
+
+        java_files = (
+            ReviewFileProvider
+            .get_generated_test_files()
         )
 
-        if not tests_folder.exists():
+        if not java_files:
 
             return findings
 
         finding_counter = 1
 
-        for java_file in tests_folder.glob(
-            "*.java"
-        ):
+        interaction_keywords = [
+
+            ".click(",
+            ".sendKeys(",
+            ".clear(",
+            ".submit(",
+            ".selectByVisibleText(",
+            ".selectByValue(",
+            ".selectByIndex("
+        ]
+
+        wait_keywords = [
+
+            "elementToBeClickable",
+            "visibilityOf",
+            "presenceOfElementLocated",
+            "visibilityOfElementLocated"
+        ]
+
+        for java_file in java_files:
 
             with open(
                 java_file,
@@ -33,26 +57,69 @@ class WaitReviewer:
                 encoding="utf-8"
             ) as file:
 
-                content = file.read()
+                lines = file.readlines()
 
-            lines = content.splitlines()
+        # ---------------------------------
+        # REMOVE COMMENTS
+        # ---------------------------------
 
-            # -------------------------
-            # CLICK VALIDATION
-            # -------------------------
+            cleaned_lines = []
 
-            for index, line in enumerate(lines):
+            inside_block_comment = False
 
-                if ".click();" not in line:
+            for line in lines:
+
+                stripped = line.strip()
+
+                if stripped.startswith("/*"):
+
+                    inside_block_comment = True
                     continue
 
-                click_line = line.strip()
+                if inside_block_comment:
+
+                    if "*/" in stripped:
+
+                        inside_block_comment = False
+
+                        continue
+
+                if stripped.startswith("//"):
+
+                    continue
+
+                cleaned_lines.append(line)
+
+        # ---------------------------------
+        # CHECK INTERACTIONS
+        # ---------------------------------
+
+            for index, line in enumerate(
+                cleaned_lines
+            ):
+
+                stripped_line = (
+                    line.strip()
+                )
+
+                interaction_found = False
+
+                for keyword in interaction_keywords:
+
+                    if keyword in stripped_line:
+
+                        interaction_found = True
+                        break
+
+                if not interaction_found:
+
+                    continue
 
                 wait_found = False
 
                 search_start = max(
-                    0,
-                    index - 3
+                   0,
+                   index - 10
                 )
 
                 for previous_index in range(
@@ -61,20 +128,39 @@ class WaitReviewer:
                 ):
 
                     previous_line = (
-                        lines[
+                        cleaned_lines[
                             previous_index
                         ]
                     )
 
-                    if (
-                        "elementToBeClickable"
-                        in previous_line
-                    ):
+                    for wait_keyword in wait_keywords:
 
-                        wait_found = True
+                        if (
+                            wait_keyword
+                            in previous_line
+                        ):
+
+                            wait_found = True
+                            break
+
+                    if wait_found:
+
                         break
 
                 if not wait_found:
+
+                    interaction_key = (
+                        java_file.name,
+                        stripped_line
+                    )
+
+                    if interaction_key in reported_interactions:
+
+                        continue
+
+                    reported_interactions.add(
+                        interaction_key
+                    )
 
                     findings.append(
 
@@ -84,7 +170,7 @@ class WaitReviewer:
                             f"WAIT-{finding_counter:03}",
 
                             severity=
-                            "MEDIUM",
+                            "HIGH",
 
                             category=
                             "WAIT",
@@ -93,13 +179,18 @@ class WaitReviewer:
                             java_file.name,
 
                             description=
-                            f"Missing wait before click: {click_line}",
+                            (
+                                "Missing wait before interaction: "
+                                f"{stripped_line}"
+                            ),
 
                             recommendation=
-                            "Add elementToBeClickable wait.",
+                            (
+                                "Add appropriate explicit wait before interacting with the element."
+                            ),
 
                             impacted_component=
-                            "Test Script",
+                            "Generated Test",
 
                             auto_fixable=
                             True
@@ -108,46 +199,48 @@ class WaitReviewer:
 
                     finding_counter += 1
 
-            # -------------------------
-            # SEND_KEYS VALIDATION
-            # -------------------------
+        # ---------------------------------
+        # STANDALONE WAIT CHECK
+        # ---------------------------------
 
-            for index, line in enumerate(lines):
+            contains_wait = False
 
-                if ".sendKeys(" not in line:
-                    continue
+            contains_page_element = False
 
-                input_line = (
-                    line.strip()
-                )
+            for line in cleaned_lines:
 
-                wait_found = False
+                if "wait.until(" in line:
 
-                search_start = max(
-                    0,
-                    index - 3
-                )
+                    contains_wait = True
 
-                for previous_index in range(
-                    search_start,
-                    index
-                ):
+                if "page.get_" in line:
 
-                    previous_line = (
-                        lines[
-                            previous_index
-                        ]
-                    )
+                    contains_page_element = True
 
-                    if (
-                        "visibilityOf"
-                        in previous_line
-                    ):
+            if (
 
-                        wait_found = True
+                contains_page_element
+                and
+                not contains_wait
+
+            ):
+
+                has_interaction = False
+
+                for line in cleaned_lines:
+
+                    for keyword in interaction_keywords:
+
+                        if keyword in line:
+
+                            has_interaction = True
+                            break
+
+                    if has_interaction:
+
                         break
 
-                if not wait_found:
+                if not has_interaction:
 
                     findings.append(
 
@@ -157,7 +250,7 @@ class WaitReviewer:
                             f"WAIT-{finding_counter:03}",
 
                             severity=
-                            "MEDIUM",
+                            "HIGH",
 
                             category=
                             "WAIT",
@@ -166,13 +259,17 @@ class WaitReviewer:
                             java_file.name,
 
                             description=
-                            f"Missing visibility wait: {input_line}",
+                            (
+                                "No explicit wait found in generated test."
+                            ),
 
                             recommendation=
-                            "Add visibilityOf wait.",
+                            (
+                                "Insert explicit wait before interacting with page elements."
+                            ),
 
                             impacted_component=
-                            "Test Script",
+                            "Generated Test",
 
                             auto_fixable=
                             True

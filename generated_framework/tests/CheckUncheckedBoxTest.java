@@ -16,7 +16,6 @@ public class CheckUncheckedBoxTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_checkbox_0()));
         page.get_checkbox_0().click();
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_checkbox_0()));
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 
     }

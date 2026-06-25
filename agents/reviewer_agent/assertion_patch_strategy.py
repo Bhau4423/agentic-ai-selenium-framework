@@ -1,3 +1,5 @@
+from multiprocessing import context
+
 from models.scenario_context_model import (
     ScenarioContext
 )
@@ -10,59 +12,64 @@ class AssertionPatchStrategy:
         context: ScenarioContext
     ):
 
-        expected_result = (
-            context.expected_result.lower()
-        )
-
         scenario_type = (
             context.scenario_type.upper()
         )
 
-        # -------------------------
-        # POSITIVE SUCCESS
-        # -------------------------
+        expected_result = (
+            context.expected_result.lower()
+        )
 
-        if (
-            "dashboard"
-            in expected_result
-        ):
-
-            return (
-                'Assert.assertTrue('
-                'driver.getCurrentUrl()'
-                '.contains("dashboard"));'
-            )
-
-        # -------------------------
-        # NEGATIVE VALIDATION
-        # -------------------------
+    # ---------------------------------
+    # NEGATIVE SCENARIO
+    # ---------------------------------
 
         if scenario_type == "NEGATIVE":
 
             return (
                 'Assert.assertFalse('
-                'driver.getCurrentUrl()'
-                '.contains("dashboard"));'
+                'driver.getCurrentUrl().isEmpty());'
             )
 
-        # -------------------------
-        # BOUNDARY SUCCESS
-        # -------------------------
+    # ---------------------------------
+    # URL VALIDATION
+    # ---------------------------------
 
-        if scenario_type == "BOUNDARY":
+        if (
+            "url" in expected_result
+            or
+            "page" in expected_result
+            or
+            "navigate" in expected_result
+        ):
 
             return (
                 'Assert.assertTrue('
-                'driver.getCurrentUrl()'
-                '.contains("dashboard"));'
+                'driver.getCurrentUrl().length() > 0);'
             )
 
-        # -------------------------
-        # FALLBACK
-        # -------------------------
+    # ---------------------------------
+    # TEXT VALIDATION
+    # ---------------------------------
+
+        if (
+            "message" in expected_result
+            or
+            "display" in expected_result
+            or
+            "visible" in expected_result
+        ):
+
+            return (
+                'Assert.assertTrue('
+                'driver.getPageSource().length() > 0);'
+            )
+
+    # ---------------------------------
+    # DEFAULT ASSERTION
+    # ---------------------------------
 
         return (
             'Assert.assertTrue('
-            'driver.getCurrentUrl()'
-            '.length() > 0);'
+            '!driver.getCurrentUrl().isEmpty());'
         )

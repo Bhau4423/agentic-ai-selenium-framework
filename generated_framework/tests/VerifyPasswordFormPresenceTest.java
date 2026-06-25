@@ -13,8 +13,9 @@ public class VerifyPasswordFormPresenceTest extends BaseTest {
 
         ForgotPasswordPage page = new ForgotPasswordPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_Retrieve_password()));
-        page.get_Retrieve_password().sendKeys("TEST_DATA");
+        // wait.until(ExpectedConditions.visibilityOf(page.get_password()));
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_password()));
+        page.get_password().sendKeys("TEST_DATA");
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

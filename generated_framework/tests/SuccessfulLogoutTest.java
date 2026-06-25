@@ -13,6 +13,7 @@ public class SuccessfulLogoutTest extends BaseTest {
 
         LoginPage page = new LoginPage(driver);
 
+        // wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
         page.get_Login().click();
 

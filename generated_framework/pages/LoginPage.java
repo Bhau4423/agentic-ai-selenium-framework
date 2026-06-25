@@ -32,9 +32,6 @@ public class LoginPage {
         return password;
     }
 
-    public WebElement get_Login() {
-        return Login;
-    }
 
     public void enterUsername(String value) {
         username.clear();
@@ -60,6 +57,11 @@ public class LoginPage {
 
     public boolean isLoginVisible() {
         return Login.isDisplayed();
+    }
+
+
+    public WebElement get_Login() {
+        return Login;
     }
 
 }

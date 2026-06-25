@@ -16,8 +16,8 @@ public class SubmitValidEmailForPasswordRetrievalTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOf(page.get_email()));
         page.get_email().sendKeys("TEST_DATA");
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_Retrieve_password()));
-        page.get_Retrieve_password().sendKeys("TEST_DATA");
+        wait.until(ExpectedConditions.visibilityOf(page.get_password()));
+        page.get_password().sendKeys("TEST_DATA");
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

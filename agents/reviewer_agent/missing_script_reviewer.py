@@ -5,6 +5,10 @@ from models.review_finding_model import (
     ReviewFinding
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class MissingScriptReviewer:
 
@@ -83,21 +87,17 @@ class MissingScriptReviewer:
             MissingScriptReviewer.load_scenarios()
         )
 
-        tests_folder = Path(
-            "generated_framework/tests"
+        java_files = (
+           ReviewFileProvider
+           .get_generated_test_files()
         )
 
-        generated_tests = set()
+        generated_tests = {
 
-        if tests_folder.exists():
+            java_file.name
 
-            for java_file in tests_folder.glob(
-                "*.java"
-            ):
-
-                generated_tests.add(
-                    java_file.name
-                )
+            for java_file in java_files
+        }
 
         finding_counter = 1
 
@@ -144,10 +144,16 @@ class MissingScriptReviewer:
                         ),
 
                         description=
-                        "Scenario exists but test script was not generated.",
+                        (
+                            "Expected generated test script "
+                            "is missing."
+                        ),
 
                         recommendation=
-                        "Generate missing test script.",
+                        (
+                            "Regenerate the missing "
+                            "test script."
+                        ),
 
                         impacted_component=
                         "Test Generation",

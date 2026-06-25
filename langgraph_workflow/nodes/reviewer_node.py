@@ -32,4 +32,8 @@ def reviewer_node(
         "review_result"
     ] = result
 
+    state[
+        "review_iteration"
+    ] = iteration + 1
+
     return state

@@ -4,22 +4,25 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.ForgotPasswordPage;
+import pages.JavascriptAlertsPage;
 
 public class SubmitEmptyEmailTest extends BaseTest {
 
     @Test
     public void submitEmptyEmail() {
 
-        ForgotPasswordPage page = new ForgotPasswordPage(driver);
+        JavascriptAlertsPage page = new JavascriptAlertsPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_email()));
-        page.get_email().sendKeys("TEST_DATA");
+        wait.until(ExpectedConditions.visibilityOf(page.get_Click_for_JS_Alert()));
+        // UNKNOWN ACTION : ALERT_ACCEPT
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_Retrieve_password()));
-        page.get_Retrieve_password().sendKeys("TEST_DATA");
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Confirm()));
+        page.get_Click_for_JS_Confirm().click();
 
-        Assert.assertFalse(driver.getCurrentUrl().contains("dashboard"));
+        wait.until(ExpectedConditions.elementToBeClickable(page.get_Click_for_JS_Prompt()));
+        page.get_Click_for_JS_Prompt().click();
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

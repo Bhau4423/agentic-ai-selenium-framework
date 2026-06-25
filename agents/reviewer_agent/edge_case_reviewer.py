@@ -5,22 +5,26 @@ from models.review_finding_model import (
     ReviewFinding
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class EdgeCaseReviewer:
 
     @staticmethod
     def load_boundary_scenarios():
 
-        file_path = Path(
+        java_files = Path(
             "data/intermediate/requirement_analysis.json"
         )
 
-        if not file_path.exists():
+        if not java_files.exists():
 
             return []
 
         with open(
-            file_path,
+            java_files,
             "r",
             encoding="utf-8"
         ) as file:
@@ -68,21 +72,17 @@ class EdgeCaseReviewer:
             EdgeCaseReviewer.load_boundary_scenarios()
         )
 
-        tests_folder = Path(
-            "generated_framework/tests"
+        java_files = (
+            ReviewFileProvider
+            .get_generated_test_files()
         )
 
-        generated_tests = set()
+        generated_tests = {
 
-        if tests_folder.exists():
+            java_file.name
 
-            for java_file in tests_folder.glob(
-                "*.java"
-            ):
-
-                generated_tests.add(
-                    java_file.name
-                )
+            for java_file in java_files
+        }
 
         finding_counter = 1
 
@@ -129,13 +129,18 @@ class EdgeCaseReviewer:
                         ),
 
                         description=
-                        "Boundary scenario exists but no test was generated.",
+                        (
+                            "Boundary scenario is missing "
+                            "its generated test script."
+                        ),
 
                         recommendation=
-                        "Generate missing boundary test.",
-
+                        (
+                            "Regenerate the missing "
+                            "boundary test script."
+                        ),
                         impacted_component=
-                        "Test Coverage",
+                        "Boundary Test Generation",
 
                         auto_fixable=
                         True

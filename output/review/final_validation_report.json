@@ -1,9 +1,9 @@
 {
-    "status": "APPROVED",
-    "iterations": 1,
-    "total_findings": 0,
-    "resolved_findings": 0,
-    "remaining_findings": 0,
+    "status": "REJECTED",
+    "iterations": 5,
+    "total_findings": 5,
+    "resolved_findings": 4,
+    "remaining_findings": 1,
     "patches_applied": 0,
     "reviewers_executed": [
         "AssertionReviewer",
@@ -15,5 +15,5 @@
         "TraceabilityReviewer",
         "HallucinationReviewer"
     ],
-    "approval_reason": "All findings resolved successfully."
+    "approval_reason": "Maximum review iterations reached."
 }

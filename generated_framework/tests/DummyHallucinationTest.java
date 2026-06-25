@@ -1,0 +1,1 @@
+page.get_FakeElement().click();

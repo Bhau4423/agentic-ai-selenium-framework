@@ -10,6 +10,10 @@ from agents.reviewer_agent.element_name_normalizer import (
     ElementNameNormalizer
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class LocatorReviewer:
 
@@ -108,19 +112,18 @@ class LocatorReviewer:
             LocatorReviewer.load_inventory()
         )
 
-        pages_folder = Path(
-            "generated_framework/pages"
+        java_files = (
+            ReviewFileProvider
+            .get_generated_page_files()
         )
 
-        if not pages_folder.exists():
+        if not java_files:
 
             return findings
 
         finding_counter = 1
 
-        for java_file in pages_folder.glob(
-            "*.java"
-        ):
+        for java_file in java_files:
 
             with open(
                 java_file,

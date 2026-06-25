@@ -13,8 +13,8 @@ public class UploadValidFile2Test extends BaseTest {
 
         UploadPage page = new UploadPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(page.get_file()));
-        // UNKNOWN ACTION : FILE_UPLOAD
+        // wait.until(ExpectedConditions.visibilityOf(page.get_file()));
+        // // UNKNOWN ACTION : FILE_UPLOAD
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

@@ -8,14 +8,28 @@ class PatchMetadataExtractor:
         description: str
     ):
 
-        match = re.search(
+        patterns = [
+
+            r"Missing wait before interaction:\s*(.*)",
+
             r"Missing wait before click:\s*(.*)",
-            description
-        )
 
-        if match:
+            r"Missing visibility wait:\s*(.*)"
+        ]
 
-            return match.group(1).strip()
+        for pattern in patterns:
+
+            match = re.search(
+                pattern,
+                description
+            )
+
+            if match:
+
+                return (
+                    match.group(1)
+                    .strip()
+                )
 
         return None
 

@@ -30,11 +30,35 @@ def approval_node(
         )
     )
 
+    # --------------------------------
+    # APPROVED
+    # --------------------------------
+
     if findings == 0:
 
         state[
             "status"
         ] = "APPROVED"
+
+        print(
+            "\n====================================="
+        )
+
+        print(
+            "NO FINDINGS DETECTED"
+        )
+
+        print(
+            "FRAMEWORK APPROVED"
+        )
+
+        print(
+            "====================================="
+        )
+
+    # --------------------------------
+    # REJECTED
+    # --------------------------------
 
     elif (
         current_iteration
@@ -46,20 +70,61 @@ def approval_node(
             "status"
         ] = "REJECTED"
 
+        print(
+            "\n====================================="
+        )
+
+        print(
+            "MAX REVIEW ITERATIONS REACHED"
+        )
+
+        print(
+            "FRAMEWORK REJECTED"
+        )
+
+        print(
+            "====================================="
+        )
+
+    # --------------------------------
+    # PATCH REQUIRED
+    # --------------------------------
+
     else:
 
         state[
             "status"
-        ] = "REVIEWED"
+        ] = "PATCH"
+
+        print(
+            "\n====================================="
+        )
+
+        print(
+            "FINDINGS DETECTED"
+        )
+
+        print(
+            "PATCH CYCLE REQUIRED"
+        )
+
+        print(
+            "====================================="
+        )
 
     print(
-        f"Approval Status: "
+        f"\nApproval Status: "
         f"{state['status']}"
     )
 
     print(
         f"Review Iteration: "
         f"{current_iteration}"
+    )
+
+    print(
+        f"Remaining Findings: "
+        f"{findings}"
     )
 
     return state

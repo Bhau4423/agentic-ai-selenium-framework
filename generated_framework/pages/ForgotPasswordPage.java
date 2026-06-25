@@ -25,10 +25,6 @@ public class ForgotPasswordPage {
         return file;
     }
 
-    public WebElement get_Retrieve_password() {
-        return password;
-    }
-
     public void enterEmail(String value) {
         file.clear();
         file.sendKeys(value);

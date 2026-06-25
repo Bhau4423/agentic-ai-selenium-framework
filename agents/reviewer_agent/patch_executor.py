@@ -9,6 +9,10 @@ from agents.reviewer_agent.locator_repair_engine import (
     LocatorRepairEngine
 )
 
+from agents.reviewer_agent.hallucination_patch_strategy import (
+    HallucinationPatchStrategy
+)
+
 from agents.reviewer_agent.context_builder import (
     ContextBuilder
 )
@@ -111,22 +115,78 @@ class PatchExecutor:
 
             assertion_code = (
                 'Assert.assertTrue('
-                'driver.getCurrentUrl()'
-                '.length() > 0);'
+                '!driver.getCurrentUrl().isEmpty());'
             )
 
+    # ---------------------------------
+    # REPLACE DUMMY ASSERTION
+    # ---------------------------------
+
         if (
+            plan.patch_action
+            ==
+            "REPLACE_DUMMY_ASSERTION"
+        ):
+
+            dummy_assertions = [
+
+                "Assert.assertTrue(true);",
+
+                "Assert.assertFalse(false);",
+
+                "Assert.assertEquals(true,true);",
+
+                "Assert.assertEquals(true, true);",
+
+                "Assert.assertEquals(1,1);",
+
+                "Assert.assertEquals(1, 1);",
+
+                'Assert.assertEquals("abc","abc");',
+
+                'Assert.assertEquals("abc", "abc");'
+            ]
+
+            for dummy in dummy_assertions:
+
+                content = (
+                    content.replace(
+                        dummy,
+                        assertion_code
+                    )
+                )
+
+    # ---------------------------------
+    # REPLACE WEAK ASSERTION
+    # ---------------------------------
+
+        elif (
             plan.patch_action
             ==
             "REPLACE_WEAK_ASSERTION"
         ):
 
-            content = (
-                content.replace(
-                    "Assert.assertTrue(true);",
-                    assertion_code
+            weak_assertions = [
+
+                "Assert.assertNotNull(driver);",
+
+                "Assert.assertNotNull(page);",
+
+                "Assert.assertNotNull(response);"
+            ]
+
+            for weak in weak_assertions:
+
+                content = (
+                    content.replace(
+                        weak,
+                        assertion_code
+                    )
                 )
-            )
+
+    # ---------------------------------
+    # ADD ASSERTION
+    # ---------------------------------
 
         elif (
             plan.patch_action
@@ -134,12 +194,19 @@ class PatchExecutor:
             "ADD_ASSERTION"
         ):
 
+            print("\n===== ASSERTION PATCH DEBUG =====")
+            print("Scenario :", scenario_title)
+            print("Assertion:", assertion_code)
             content = (
+               
                 content.replace(
                     "\n    }\n",
                     f"\n        {assertion_code}\n\n    }}\n"
                 )
             )
+
+            print("Assertion inserted.")
+            print("===== END ASSERTION PATCH DEBUG =====\n")
 
         return content
 
@@ -153,8 +220,12 @@ class PatchExecutor:
             PatchMetadataExtractor
             .extract_missing_wait_target(
                 plan.reason
-            )
+           )
         )
+
+        print("\n===== WAIT PATCH DEBUG =====")
+        print(f"Reason        : {plan.reason}")
+        print(f"Target Action : {target_action}")
 
         if not target_action:
 
@@ -165,6 +236,7 @@ class PatchExecutor:
             target_action
         )
 
+        print(f"Element Match : {element_match}")
         if not element_match:
 
             return content
@@ -173,22 +245,123 @@ class PatchExecutor:
             element_match.group(1)
         )
 
+        print(f"Element Name  : {element_name}")
+
+        interaction_keywords = [
+
+            ".click(",
+            ".sendKeys(",
+            ".clear(",
+            ".submit(",
+            ".selectByVisibleText(",
+            ".selectByValue(",
+            ".selectByIndex("
+        ]
+
         wait_code = (
-            f'wait.until('
-            f'ExpectedConditions.'
-            f'elementToBeClickable('
-            f'page.get_{element_name}()'
-            f'));'
+            "wait.until("
+            "ExpectedConditions."
+            f"elementToBeClickable(page.get_{element_name}()));"
         )
 
-        content = content.replace(
-            target_action,
-            wait_code
-            + "\n\n        "
-            + target_action
-        )
+        lines = content.splitlines()
 
-        return content
+        updated_lines = []
+
+        wait_inserted = False
+
+        for index, line in enumerate(lines):
+
+            stripped_line = (
+                line.strip()
+            )
+
+            is_target_interaction = (
+
+                f"page.get_{element_name}()"
+                in stripped_line
+
+                and
+
+                any(
+
+                    keyword in stripped_line
+
+                    for keyword in interaction_keywords
+                )
+            )
+
+            print(f"Checking Line : {stripped_line}")
+
+            if is_target_interaction:
+
+                print("Interaction Found")
+
+                wait_already_exists = False
+
+                search_start = max(
+                    0,
+                    len(updated_lines) - 10
+                )
+
+                for previous_line in updated_lines[
+                    search_start:
+                ]:
+
+                    stripped_previous = (
+                        previous_line.strip()
+                    )
+
+                    if (
+                        stripped_previous.startswith("//")
+                    ):
+
+                        continue
+
+                    if (
+                        "wait.until("
+                        in stripped_previous
+                    ):
+
+                        wait_already_exists = True
+                        break
+
+                if not wait_already_exists:
+
+                    indentation = (
+                        line[
+                            :
+                            len(line)
+                            -
+                            len(
+                                line.lstrip()
+                            )
+                        ]
+                    )
+
+                    updated_lines.append(
+                        indentation
+                        + wait_code
+                    )
+
+                    wait_inserted = True
+
+            updated_lines.append(
+                line
+            )
+
+        if wait_inserted:
+
+            print(
+                f"Inserted wait for element: {element_name}"
+            )
+
+            print(f"Wait Inserted : {wait_inserted}")
+            print("===== END WAIT PATCH DEBUG =====\n")
+
+        return "\n".join(
+            updated_lines
+        )
 
     @staticmethod
     def apply_hallucinated_method_patch(
@@ -196,31 +369,61 @@ class PatchExecutor:
         plan: PatchPlan
     ):
 
-        method_name = (
-            PatchMetadataExtractor
-            .extract_hallucinated_method(
+        invalid_getter = (
+            HallucinationPatchStrategy
+            .extract_invalid_getter(
                 plan.reason
             )
         )
 
-        if not method_name:
+        if not invalid_getter:
+
+            print(
+                "Unable to identify hallucinated getter."
+            )
 
             return content
 
-        patterns = [
-
-            rf".*{re.escape(method_name)}.*\n",
-
-            rf".*visibilityOf\(page\.{re.escape(method_name)}\).*?\n"
-        ]
-
-        for pattern in patterns:
-
-            content = re.sub(
-                pattern,
-                "",
-                content
+        replacement = (
+            HallucinationPatchStrategy
+            .find_replacement(
+                invalid_getter
             )
+        )
+
+        print(
+            "\n===== HALLUCINATION PATCH DEBUG ====="
+        )
+
+        print(
+            f"Invalid Getter : {invalid_getter}"
+        )
+
+        print(
+            f"Replacement    : {replacement}"
+        )
+
+        if not replacement:
+
+            print(
+                "No replacement found."
+            )
+
+            return content
+
+        content = re.sub(
+            rf"get_{re.escape(invalid_getter)}\(",
+            f"get_{replacement}(",
+            content
+        )
+
+        print(
+            "Getter replaced successfully."
+        )
+
+        print(
+            "===== END DEBUG =====\n"
+        )
 
         return content
 
@@ -357,7 +560,73 @@ class PatchExecutor:
 
         results = []
 
+        completed_patches = []
+
         for plan in patch_plans:
+
+            if PatchExecutor.should_skip_patch(
+                plan,
+                completed_patches
+            ):
+
+                print(
+                    "\n----------------------------------------"
+                )
+
+                print(
+                    f"Skipping : {plan.file_name}"
+                )
+
+                print(
+                    f"Reason   : {plan.category} already resolved."
+                )
+
+                print(
+                    "----------------------------------------"
+                )
+
+                plan.patch_status = "SKIPPED"
+
+                results.append(
+                    plan
+                )
+
+                continue
+
+            if PatchExecutor.should_skip_patch(
+                plan,
+                completed_patches
+            ):
+
+                print(
+                    "\nSkipping Patch "
+                    f"({plan.category}) - "
+                    "Already resolved."
+                )
+
+                plan.patch_status = "SKIPPED"
+
+                results.append(
+                    plan
+                )
+
+                continue
+
+            print(
+                "\n----------------------------------------"
+            )
+
+            print(
+                f"File   : {plan.file_name}"
+            )
+
+            print(
+                f"Action : {plan.patch_action}"
+            )
+
+            print(
+                "----------------------------------------"
+            )
 
             try:
 
@@ -377,6 +646,10 @@ class PatchExecutor:
 
                     plan.patch_status = (
                         "COMPLETED"
+                    )
+
+                    completed_patches.append(
+                        plan
                     )
 
                     results.append(
@@ -399,6 +672,10 @@ class PatchExecutor:
                         "COMPLETED"
                     )
 
+                    completed_patches.append(
+                        plan
+                    )
+
                     results.append(
                         plan
                     )
@@ -417,6 +694,10 @@ class PatchExecutor:
 
                     plan.patch_status = (
                         "COMPLETED"
+                    )
+
+                    completed_patches.append(
+                        plan
                     )
 
                     results.append(
@@ -474,6 +755,8 @@ class PatchExecutor:
                         file.read()
                     )
 
+                original_content = content
+
                 # ---------------------------------
                 # ASSERTIONS
                 # ---------------------------------
@@ -482,6 +765,7 @@ class PatchExecutor:
                     plan.patch_action
                     in
                     [
+                        "REPLACE_DUMMY_ASSERTION",
                         "REPLACE_WEAK_ASSERTION",
                         "ADD_ASSERTION"
                     ]
@@ -519,8 +803,11 @@ class PatchExecutor:
 
                 elif (
                     plan.patch_action
-                    ==
-                    "REMOVE_HALLUCINATED_METHOD"
+                    in
+                    [
+                        "REMOVE_HALLUCINATED_METHOD",
+                        "REPAIR_HALLUCINATED_METHOD"
+                    ]
                 ):
 
                     content = (
@@ -562,20 +849,35 @@ class PatchExecutor:
                         )
             )
 
-                with open(
-                    file_path,
-                    "w",
-                    encoding="utf-8"
-                ) as file:
+                if content == original_content:
 
-                    file.write(
-                        content
+                    print(
+                        "\nPatch produced no changes."
                     )
 
-                plan.patch_status = (
-                    "COMPLETED"
-                )
+                    plan.patch_status = (
+                        "FAILED"
+                    )
 
+                else:
+
+                    with open(
+                        file_path,
+                        "w",
+                        encoding="utf-8"
+                    ) as file:
+
+                        file.write(
+                            content
+                        )
+
+                    plan.patch_status = (
+                        "COMPLETED"
+                    )
+
+                    completed_patches.append(
+                        plan
+                    )
             except Exception as e:
 
                 print(
@@ -591,3 +893,31 @@ class PatchExecutor:
             )
 
         return results
+    
+    @staticmethod
+    def should_skip_patch(
+        plan: PatchPlan,
+        completed_patches: list
+    ):
+
+    # ---------------------------------
+    # Hallucination depends on Locator
+    # ---------------------------------
+
+        if (
+            plan.category
+            ==
+            "HALLUCINATED_METHOD"
+        ):
+
+            for completed in completed_patches:
+
+                if (
+                    completed.category
+                    ==
+                    "LOCATOR_MISSING_GETTER"
+                ):
+
+                    return True
+
+        return False

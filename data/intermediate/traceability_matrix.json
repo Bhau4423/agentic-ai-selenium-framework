@@ -27,22 +27,20 @@
             "AC-004",
             "AC-021",
             "AC-022",
-            "AC-068",
-            "AC-069"
+            "AC-069",
+            "AC-070"
         ],
         "scenario_ids": [
             "POS-003",
             "POS-004",
             "POS-016",
-            "POS-049",
             "NEG-002",
             "NEG-005",
-            "NEG-021",
-            "BND-001",
-            "BND-009"
+            "NEG-026",
+            "BND-001"
         ],
-        "page_name": "download",
-        "page_url": "https://the-internet.herokuapp.com/download",
+        "page_name": "upload",
+        "page_url": "https://the-internet.herokuapp.com/upload",
         "mapped_elements": [
             "file",
             "file-submit"
@@ -60,9 +58,10 @@
         "scenario_ids": [
             "POS-005",
             "POS-006",
-            "POS-045",
-            "POS-046",
-            "NEG-003"
+            "POS-053",
+            "POS-054",
+            "NEG-003",
+            "NEG-024"
         ],
         "page_name": "download",
         "page_url": "https://the-internet.herokuapp.com/download",
@@ -120,7 +119,7 @@
     },
     {
         "requirement_id": "FR-007",
-        "requirement_title": "Successful Login with Valid Credentials",
+        "requirement_title": "Successful Login",
         "acceptance_criteria_ids": [
             "AC-013",
             "AC-014"
@@ -143,7 +142,8 @@
         "acceptance_criteria_ids": [
             "AC-015",
             "AC-016",
-            "AC-067"
+            "AC-067",
+            "AC-068"
         ],
         "scenario_ids": [
             "POS-013",
@@ -311,7 +311,7 @@
     },
     {
         "requirement_id": "FR-018",
-        "requirement_title": "Entry Ad Display on First Load",
+        "requirement_title": "Entry Ad Display",
         "acceptance_criteria_ids": [
             "AC-037",
             "AC-038"
@@ -327,7 +327,7 @@
     },
     {
         "requirement_id": "FR-019",
-        "requirement_title": "Close Ad and Prevent Reappearance",
+        "requirement_title": "Close Ad and Suppress",
         "acceptance_criteria_ids": [
             "AC-039",
             "AC-040"
@@ -339,11 +339,7 @@
         ],
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
-        "mapped_elements": [
-            "Click for JS Alert",
-            "Click for JS Confirm",
-            "Click for JS Prompt"
-        ]
+        "mapped_elements": []
     },
     {
         "requirement_id": "FR-020",
@@ -353,7 +349,9 @@
             "AC-042"
         ],
         "scenario_ids": [
-            "POS-035"
+            "POS-035",
+            "POS-036",
+            "NEG-015"
         ],
         "page_name": "entry_ad",
         "page_url": "https://the-internet.herokuapp.com/entry_ad",
@@ -367,8 +365,9 @@
             "AC-044"
         ],
         "scenario_ids": [
-            "POS-040",
-            "NEG-015"
+            "POS-037",
+            "POS-038",
+            "NEG-016"
         ],
         "page_name": "typos",
         "page_url": "https://the-internet.herokuapp.com/typos",
@@ -382,7 +381,9 @@
             "AC-046"
         ],
         "scenario_ids": [
-            "POS-036"
+            "POS-039",
+            "POS-040",
+            "NEG-017"
         ],
         "page_name": "add_remove_elements",
         "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
@@ -398,7 +399,9 @@
             "AC-048"
         ],
         "scenario_ids": [
-            "NEG-016"
+            "POS-041",
+            "POS-042",
+            "NEG-018"
         ],
         "page_name": "add_remove_elements",
         "page_url": "https://the-internet.herokuapp.com/add_remove_elements/",
@@ -414,7 +417,9 @@
             "AC-050"
         ],
         "scenario_ids": [
-            "POS-037"
+            "POS-043",
+            "POS-044",
+            "NEG-019"
         ],
         "page_name": "hovers",
         "page_url": "https://the-internet.herokuapp.com/hovers",
@@ -428,7 +433,9 @@
             "AC-052"
         ],
         "scenario_ids": [
-            "POS-038"
+            "POS-045",
+            "POS-046",
+            "NEG-020"
         ],
         "page_name": "dynamic_content",
         "page_url": "https://the-internet.herokuapp.com/dynamic_content",
@@ -442,15 +449,14 @@
             "AC-054"
         ],
         "scenario_ids": [
-            "POS-039",
-            "NEG-017",
+            "POS-047",
+            "POS-048",
+            "NEG-021",
             "BND-005"
         ],
         "page_name": "inputs",
         "page_url": "https://the-internet.herokuapp.com/inputs",
-        "mapped_elements": [
-            "input_0"
-        ]
+        "mapped_elements": []
     },
     {
         "requirement_id": "FR-027",
@@ -458,16 +464,16 @@
         "acceptance_criteria_ids": [
             "AC-055",
             "AC-056",
-            "AC-072",
-            "AC-073"
+            "AC-073",
+            "AC-074"
         ],
         "scenario_ids": [
-            "POS-041",
-            "POS-042",
-            "POS-051",
-            "NEG-018",
+            "POS-049",
+            "POS-050",
+            "POS-058",
+            "NEG-022",
             "BND-006",
-            "BND-010"
+            "BND-009"
         ],
         "page_name": "drag_and_drop",
         "page_url": "https://the-internet.herokuapp.com/drag_and_drop",
@@ -481,9 +487,9 @@
             "AC-058"
         ],
         "scenario_ids": [
-            "POS-043",
-            "POS-044",
-            "NEG-019"
+            "POS-051",
+            "POS-052",
+            "NEG-023"
         ],
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -529,19 +535,17 @@
         "acceptance_criteria_ids": [
             "AC-065",
             "AC-066",
-            "AC-076",
-            "AC-077"
+            "AC-077",
+            "AC-078"
         ],
         "scenario_ids": [
-            "POS-047",
-            "POS-048",
-            "NEG-020",
-            "NEG-023"
+            "POS-055",
+            "POS-056",
+            "NEG-025"
         ],
-        "page_name": "geolocation",
-        "page_url": "https://the-internet.herokuapp.com/geolocation",
+        "page_name": "javascript_alerts",
+        "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
         "mapped_elements": [
-            "Where am I?",
             "Click for JS Alert",
             "Click for JS Confirm",
             "Click for JS Prompt"
@@ -551,12 +555,12 @@
         "requirement_id": "FR-032",
         "requirement_title": "JavaScript Dialog Handling",
         "acceptance_criteria_ids": [
-            "AC-070",
-            "AC-071"
+            "AC-071",
+            "AC-072"
         ],
         "scenario_ids": [
-            "POS-050",
-            "NEG-022"
+            "POS-057",
+            "NEG-027"
         ],
         "page_name": "javascript_alerts",
         "page_url": "https://the-internet.herokuapp.com/javascript_alerts",
@@ -570,11 +574,11 @@
         "requirement_id": "FR-033",
         "requirement_title": "Infinite Scroll Content Loading",
         "acceptance_criteria_ids": [
-            "AC-074",
-            "AC-075"
+            "AC-075",
+            "AC-076"
         ],
         "scenario_ids": [
-            "POS-052"
+            "POS-059"
         ],
         "page_name": "infinite_scroll",
         "page_url": "https://the-internet.herokuapp.com/infinite_scroll",
@@ -584,8 +588,8 @@
         "requirement_id": "FR-034",
         "requirement_title": "New Window Management",
         "acceptance_criteria_ids": [
-            "AC-078",
-            "AC-079"
+            "AC-079",
+            "AC-080"
         ],
         "scenario_ids": [],
         "page_name": null,

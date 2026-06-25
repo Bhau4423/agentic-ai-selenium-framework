@@ -65,9 +65,14 @@ class ReviewerAgent:
             self.MAX_REVIEW_ITERATIONS
         ):
 
-            raise ValueError(
-                "Maximum review iterations exceeded."
-            )
+            if iteration > 5:
+
+                return {
+                    "iteration": iteration,
+                    "status": "REJECTED",
+                    "total_findings": 0,
+                    "findings": []
+                }
 
         findings = []
 

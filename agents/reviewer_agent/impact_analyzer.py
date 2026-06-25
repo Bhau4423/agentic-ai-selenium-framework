@@ -18,146 +18,11 @@ class ImpactAnalyzer:
 
         for finding in findings:
 
-            patch_action = "UNKNOWN"
-
-            category = (
-                finding.category.upper()
+            patch_action = (
+                ImpactAnalyzer._get_patch_action(
+                    finding
+                )
             )
-
-            description = (
-                finding.description.lower()
-            )
-
-            # ---------------------------------
-            # ASSERTION
-            # ---------------------------------
-
-            if category == "ASSERTION":
-
-                if (
-                    "weak assertion"
-                    in description
-                ):
-
-                    patch_action = (
-                        "REPLACE_WEAK_ASSERTION"
-                    )
-
-                elif (
-                    "no assertion"
-                    in description
-                ):
-
-                    patch_action = (
-                        "ADD_ASSERTION"
-                    )
-
-            # ---------------------------------
-            # WAIT
-            # ---------------------------------
-
-            elif category == "WAIT":
-
-                patch_action = (
-                    "ADD_MISSING_WAIT"
-                )
-
-            # ---------------------------------
-            # HALLUCINATED METHOD
-            # ---------------------------------
-
-            elif (
-                category
-                == "HALLUCINATED_METHOD"
-            ):
-
-                patch_action = (
-                    "REMOVE_HALLUCINATED_METHOD"
-                )
-
-            # ---------------------------------
-            # LOCATOR ISSUES
-            # ---------------------------------
-
-            elif (
-                category
-                == "LOCATOR_MISSING_GETTER"
-            ):
-
-                patch_action = (
-                    "GENERATE_MISSING_GETTER"
-                )
-
-            elif (
-                category
-                == "HALLUCINATED_LOCATOR"
-            ):
-
-                patch_action = (
-                    "REPLACE_INVALID_LOCATOR"
-                )
-
-            # ---------------------------------
-            # COVERAGE
-            # ---------------------------------
-
-            elif (
-                category
-                == "COVERAGE"
-            ):
-
-                patch_action = (
-                    "GENERATE_MISSING_TEST"
-                )
-
-            # ---------------------------------
-            # MISSING SCRIPT
-            # ---------------------------------
-
-            elif category in [
-
-                "MISSING_SCRIPT",
-
-                "MISSING_TEST_SCRIPT"
-
-            ]:
-
-                patch_action = (
-                    "GENERATE_MISSING_SCRIPT"
-                )
-
-            # ---------------------------------
-            # EDGE CASE
-            # ---------------------------------
-
-            elif category in [
-
-                "EDGE_CASE",
-
-                "EDGE_CASE_NOT_COVERED"
-
-            ]:
-
-                patch_action = (
-                    "GENERATE_EDGE_CASE_TEST"
-                )
-
-            # ---------------------------------
-            # TRACEABILITY
-            # ---------------------------------
-
-            elif (
-                category
-                == "TRACEABILITY"
-            ):
-
-                patch_action = (
-                    "UPDATE_TRACEABILITY"
-                )
-
-            # ---------------------------------
-            # BUILD PATCH PLAN
-            # ---------------------------------
 
             patch_plans.append(
 
@@ -193,3 +58,177 @@ class ImpactAnalyzer:
             )
 
         return patch_plans
+
+    @staticmethod
+    def _get_patch_action(
+        finding: ReviewFinding
+    ):
+
+        category = (
+            finding.category.upper()
+        )
+
+        description = (
+            finding.description.lower()
+        )
+
+        # ---------------------------------
+        # ASSERTION
+        # ---------------------------------
+
+        if category == "ASSERTION":
+
+            if (
+                "missing assertion"
+                in description
+            ):
+
+                return (
+                    "ADD_ASSERTION"
+                )
+
+            if (
+                "dummy assertion"
+                in description
+            ):
+
+                return (
+                    "REPLACE_DUMMY_ASSERTION"
+                )
+
+            if (
+                "weak assertion"
+                in description
+            ):
+
+                return (
+                    "REPLACE_WEAK_ASSERTION"
+                )
+
+            return (
+                "ADD_ASSERTION"
+            )
+
+        # ---------------------------------
+        # WAIT
+        # ---------------------------------
+
+        if category == "WAIT":
+
+            return (
+                "ADD_MISSING_WAIT"
+            )
+
+        # ---------------------------------
+        # HALLUCINATED METHOD
+        # ---------------------------------
+
+        if (
+            category
+            == "HALLUCINATED_METHOD"
+        ):
+
+            return (
+                "REPAIR_HALLUCINATED_METHOD"
+            )
+
+        # ---------------------------------
+        # PAGE OBJECT
+        # ---------------------------------
+
+        if (
+            category
+            == "HALLUCINATED_PAGE_OBJECT"
+        ):
+
+            return (
+                "GENERATE_MISSING_PAGE"
+            )
+
+        # ---------------------------------
+        # LOCATOR
+        # ---------------------------------
+
+        if (
+            category
+            == "LOCATOR_MISSING_GETTER"
+        ):
+
+            return (
+                "GENERATE_MISSING_GETTER"
+            )
+
+        if (
+            category
+            == "HALLUCINATED_LOCATOR"
+        ):
+
+            return (
+                "REPLACE_INVALID_LOCATOR"
+            )
+
+        # ---------------------------------
+        # COVERAGE
+        # ---------------------------------
+
+        if (
+            category
+            == "COVERAGE"
+        ):
+
+            return (
+                "GENERATE_MISSING_TEST"
+            )
+
+        # ---------------------------------
+        # TRACEABILITY
+        # ---------------------------------
+
+        if (
+            category
+            == "TRACEABILITY"
+        ):
+
+            return (
+                "UPDATE_TRACEABILITY"
+            )
+
+        # ---------------------------------
+        # MISSING SCRIPT
+        # ---------------------------------
+
+        if category in [
+
+            "MISSING_SCRIPT",
+
+            "MISSING_TEST_SCRIPT"
+
+        ]:
+
+            return (
+                "GENERATE_MISSING_SCRIPT"
+            )
+
+        # ---------------------------------
+        # EDGE CASE
+        # ---------------------------------
+
+        if category in [
+
+            "EDGE_CASE",
+
+            "EDGE_CASE_NOT_COVERED"
+
+        ]:
+
+            return (
+                "GENERATE_EDGE_CASE_TEST"
+            )
+
+        # ---------------------------------
+        # FALLBACK
+        # ---------------------------------
+
+        return (
+            "UNKNOWN"
+        )

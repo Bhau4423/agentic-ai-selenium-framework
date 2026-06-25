@@ -1,6 +1,15 @@
 {
-    "iteration": 1,
-    "status": "APPROVED",
-    "total_findings": 0,
-    "findings": []
+    "iteration": 5,
+    "status": "REVIEWED",
+    "total_findings": 1,
+    "findings": [
+        {
+            "finding_id": "AST-001",
+            "severity": "HIGH",
+            "category": "ASSERTION",
+            "file_name": "SuccessfulLoginTest.java",
+            "description": "Missing assertion",
+            "recommendation": "Add business assertion."
+        }
+    ]
 }

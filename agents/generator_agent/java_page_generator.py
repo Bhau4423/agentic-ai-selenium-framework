@@ -4,6 +4,10 @@ from models.page_object_model import (
     PageObject
 )
 
+from agents.generator_agent.generation_manifest import (
+    GenerationManifest
+)
+
 
 class JavaPageGenerator:
 
@@ -452,6 +456,10 @@ class JavaPageGenerator:
             file.write(
                 java_code
             )
+
+        GenerationManifest.add_page(
+            class_name
+        )
 
         return str(
             file_path

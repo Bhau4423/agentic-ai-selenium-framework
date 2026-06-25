@@ -1,6 +1,10 @@
 import json
 from pathlib import Path
 
+from agents.generator_agent.generation_manifest import (
+    GenerationManifest
+)
+
 from models.review_finding_model import (
     ReviewFinding
 )
@@ -86,13 +90,27 @@ class CoverageReviewer:
             )
         )
 
+        manifest = (
+            GenerationManifest.load()
+        )
+
         generated_tests = {
 
-            file.stem
+            Path(file).stem
 
-            for file in tests_folder.glob(
-                "*.java"
+            for file in manifest.get(
+            "generated_tests",
+            []
+        )
+    }
+
+        expected_tests = {
+
+            CoverageReviewer.create_test_name(
+               scenario.get("title", "")
             )
+
+            for scenario in all_scenarios
         }
 
         for scenario in all_scenarios:
@@ -144,14 +162,13 @@ class CoverageReviewer:
 
                         description=
                         (
-                            "Scenario does not "
-                            "have generated test."
+                            f"Generated test missing for scenario: "
+                            f"{scenario_title}"
                         ),
 
                         recommendation=
                         (
-                            "Generate test for "
-                            "missing scenario."
+                            "Generate missing Java test."
                         ),
 
                         impacted_component=
@@ -159,6 +176,52 @@ class CoverageReviewer:
 
                         auto_fixable=
                         True
+                    )
+                )
+
+                finding_counter += 1
+                # -------------------------
+        # ORPHAN TEST DETECTION
+        # -------------------------
+
+        for generated_test in generated_tests:
+
+            if generated_test not in expected_tests:
+
+                findings.append(
+
+                    ReviewFinding(
+
+                        finding_id=
+                        f"COV-{finding_counter:03d}",
+
+                        severity=
+                        "MEDIUM",
+
+                        category=
+                        "ORPHAN_TEST",
+
+                        file_name=
+                        generated_test + ".java",
+
+                        description=
+                        (
+                            f"Generated test "
+                            f"'{generated_test}' "
+                            f"does not match any scenario."
+                        ),
+
+                        recommendation=
+                        (
+                            "Remove the orphan test "
+                            "or map it to a valid scenario."
+                        ),
+
+                        impacted_component=
+                        "Generated Test",
+
+                        auto_fixable=
+                        False
                     )
                 )
 

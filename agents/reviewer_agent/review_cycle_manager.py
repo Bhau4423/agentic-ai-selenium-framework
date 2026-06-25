@@ -160,14 +160,40 @@ class ReviewCycleManager:
             )
 
             # -------------------------
-            # REVALIDATE
-            # -------------------------
+# LAST ITERATION
+# -------------------------
+
+            if iteration == ReviewCycleManager.MAX_ITERATIONS:
+
+                print(
+                    "\n====================================="
+                )
+
+                print(
+                    "MAXIMUM REVIEW ITERATIONS REACHED"
+                )
+
+                print(
+                    "FRAMEWORK REJECTED"
+                )
+
+                print(
+                    "====================================="
+                )
+
+                remaining_findings = findings
+
+                break
+
+# -------------------------
+# REVALIDATE
+# -------------------------
 
             remaining_findings = (
                 RevalidationEngine.validate(
                     iteration + 1
                 )
-            )
+            ) 
 
             if len(
                 remaining_findings

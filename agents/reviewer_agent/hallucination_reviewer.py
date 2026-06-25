@@ -5,19 +5,24 @@ from models.review_finding_model import (
     ReviewFinding
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class HallucinationReviewer:
 
     @staticmethod
     def load_page_getters():
 
-        page_folder = Path(
-            "generated_framework/pages"
+        java_files = (
+            ReviewFileProvider
+            .get_generated_page_files()
         )
 
         getters = set()
 
-        if not page_folder.exists():
+        if not java_files:
 
             return getters
 
@@ -25,9 +30,7 @@ class HallucinationReviewer:
             r"public WebElement get_(\w+)\("
         )
 
-        for java_file in page_folder.glob(
-            "*.java"
-        ):
+        for java_file in java_files:
 
             with open(
                 java_file,
@@ -57,11 +60,12 @@ class HallucinationReviewer:
             HallucinationReviewer.load_page_getters()
         )
 
-        tests_folder = Path(
-            "generated_framework/tests"
+        java_files = (
+            ReviewFileProvider
+            .get_generated_page_files()
         )
 
-        if not tests_folder.exists():
+        if not java_files:
 
             return findings
 
@@ -71,9 +75,7 @@ class HallucinationReviewer:
             r"page\.get_(\w+)\("
         )
 
-        for java_file in tests_folder.glob(
-            "*.java"
-        ):
+        for java_file in java_files:
 
             with open(
                 java_file,

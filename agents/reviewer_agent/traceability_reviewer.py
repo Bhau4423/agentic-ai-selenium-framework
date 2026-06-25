@@ -5,6 +5,10 @@ from models.review_finding_model import (
     ReviewFinding
 )
 
+from agents.reviewer_agent.review_file_provider import (
+    ReviewFileProvider
+)
+
 
 class TraceabilityReviewer:
 
@@ -88,28 +92,30 @@ class TraceabilityReviewer:
             TraceabilityReviewer.load_scenarios()
         )
 
-        tests_folder = Path(
-            "generated_framework/tests"
+        java_files = (
+            ReviewFileProvider
+            .get_generated_test_files()
         )
 
         generated_tests = set()
 
-        if tests_folder.exists():
+        for java_file in java_files:
 
-            for java_file in tests_folder.glob(
-                "*.java"
-            ):
-
-                generated_tests.add(
-                    java_file.name
-                )
+            generated_tests.add(
+                java_file.name
+            )
 
         finding_counter = 1
+
+        # ---------------------------------
+        # Requirement -> Scenario -> Test
+        # ---------------------------------
 
         for scenario in scenarios:
 
             expected_test = (
-                TraceabilityReviewer.create_expected_test_name(
+                TraceabilityReviewer
+                .create_expected_test_name(
                     scenario.get(
                         "title",
                         ""
@@ -133,7 +139,7 @@ class TraceabilityReviewer:
                         "CRITICAL",
 
                         category=
-                        "REQUIREMENT_NOT_COVERED",
+                        "REQUIREMENT_TRACEABILITY",
 
                         file_name=
                         expected_test,
@@ -149,10 +155,17 @@ class TraceabilityReviewer:
                         ),
 
                         description=
-                        "Requirement scenario is not covered by generated test.",
+                        (
+                            "Requirement scenario "
+                            "is not covered by a "
+                            "generated test."
+                        ),
 
                         recommendation=
-                        "Generate missing test and update traceability.",
+                        (
+                            "Generate the missing "
+                            "test script."
+                        ),
 
                         impacted_component=
                         "Traceability",

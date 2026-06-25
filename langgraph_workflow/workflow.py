@@ -58,7 +58,11 @@ class LangGraphWorkflow:
 
             return "rejected"
 
-        return "patch"
+        if status == "PATCH":
+
+            return "patch"
+
+        return "rejected"
 
     @staticmethod
     def build():

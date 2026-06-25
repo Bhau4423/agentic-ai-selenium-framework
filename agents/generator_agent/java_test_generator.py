@@ -14,6 +14,9 @@ from agents.generator_agent.assertion_generator import (
     AssertionGenerator
 )
 
+from agents.generator_agent.generation_manifest import (
+    GenerationManifest
+)
 
 class JavaTestGenerator:
 
@@ -395,4 +398,10 @@ class JavaTestGenerator:
                 java_code
             )
 
-        return str(file_path)
+        GenerationManifest.add_test(
+            file_name
+        )
+
+        return str(
+            file_path
+        )

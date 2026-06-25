@@ -36,10 +36,16 @@ from agents.generator_agent.test_generation_service import (
     TestGenerationService
 )
 
+from agents.generator_agent.generation_manifest import (
+    GenerationManifest
+)
+
 
 class GeneratorAgent:
 
     def generate_framework(self):
+
+        GenerationManifest.create()
 
         print(
             "\n========== AGENT 3 STARTED =========="
@@ -337,6 +343,8 @@ class GeneratorAgent:
             f"Generated: "
             f"{traceability_file}"
         )
+
+        GenerationManifest.save()
 
         print(
             "\n========== AGENT 3 COMPLETED =========="
