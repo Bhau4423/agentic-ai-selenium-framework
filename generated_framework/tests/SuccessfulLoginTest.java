@@ -22,9 +22,7 @@ public class SuccessfulLoginTest extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(page.get_Login()));
         page.get_Login().click();
 
-        
-
-        Assert.assertTrue(!driver.getCurrentUrl().isEmpty());
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 
     }
 

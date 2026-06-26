@@ -2,21 +2,8 @@ import time
 
 from pathlib import Path
 
-from agents import requirement_agent
-from agents.requirement_agent.agent import (
-    RequirementAgent
-)
-
-from agents.discovery_agent.agent import (
-    DiscoveryAgent
-)
-
-from agents.generator_agent.agent import (
-    GeneratorAgent
-)
-
-from agents.reviewer_agent.review_cycle_manager import (
-    ReviewCycleManager
+from langgraph_workflow.workflow import (
+    LangGraphWorkflow
 )
 
 from orchestrator.execution_summary_generator import (
@@ -29,7 +16,7 @@ class PipelineOrchestrator:
     def __init__(self):
 
         self.requirement_file = Path(
-            "input/requirements.txt"
+            "input/srs_document.txt"
         )
 
         self.application_url = (
@@ -82,103 +69,62 @@ class PipelineOrchestrator:
         try:
 
             # ====================================================
-            # AGENT 1
+            # LANGGRAPH EXECUTION
             # ====================================================
 
             self.print_section(
-                "[1/4] REQUIREMENT ANALYSIS"
+                "LANGGRAPH EXECUTION"
             )
 
             self.print_status(
                 "RUNNING"
             )
 
-            if not self.requirement_file.exists():
-
-                raise FileNotFoundError(
-                    f"Requirement file not found: "
-                    f"{self.requirement_file}"
-                )
-
-            requirement_document = (
-                self.requirement_file.read_text(
-                    encoding="utf-8"
-                )
-            )
-
             agent_start = time.time()
 
-            requirement_agent = (
-                RequirementAgent()
+            graph = (
+                LangGraphWorkflow.build()
             )
+
+            graph_result = graph.invoke(
+
+                {
+                    "requirement_document":
+                        self.requirement_file.read_text(
+                            encoding="utf-8"
+                        ),
+
+                    "review_iteration":
+                        1
+                }
+
+            )
+
+            # =====================================
+            # EXTRACT NODE RESULTS
+            # =====================================
 
             requirement_result = (
-                requirement_agent.analyze(
-                    requirement_document
+                graph_result.get(
+                    "requirement_result"
                 )
-            )
-
-            agent_time = (
-                time.time()
-                - agent_start
-            )
-
-            self.print_status(
-                "COMPLETED"
-            )
-
-            self.print_success()
-
-            self.print_execution_time(
-                agent_time
-            )
-
-            print(
-                f"Requirements Extracted : "
-                f"{len(requirement_result.requirements)}"
-            )
-
-            print(
-                f"Acceptance Criteria    : "
-                f"{len(requirement_result.acceptance_criteria)}"
-            )
-
-            print(
-                f"Positive Scenarios     : "
-                f"{len(requirement_result.positive_scenarios)}"
-            )
-
-            print(
-                f"Negative Scenarios     : "
-                f"{len(requirement_result.negative_scenarios)}"
-            )
-
-            print(
-                f"Boundary Scenarios     : "
-                f"{len(requirement_result.boundary_scenarios)}"
-            )
-
-            # ====================================================
-            # AGENT 2
-            # ====================================================
-
-            self.print_section(
-                "[2/4] APPLICATION DISCOVERY"
-            )
-
-            self.print_status(
-                "RUNNING"
-            )
-
-            agent_start = time.time()
-
-            discovery_agent = (
-                DiscoveryAgent()
             )
 
             discovery_result = (
-                discovery_agent.discover(
-                    self.application_url
+                graph_result.get(
+                    "discovery_result"
+                )
+            )
+
+            generation_result = (
+                graph_result.get(
+                    "generation_result"
+                )
+            )
+
+            review_result = (
+                graph_result.get(
+                    "review_result"
                 )
             )
 
@@ -195,146 +141,6 @@ class PipelineOrchestrator:
 
             self.print_execution_time(
                 agent_time
-            )
-
-            print(
-                f"Pages Found           : "
-                f"{discovery_result['pages']}"
-            )
-
-            print(
-                f"Elements Found        : "
-                f"{discovery_result['elements']}"
-            )
-
-            print(
-                f"Forms Found           : "
-                f"{discovery_result['forms']}"
-            )
-
-            print(
-                f"Links Found           : "
-                f"{discovery_result['links']}"
-            )
-
-            print(
-                f"Tables Found          : "
-                f"{discovery_result['tables']}"
-            )
-
-            print(
-                f"Inventory File        : "
-                f"{discovery_result['inventory_file']}"
-            )
-
-            # ====================================================
-            # AGENT 3
-            # ====================================================
-
-            self.print_section(
-                "[3/4] FRAMEWORK GENERATION"
-            )
-
-            self.print_status(
-                "RUNNING"
-            )
-
-            agent_start = time.time()
-
-            generator_agent = (
-                GeneratorAgent()
-            )
-
-            generation_result = (
-                generator_agent.generate_framework()
-            )
-
-            agent_time = (
-                time.time()
-                - agent_start
-            )
-
-            self.print_status(
-                "COMPLETED"
-            )
-
-            self.print_success()
-
-            self.print_execution_time(
-                agent_time
-            )
-
-            print(
-                f"Generated Pages       : "
-                f"{len(generation_result['generated_pages'])}"
-            )
-
-            print(
-                f"Generated Tests       : "
-                f"{len(generation_result['generated_tests'])}"
-            )
-
-            print(
-                f"Scenario Mappings     : "
-                f"{generation_result['scenario_mappings']}"
-            )
-
-            print(
-                f"Requirement Mappings  : "
-                f"{generation_result['requirement_mappings']}"
-            )
-
-            print(
-                f"Traceability Matrix   : "
-                f"{generation_result['traceability']}"
-            )
-
-            # ====================================================
-            # AGENT 4
-            # ====================================================
-
-            self.print_section(
-                "[4/4] REVIEW & SELF HEALING"
-            )
-
-            self.print_status(
-                "RUNNING"
-            )
-
-            agent_start = time.time()
-
-            review_result = (
-                ReviewCycleManager.execute()
-            )
-
-            agent_time = (
-                time.time()
-                - agent_start
-            )
-
-            self.print_status(
-                "COMPLETED"
-            )
-
-            self.print_success()
-
-            self.print_execution_time(
-                agent_time
-            )
-
-            print(
-                f"Review Status         : "
-                f"{review_result['status']}"
-            )
-
-            print(
-                f"Review Iteration      : "
-                f"{review_result['iteration']}"
-            )
-
-            print(
-                f"Validation Report     : "
-                f"{review_result['report']}"
             )
 
             # ====================================================

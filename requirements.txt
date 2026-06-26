@@ -18,3 +18,5 @@ tiktoken
 
 rich
 loguru
+pymupdf
+python-docx

@@ -1,12 +1,16 @@
 import json
 from pathlib import Path
-
+import re
 from models.review_finding_model import (
     ReviewFinding
 )
 
 from agents.reviewer_agent.review_file_provider import (
     ReviewFileProvider
+)
+
+from agents.generator_agent.java_test_generator import (
+    JavaTestGenerator
 )
 
 
@@ -63,26 +67,13 @@ class TraceabilityReviewer:
         scenario_title: str
     ):
 
-        words = (
-            scenario_title
-            .replace("-", " ")
-            .replace("_", " ")
-            .split()
-        )
-
-        class_name = ""
-
-        for word in words:
-
-            class_name += (
-                word.capitalize()
-            )
-
         return (
-            class_name
-            + "Test.java"
+            JavaTestGenerator.create_class_name(
+                scenario_title
+            )
+            + ".java"
         )
-
+    
     @staticmethod
     def review():
 

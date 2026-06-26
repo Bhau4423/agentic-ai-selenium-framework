@@ -4,14 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import base.BaseTest;
-import pages.DownloadPage;
+import pages.InfiniteScrollPage;
 
 public class VerifyAdSuppressionTest extends BaseTest {
 
     @Test
     public void verifyAdSuppression() {
 
-        DownloadPage page = new DownloadPage(driver);
+        InfiniteScrollPage page = new InfiniteScrollPage(driver);
 
         Assert.assertTrue(driver.getCurrentUrl().length() > 0);
 

@@ -229,6 +229,9 @@ class ImpactAnalyzer:
         # FALLBACK
         # ---------------------------------
 
+        print(f"\nUNKNOWN CATEGORY: {finding.category}")
+        print(f"DESCRIPTION     : {finding.description}")
+        
         return (
             "UNKNOWN"
         )

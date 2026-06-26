@@ -42,10 +42,6 @@
             "url": "/entry_ad"
         },
         {
-            "page_name": "Typos",
-            "url": "/typos"
-        },
-        {
             "page_name": "Add Remove Elements",
             "url": "/add_remove_elements/"
         },
@@ -68,6 +64,10 @@
         {
             "page_name": "Infinite Scroll",
             "url": "/infinite_scroll"
+        },
+        {
+            "page_name": "Typos",
+            "url": "/typos"
         },
         {
             "page_name": "Geolocation",
@@ -158,7 +158,7 @@
         {
             "id": "FR-017",
             "title": "Load New Notification Message",
-            "description": "The system shall allow the user to trigger the loading of a new notification message."
+            "description": "The system shall allow the user to refresh and display a new notification message."
         },
         {
             "id": "FR-018",
@@ -168,7 +168,7 @@
         {
             "id": "FR-019",
             "title": "Close Ad and Prevent Reappearance",
-            "description": "The system shall allow the user to close the advertisement and suppress its display on subsequent page loads."
+            "description": "The system shall allow the user to close the advertisement and suppress it on subsequent page loads."
         },
         {
             "id": "FR-020",
@@ -218,12 +218,12 @@
         {
             "id": "FR-029",
             "title": "Exit Intent Detection",
-            "description": "The system shall detect when the mouse leaves the viewport and display a modal window."
+            "description": "The system shall detect when the user moves the mouse out of the viewport to trigger a modal."
         },
         {
             "id": "FR-030",
             "title": "Password Retrieval",
-            "description": "The system shall allow users to submit an email address to initiate a password retrieval process."
+            "description": "The system shall allow users to request a password retrieval via email."
         },
         {
             "id": "FR-031",
@@ -311,13 +311,13 @@
             "id": "AC-011",
             "requirement_id": "FR-006",
             "requirement_title": "Checkbox State Toggle",
-            "description": "The target checkbox shall toggle its checked state upon user interaction."
+            "description": "The checkbox shall toggle its checked state upon user interaction."
         },
         {
             "id": "AC-012",
             "requirement_id": "FR-006",
             "requirement_title": "Checkbox State Toggle",
-            "description": "The checkbox shall maintain the state consistent with browser default behavior."
+            "description": "The checkbox shall toggle its unchecked state upon user interaction."
         },
         {
             "id": "AC-013",
@@ -341,7 +341,7 @@
             "id": "AC-016",
             "requirement_id": "FR-008",
             "requirement_title": "User Authentication",
-            "description": "System shall navigate to the secure area page upon successful authentication."
+            "description": "System shall navigate to the secure area upon successful authentication."
         },
         {
             "id": "AC-017",
@@ -353,31 +353,31 @@
             "id": "AC-018",
             "requirement_id": "FR-009",
             "requirement_title": "Error Handling for Invalid Credentials",
-            "description": "System shall prevent navigation to the secure area page upon failed authentication."
+            "description": "System shall prevent navigation to the secure area when credentials are invalid."
         },
         {
             "id": "AC-019",
             "requirement_id": "FR-010",
             "requirement_title": "Dropdown Selection",
-            "description": "System shall update the visible selection to the chosen option."
+            "description": "System shall display 'Option 1' and 'Option 2' as selectable options."
         },
         {
             "id": "AC-020",
             "requirement_id": "FR-010",
             "requirement_title": "Dropdown Selection",
-            "description": "System shall provide at least two selectable options."
+            "description": "System shall update the visible selection to the chosen option."
         },
         {
             "id": "AC-021",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
-            "description": "System shall accept a file selected by the user."
+            "description": "System shall accept a file selected via file input or drag-and-drop."
         },
         {
             "id": "AC-022",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
-            "description": "System shall provide confirmation that the file has been uploaded."
+            "description": "System shall process the upload action upon clicking the upload button."
         },
         {
             "id": "AC-023",
@@ -425,7 +425,7 @@
             "id": "AC-030",
             "requirement_id": "FR-014",
             "requirement_title": "Data Tables Rendering",
-            "description": "The system must populate the tables with the provided sample data rows."
+            "description": "The tables must contain the predefined row data provided in the specification."
         },
         {
             "id": "AC-031",
@@ -449,13 +449,13 @@
             "id": "AC-034",
             "requirement_id": "FR-016",
             "requirement_title": "Notification Message Rendering",
-            "description": "The notification message must convey an outcome status."
+            "description": "The notification message must indicate an outcome status."
         },
         {
             "id": "AC-035",
             "requirement_id": "FR-017",
             "requirement_title": "Load New Notification Message",
-            "description": "The system must update the notification message upon user request."
+            "description": "The system must generate a new notification message upon user request."
         },
         {
             "id": "AC-036",
@@ -467,19 +467,19 @@
             "id": "AC-037",
             "requirement_id": "FR-018",
             "requirement_title": "Entry Ad Display on First Load",
-            "description": "The advertisement must appear automatically when the page is loaded for the first time."
+            "description": "An advertisement modal must appear automatically when the page is loaded."
         },
         {
             "id": "AC-038",
             "requirement_id": "FR-018",
             "requirement_title": "Entry Ad Display on First Load",
-            "description": "The advertisement must be visually distinguishable from the background content."
+            "description": "The advertisement must be visually distinct from the background content."
         },
         {
             "id": "AC-039",
             "requirement_id": "FR-019",
             "requirement_title": "Close Ad and Prevent Reappearance",
-            "description": "The advertisement must be removed from the view when the close action is performed."
+            "description": "The advertisement must be removed from the view upon user closure."
         },
         {
             "id": "AC-040",
@@ -497,49 +497,49 @@
             "id": "AC-042",
             "requirement_id": "FR-020",
             "requirement_title": "Ad Re-enablement",
-            "description": "Ad shall not be shown if it has not been re-enabled after closing."
+            "description": "Ad shall not be shown if it has not been re-enabled after being closed."
         },
         {
             "id": "AC-043",
             "requirement_id": "FR-021",
             "requirement_title": "Random Typo Behavior",
-            "description": "Page shall display text with at least one typo on some page loads."
+            "description": "Text shall display correctly without typos on some page loads."
         },
         {
             "id": "AC-044",
             "requirement_id": "FR-021",
             "requirement_title": "Random Typo Behavior",
-            "description": "Page shall display text without typos on some page loads."
+            "description": "Text shall contain at least one typo or incorrect punctuation on some page loads."
         },
         {
             "id": "AC-045",
             "requirement_id": "FR-022",
             "requirement_title": "Add Element Action",
-            "description": "System shall add a new element to the DOM upon each activation."
+            "description": "A new element shall appear on the page upon each activation of the add action."
         },
         {
             "id": "AC-046",
             "requirement_id": "FR-022",
             "requirement_title": "Add Element Action",
-            "description": "System shall support multiple consecutive additions of elements."
+            "description": "The system shall support multiple consecutive additions of elements."
         },
         {
             "id": "AC-047",
             "requirement_id": "FR-023",
             "requirement_title": "Remove Added Elements",
-            "description": "Clicked element shall be removed from the DOM."
+            "description": "The selected element shall be removed from the DOM upon removal action."
         },
         {
             "id": "AC-048",
             "requirement_id": "FR-023",
             "requirement_title": "Remove Added Elements",
-            "description": "Removed element shall no longer be visible on the page."
+            "description": "The removed element shall no longer be visible to the user."
         },
         {
             "id": "AC-049",
             "requirement_id": "FR-024",
             "requirement_title": "Hover-to-Reveal Behavior",
-            "description": "User details shall be visible while the mouse pointer is over the image."
+            "description": "User details and profile link shall become visible during hover state."
         },
         {
             "id": "AC-050",
@@ -551,25 +551,25 @@
             "id": "AC-051",
             "requirement_id": "FR-025",
             "requirement_title": "Dynamic Content Refresh",
-            "description": "Content shall change upon page refresh."
+            "description": "Content shall change upon manual page refresh."
         },
         {
             "id": "AC-052",
             "requirement_id": "FR-025",
             "requirement_title": "Dynamic Content Refresh",
-            "description": "Content shall remain static when the static content parameter is applied."
+            "description": "System shall support switching to static content mode via URL parameter."
         },
         {
             "id": "AC-053",
             "requirement_id": "FR-026",
             "requirement_title": "Numeric Input Handling",
-            "description": "Field shall accept numeric characters."
+            "description": "Input field shall accept numeric characters."
         },
         {
             "id": "AC-054",
             "requirement_id": "FR-026",
             "requirement_title": "Numeric Input Handling",
-            "description": "Field shall support incrementing/decrementing values via browser controls."
+            "description": "Input field shall support incrementing and decrementing values via browser controls."
         },
         {
             "id": "AC-055",
@@ -599,19 +599,19 @@
             "id": "AC-059",
             "requirement_id": "FR-029",
             "requirement_title": "Exit Intent Detection",
-            "description": "Modal must appear when mouse exits the viewport."
+            "description": "Modal must appear when mouse leaves the viewport."
         },
         {
             "id": "AC-060",
             "requirement_id": "FR-029",
             "requirement_title": "Exit Intent Detection",
-            "description": "Modal must include a functional close control."
+            "description": "Modal must be dismissible via a close control."
         },
         {
             "id": "AC-061",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
-            "description": "Clicking a file link must initiate the browser download process."
+            "description": "Clicking a file link must initiate a browser download."
         },
         {
             "id": "AC-062",
@@ -635,7 +635,7 @@
             "id": "AC-065",
             "requirement_id": "FR-031",
             "requirement_title": "Geolocation Access",
-            "description": "The system must request access to user location."
+            "description": "The system must request permission to access user location."
         },
         {
             "id": "AC-066",
@@ -647,43 +647,43 @@
             "id": "AC-067",
             "requirement_id": "FR-008",
             "requirement_title": "User Authentication",
-            "description": "System shall deny access when invalid credentials are provided."
+            "description": "System shall grant access upon entry of valid username and password."
         },
         {
             "id": "AC-068",
             "requirement_id": "FR-008",
             "requirement_title": "User Authentication",
-            "description": "System shall display an error message upon failed authentication."
+            "description": "System shall deny access and display an error message for invalid credentials."
         },
         {
             "id": "AC-069",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
-            "description": "System shall handle file upload requests without crashing the application."
+            "description": "System shall process file uploads without crashing the application."
         },
         {
             "id": "AC-070",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
-            "description": "System shall maintain stability when processing unsupported file formats."
+            "description": "System shall handle submission attempts where no file is selected."
         },
         {
             "id": "AC-071",
             "requirement_id": "FR-032",
             "requirement_title": "JavaScript Dialog Handling",
-            "description": "System shall render result output after dialog interaction."
+            "description": "System shall render result output after user interaction with dialogs."
         },
         {
             "id": "AC-072",
             "requirement_id": "FR-032",
             "requirement_title": "JavaScript Dialog Handling",
-            "description": "System shall remain functional after dialog dismissal or cancellation."
+            "description": "System shall remain functional after dismissal of dialogs."
         },
         {
             "id": "AC-073",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
-            "description": "Slider shall respond to both mouse drag and keyboard arrow inputs."
+            "description": "Slider shall respond to both mouse drag and keyboard arrow key inputs."
         },
         {
             "id": "AC-074",
@@ -701,31 +701,31 @@
             "id": "AC-076",
             "requirement_id": "FR-033",
             "requirement_title": "Infinite Scroll Content Loading",
-            "description": "System shall stop loading content when no further data is available."
+            "description": "System shall cease loading new sections when no further content is available."
         },
         {
             "id": "AC-077",
             "requirement_id": "FR-031",
             "requirement_title": "Geolocation Access",
-            "description": "System shall handle denied location permissions without crashing."
+            "description": "System shall display coordinates when user grants location permission."
         },
         {
             "id": "AC-078",
             "requirement_id": "FR-031",
             "requirement_title": "Geolocation Access",
-            "description": "System shall display a message or empty state when location services are unavailable."
+            "description": "System shall handle location denial without application crash."
         },
         {
             "id": "AC-079",
             "requirement_id": "FR-034",
             "requirement_title": "New Window Management",
-            "description": "Base page shall remain functional if a new window fails to open due to blockers."
+            "description": "System shall open a new window upon user trigger."
         },
         {
             "id": "AC-080",
             "requirement_id": "FR-034",
             "requirement_title": "New Window Management",
-            "description": "System shall successfully trigger the opening of a new window."
+            "description": "Base page shall remain functional if a new window is blocked by browser settings."
         }
     ],
     "positive_scenarios": [
@@ -741,7 +741,7 @@
                 "Enter valid password",
                 "Submit form"
             ],
-            "expected_result": "User is redirected to the secure area."
+            "expected_result": "User is authenticated and redirected to secure area."
         },
         {
             "id": "POS-002",
@@ -750,10 +750,10 @@
             "scenario_type": "POSITIVE",
             "title": "Successful Logout",
             "steps": [
-                "Login to the system",
+                "Login with valid credentials",
                 "Click logout"
             ],
-            "expected_result": "User is logged out and redirected to the login page."
+            "expected_result": "User session is terminated and redirected to login page."
         },
         {
             "id": "POS-003",
@@ -773,38 +773,37 @@
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
             "scenario_type": "POSITIVE",
-            "title": "Verify Uploaded Filename",
+            "title": "Upload File with Standard Size",
             "steps": [
                 "Navigate to /upload",
-                "Select a file",
+                "Select a file of standard size",
                 "Click upload"
             ],
-            "expected_result": "The uploaded filename is displayed on the result page."
+            "expected_result": "File is processed and uploaded successfully."
         },
         {
             "id": "POS-005",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
             "scenario_type": "POSITIVE",
-            "title": "Download Existing File",
+            "title": "Download Available File",
             "steps": [
                 "Navigate to /download",
                 "Click on a file link"
             ],
-            "expected_result": "File download initiates in the browser."
+            "expected_result": "File download initiates automatically."
         },
         {
             "id": "POS-006",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
             "scenario_type": "POSITIVE",
-            "title": "Verify File Integrity",
+            "title": "Download Multiple Files",
             "steps": [
                 "Navigate to /download",
-                "Download a file",
-                "Check file size"
+                "Click on multiple file links sequentially"
             ],
-            "expected_result": "Downloaded file matches the expected file properties."
+            "expected_result": "All selected files are downloaded successfully."
         },
         {
             "id": "POS-007",
@@ -813,11 +812,9 @@
             "scenario_type": "POSITIVE",
             "title": "Verify Home Page Content",
             "steps": [
-                "Navigate to the base URL",
-                "Observe page headings",
-                "Observe list of example links"
+                "Navigate to the root URL"
             ],
-            "expected_result": "Page displays 'Welcome to the-internet' and 'Available Examples' with a list of links."
+            "expected_result": "Page displays 'Welcome to the-internet' heading and list of example links."
         },
         {
             "id": "POS-008",
@@ -826,10 +823,10 @@
             "scenario_type": "POSITIVE",
             "title": "Navigate to Example Page",
             "steps": [
-                "Navigate to the base URL",
-                "Click on an example link"
+                "Navigate to the root URL",
+                "Click on an example hyperlink"
             ],
-            "expected_result": "User is redirected to the corresponding example page."
+            "expected_result": "User is redirected to the selected example page."
         },
         {
             "id": "POS-009",
@@ -841,7 +838,7 @@
                 "Navigate to /checkboxes",
                 "Click an unchecked checkbox"
             ],
-            "expected_result": "Checkbox becomes checked."
+            "expected_result": "Checkbox state changes to checked."
         },
         {
             "id": "POS-010",
@@ -853,7 +850,7 @@
                 "Navigate to /checkboxes",
                 "Click a checked checkbox"
             ],
-            "expected_result": "Checkbox becomes unchecked."
+            "expected_result": "Checkbox state changes to unchecked."
         },
         {
             "id": "POS-011",
@@ -863,8 +860,8 @@
             "title": "Login With Valid Credentials",
             "steps": [
                 "Navigate to /login",
-                "Enter 'tomsmith' in username",
-                "Enter 'SuperSecretPassword!' in password",
+                "Enter 'tomsmith'",
+                "Enter 'SuperSecretPassword!'",
                 "Click Login"
             ],
             "expected_result": "User is granted access to the secure area."
@@ -883,19 +880,6 @@
         },
         {
             "id": "POS-013",
-            "requirement_id": "FR-008",
-            "requirement_title": "User Authentication",
-            "scenario_type": "POSITIVE",
-            "title": "No Error Message on Success",
-            "steps": [
-                "Navigate to /login",
-                "Enter valid credentials",
-                "Click Login"
-            ],
-            "expected_result": "No error message is displayed."
-        },
-        {
-            "id": "POS-014",
             "requirement_id": "FR-010",
             "requirement_title": "Dropdown Selection",
             "scenario_type": "POSITIVE",
@@ -905,53 +889,27 @@
                 "Click dropdown",
                 "Select Option 1"
             ],
-            "expected_result": "Dropdown displays Option 1 as selected."
+            "expected_result": "Dropdown displays Option 1."
         },
         {
-            "id": "POS-015",
-            "requirement_id": "FR-010",
-            "requirement_title": "Dropdown Selection",
-            "scenario_type": "POSITIVE",
-            "title": "Select Option 2",
-            "steps": [
-                "Navigate to /dropdown",
-                "Click dropdown",
-                "Select Option 2"
-            ],
-            "expected_result": "Dropdown displays Option 2 as selected."
-        },
-        {
-            "id": "POS-016",
+            "id": "POS-014",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
             "scenario_type": "POSITIVE",
-            "title": "Upload File via Selection",
+            "title": "Upload File via Input",
             "steps": [
                 "Navigate to /upload",
                 "Select a file from system",
                 "Click Upload"
             ],
-            "expected_result": "System accepts file and displays confirmation."
+            "expected_result": "System accepts the file and confirms upload."
         },
         {
-            "id": "POS-017",
-            "requirement_id": "FR-002",
-            "requirement_title": "File Upload",
-            "scenario_type": "POSITIVE",
-            "title": "Upload File via Drag and Drop",
-            "steps": [
-                "Navigate to /upload",
-                "Drag and drop file into area",
-                "Click Upload"
-            ],
-            "expected_result": "System accepts file and displays confirmation."
-        },
-        {
-            "id": "POS-018",
+            "id": "POS-015",
             "requirement_id": "FR-011",
             "requirement_title": "Basic Alert Trigger",
             "scenario_type": "POSITIVE",
-            "title": "Trigger Alert Dialog",
+            "title": "Trigger Alert Successfully",
             "steps": [
                 "Navigate to /javascript_alerts",
                 "Click the alert trigger button"
@@ -959,11 +917,11 @@
             "expected_result": "A JavaScript alert dialog is displayed."
         },
         {
-            "id": "POS-019",
+            "id": "POS-016",
             "requirement_id": "FR-011",
             "requirement_title": "Basic Alert Trigger",
             "scenario_type": "POSITIVE",
-            "title": "Dismiss Alert Dialog",
+            "title": "Dismiss Alert Successfully",
             "steps": [
                 "Trigger alert",
                 "Click OK on the alert"
@@ -971,7 +929,7 @@
             "expected_result": "The alert dialog closes and the result area updates."
         },
         {
-            "id": "POS-020",
+            "id": "POS-017",
             "requirement_id": "FR-012",
             "requirement_title": "Confirm and Prompt Triggers",
             "scenario_type": "POSITIVE",
@@ -983,7 +941,7 @@
             "expected_result": "A JavaScript confirm dialog is displayed."
         },
         {
-            "id": "POS-021",
+            "id": "POS-018",
             "requirement_id": "FR-012",
             "requirement_title": "Confirm and Prompt Triggers",
             "scenario_type": "POSITIVE",
@@ -995,7 +953,7 @@
             "expected_result": "A JavaScript prompt dialog is displayed."
         },
         {
-            "id": "POS-022",
+            "id": "POS-019",
             "requirement_id": "FR-013",
             "requirement_title": "Drag and Drop Example Rendering",
             "scenario_type": "POSITIVE",
@@ -1006,7 +964,7 @@
             "expected_result": "The drag-and-drop region is rendered on the page."
         },
         {
-            "id": "POS-023",
+            "id": "POS-020",
             "requirement_id": "FR-013",
             "requirement_title": "Drag and Drop Example Rendering",
             "scenario_type": "POSITIVE",
@@ -1017,7 +975,7 @@
             "expected_result": "The page displays the drag-and-drop powered content."
         },
         {
-            "id": "POS-024",
+            "id": "POS-021",
             "requirement_id": "FR-014",
             "requirement_title": "Data Tables Rendering",
             "scenario_type": "POSITIVE",
@@ -1025,10 +983,10 @@
             "steps": [
                 "Navigate to /tables"
             ],
-            "expected_result": "Tables display the correct headers: Last Name, First Name, Due, Web Site, Action."
+            "expected_result": "Tables display headers: Last Name, First Name, Due, Web Site, Action."
         },
         {
-            "id": "POS-025",
+            "id": "POS-022",
             "requirement_id": "FR-014",
             "requirement_title": "Data Tables Rendering",
             "scenario_type": "POSITIVE",
@@ -1036,10 +994,10 @@
             "steps": [
                 "Navigate to /tables"
             ],
-            "expected_result": "Tables contain the expected sample data rows."
+            "expected_result": "Tables display the expected rows of user data."
         },
         {
-            "id": "POS-026",
+            "id": "POS-023",
             "requirement_id": "FR-015",
             "requirement_title": "Row Actions Representation",
             "scenario_type": "POSITIVE",
@@ -1047,10 +1005,10 @@
             "steps": [
                 "Navigate to /tables"
             ],
-            "expected_result": "An edit control is present in every table row."
+            "expected_result": "An edit control is present in every row."
         },
         {
-            "id": "POS-027",
+            "id": "POS-024",
             "requirement_id": "FR-015",
             "requirement_title": "Row Actions Representation",
             "scenario_type": "POSITIVE",
@@ -1058,10 +1016,10 @@
             "steps": [
                 "Navigate to /tables"
             ],
-            "expected_result": "A delete control is present in every table row."
+            "expected_result": "A delete control is present in every row."
         },
         {
-            "id": "POS-028",
+            "id": "POS-025",
             "requirement_id": "FR-016",
             "requirement_title": "Notification Message Rendering",
             "scenario_type": "POSITIVE",
@@ -1072,53 +1030,52 @@
             "expected_result": "A notification message is displayed above the heading."
         },
         {
-            "id": "POS-029",
+            "id": "POS-026",
             "requirement_id": "FR-016",
             "requirement_title": "Notification Message Rendering",
             "scenario_type": "POSITIVE",
-            "title": "Verify Notification Content",
+            "title": "Verify Heading Display",
             "steps": [
                 "Navigate to /notification_message_rendered"
             ],
-            "expected_result": "The message displays a valid outcome status."
+            "expected_result": "The page displays the heading 'Notification Message'."
         },
         {
-            "id": "POS-030",
+            "id": "POS-027",
             "requirement_id": "FR-017",
             "requirement_title": "Load New Notification Message",
             "scenario_type": "POSITIVE",
-            "title": "Trigger New Message",
+            "title": "Load New Message",
             "steps": [
                 "Navigate to /notification_message_rendered",
-                "Click the load new message link"
+                "Click 'Click here to load a new message'"
             ],
             "expected_result": "A new notification message is displayed."
         },
         {
-            "id": "POS-031",
+            "id": "POS-028",
             "requirement_id": "FR-017",
             "requirement_title": "Load New Notification Message",
             "scenario_type": "POSITIVE",
-            "title": "Verify Multiple Message Loads",
+            "title": "Verify Multiple Loads",
             "steps": [
-                "Navigate to /notification_message_rendered",
-                "Click the load new message link multiple times"
+                "Click 'Click here to load a new message' multiple times"
             ],
-            "expected_result": "The system displays new messages without errors."
+            "expected_result": "The system continues to display new messages without crashing."
         },
         {
-            "id": "POS-032",
+            "id": "POS-029",
             "requirement_id": "FR-018",
             "requirement_title": "Entry Ad Display on First Load",
             "scenario_type": "POSITIVE",
-            "title": "Verify Ad Appearance",
+            "title": "Verify Ad on Load",
             "steps": [
                 "Navigate to /entry_ad"
             ],
             "expected_result": "An advertisement modal is displayed."
         },
         {
-            "id": "POS-033",
+            "id": "POS-030",
             "requirement_id": "FR-018",
             "requirement_title": "Entry Ad Display on First Load",
             "scenario_type": "POSITIVE",
@@ -1129,19 +1086,19 @@
             "expected_result": "The ad is clearly distinguishable from the background."
         },
         {
-            "id": "POS-034",
+            "id": "POS-031",
             "requirement_id": "FR-019",
             "requirement_title": "Close Ad and Prevent Reappearance",
             "scenario_type": "POSITIVE",
-            "title": "Close Advertisement",
+            "title": "Close Ad",
             "steps": [
                 "Navigate to /entry_ad",
-                "Click the Close button"
+                "Click 'Close'"
             ],
-            "expected_result": "The advertisement is dismissed."
+            "expected_result": "The ad is dismissed from view."
         },
         {
-            "id": "POS-035",
+            "id": "POS-032",
             "requirement_id": "FR-019",
             "requirement_title": "Close Ad and Prevent Reappearance",
             "scenario_type": "POSITIVE",
@@ -1150,10 +1107,10 @@
                 "Close the ad",
                 "Reload the page"
             ],
-            "expected_result": "The advertisement does not appear on the page."
+            "expected_result": "The ad does not reappear."
         },
         {
-            "id": "POS-036",
+            "id": "POS-033",
             "requirement_id": "FR-020",
             "requirement_title": "Ad Re-enablement",
             "scenario_type": "POSITIVE",
@@ -1167,44 +1124,20 @@
             "expected_result": "The ad is displayed on the page."
         },
         {
-            "id": "POS-037",
+            "id": "POS-034",
             "requirement_id": "FR-020",
             "requirement_title": "Ad Re-enablement",
             "scenario_type": "POSITIVE",
-            "title": "Verify Ad Remains Hidden",
+            "title": "Verify Ad Persistence",
             "steps": [
                 "Navigate to /entry_ad",
-                "Close the ad",
-                "Refresh the page"
+                "Re-enable the ad",
+                "Refresh the page multiple times"
             ],
-            "expected_result": "The ad is not displayed."
+            "expected_result": "The ad appears on every page load."
         },
         {
-            "id": "POS-038",
-            "requirement_id": "FR-021",
-            "requirement_title": "Random Typo Behavior",
-            "scenario_type": "POSITIVE",
-            "title": "Observe Typo Presence",
-            "steps": [
-                "Navigate to /typos",
-                "Refresh page until typo appears"
-            ],
-            "expected_result": "Text contains a typo."
-        },
-        {
-            "id": "POS-039",
-            "requirement_id": "FR-021",
-            "requirement_title": "Random Typo Behavior",
-            "scenario_type": "POSITIVE",
-            "title": "Observe Typo Absence",
-            "steps": [
-                "Navigate to /typos",
-                "Refresh page until typo disappears"
-            ],
-            "expected_result": "Text is rendered correctly without typos."
-        },
-        {
-            "id": "POS-040",
+            "id": "POS-035",
             "requirement_id": "FR-022",
             "requirement_title": "Add Element Action",
             "scenario_type": "POSITIVE",
@@ -1213,10 +1146,10 @@
                 "Navigate to /add_remove_elements/",
                 "Click Add Element"
             ],
-            "expected_result": "A new element appears on the page."
+            "expected_result": "A new element is rendered on the page."
         },
         {
-            "id": "POS-041",
+            "id": "POS-036",
             "requirement_id": "FR-022",
             "requirement_title": "Add Element Action",
             "scenario_type": "POSITIVE",
@@ -1225,14 +1158,14 @@
                 "Navigate to /add_remove_elements/",
                 "Click Add Element three times"
             ],
-            "expected_result": "Three new elements appear on the page."
+            "expected_result": "Three new elements are rendered on the page."
         },
         {
-            "id": "POS-042",
+            "id": "POS-037",
             "requirement_id": "FR-023",
             "requirement_title": "Remove Added Elements",
             "scenario_type": "POSITIVE",
-            "title": "Remove Single Added Element",
+            "title": "Remove Existing Element",
             "steps": [
                 "Navigate to /add_remove_elements/",
                 "Click Add Element",
@@ -1241,68 +1174,69 @@
             "expected_result": "The element is removed from the page."
         },
         {
-            "id": "POS-043",
+            "id": "POS-038",
             "requirement_id": "FR-023",
             "requirement_title": "Remove Added Elements",
             "scenario_type": "POSITIVE",
-            "title": "Remove Multiple Added Elements",
+            "title": "Remove Multiple Elements",
             "steps": [
                 "Navigate to /add_remove_elements/",
                 "Click Add Element twice",
-                "Click remove on both elements"
+                "Remove both elements"
             ],
-            "expected_result": "All added elements are removed."
+            "expected_result": "All added elements are removed from the page."
         },
         {
-            "id": "POS-044",
+            "id": "POS-039",
             "requirement_id": "FR-024",
             "requirement_title": "Hover-to-Reveal Behavior",
             "scenario_type": "POSITIVE",
             "title": "Reveal Details on Hover",
             "steps": [
                 "Navigate to /hovers",
-                "Hover over user image"
+                "Move mouse over user image"
             ],
-            "expected_result": "User name and profile link are displayed."
+            "expected_result": "User name and View profile link are displayed."
         },
         {
-            "id": "POS-045",
+            "id": "POS-040",
             "requirement_id": "FR-024",
             "requirement_title": "Hover-to-Reveal Behavior",
             "scenario_type": "POSITIVE",
             "title": "Hide Details on Mouse Out",
             "steps": [
                 "Navigate to /hovers",
-                "Hover over user image",
-                "Move mouse away"
+                "Hover over image",
+                "Move mouse away from image"
             ],
             "expected_result": "User details are hidden."
         },
         {
-            "id": "POS-046",
+            "id": "POS-041",
             "requirement_id": "FR-025",
             "requirement_title": "Dynamic Content Refresh",
             "scenario_type": "POSITIVE",
-            "title": "Refresh Dynamic Content",
+            "title": "Refresh Content",
             "steps": [
                 "Navigate to /dynamic_content",
                 "Refresh page"
             ],
-            "expected_result": "Content changes."
+            "expected_result": "Content changes on the page."
         },
         {
-            "id": "POS-047",
+            "id": "POS-042",
             "requirement_id": "FR-025",
             "requirement_title": "Dynamic Content Refresh",
             "scenario_type": "POSITIVE",
-            "title": "Load Static Content",
+            "title": "Enable Static Content",
             "steps": [
-                "Navigate to /dynamic_content?with_content=static"
+                "Navigate to /dynamic_content",
+                "Append ?with_content=static to URL"
             ],
             "expected_result": "Content remains static."
         },
         {
-            "id": "POS-048",
+            "id": "POS-043",
             "requirement_id": "FR-026",
             "requirement_title": "Numeric Input Handling",
             "scenario_type": "POSITIVE",
@@ -1314,11 +1248,11 @@
             "expected_result": "Value is accepted."
         },
         {
-            "id": "POS-049",
+            "id": "POS-044",
             "requirement_id": "FR-026",
             "requirement_title": "Numeric Input Handling",
             "scenario_type": "POSITIVE",
-            "title": "Increment Number",
+            "title": "Increment Value",
             "steps": [
                 "Navigate to /inputs",
                 "Click up arrow"
@@ -1326,81 +1260,57 @@
             "expected_result": "Value increases."
         },
         {
-            "id": "POS-050",
+            "id": "POS-045",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "POSITIVE",
-            "title": "Update Slider via Mouse",
+            "title": "Update Slider Value via Mouse",
             "steps": [
                 "Navigate to slider page",
-                "Click and drag the slider handle",
-                "Release the slider"
+                "Click and drag slider handle",
+                "Release mouse"
             ],
             "expected_result": "Value indicator updates to reflect new position."
         },
         {
-            "id": "POS-051",
+            "id": "POS-046",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "POSITIVE",
-            "title": "Update Slider via Keyboard",
+            "title": "Update Slider Value via Keyboard",
             "steps": [
                 "Navigate to slider page",
-                "Focus on the slider",
+                "Focus on slider",
                 "Press right arrow key"
             ],
-            "expected_result": "Value indicator increases."
+            "expected_result": "Value indicator increments."
         },
         {
-            "id": "POS-052",
+            "id": "POS-047",
             "requirement_id": "FR-028",
             "requirement_title": "Custom Context Menu",
             "scenario_type": "POSITIVE",
-            "title": "Trigger Context Menu",
+            "title": "Trigger Custom Menu",
             "steps": [
                 "Navigate to context menu page",
-                "Right-click in the designated box area"
+                "Right-click in the designated box"
             ],
-            "expected_result": "Custom context menu is displayed."
+            "expected_result": "Custom context menu appears."
         },
         {
-            "id": "POS-053",
+            "id": "POS-048",
             "requirement_id": "FR-028",
             "requirement_title": "Custom Context Menu",
             "scenario_type": "POSITIVE",
-            "title": "Select Context Menu Item",
+            "title": "Select Menu Item",
             "steps": [
                 "Right-click to open menu",
                 "Click the custom menu item"
             ],
-            "expected_result": "JavaScript alert is triggered."
+            "expected_result": "JavaScript alert is displayed."
         },
         {
-            "id": "POS-054",
-            "requirement_id": "FR-029",
-            "requirement_title": "Exit Intent Detection",
-            "scenario_type": "POSITIVE",
-            "title": "Trigger Modal on Exit",
-            "steps": [
-                "Navigate to exit intent page",
-                "Move mouse cursor outside the viewport"
-            ],
-            "expected_result": "Modal window is displayed."
-        },
-        {
-            "id": "POS-055",
-            "requirement_id": "FR-029",
-            "requirement_title": "Exit Intent Detection",
-            "scenario_type": "POSITIVE",
-            "title": "Close Modal",
-            "steps": [
-                "Trigger modal",
-                "Click the close control"
-            ],
-            "expected_result": "Modal window is dismissed."
-        },
-        {
-            "id": "POS-056",
+            "id": "POS-049",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
             "scenario_type": "POSITIVE",
@@ -1412,7 +1322,7 @@
             "expected_result": "Browser initiates file download."
         },
         {
-            "id": "POS-057",
+            "id": "POS-050",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
             "scenario_type": "POSITIVE",
@@ -1423,54 +1333,20 @@
             "expected_result": "List of files is visible."
         },
         {
-            "id": "POS-058",
-            "requirement_id": "FR-030",
-            "requirement_title": "Password Retrieval",
+            "id": "POS-051",
+            "requirement_id": "FR-002",
+            "requirement_title": "File Upload",
             "scenario_type": "POSITIVE",
-            "title": "Submit Valid Email",
+            "title": "Successful File Upload",
             "steps": [
-                "Navigate to forgot password page",
-                "Enter valid email",
-                "Click retrieve password"
+                "Navigate to /upload",
+                "Select a valid file",
+                "Submit upload"
             ],
-            "expected_result": "System processes the request."
+            "expected_result": "File is processed successfully without application crash."
         },
         {
-            "id": "POS-059",
-            "requirement_id": "FR-030",
-            "requirement_title": "Password Retrieval",
-            "scenario_type": "POSITIVE",
-            "title": "Verify Form Elements",
-            "steps": [
-                "Navigate to forgot password page"
-            ],
-            "expected_result": "Email field and button are displayed."
-        },
-        {
-            "id": "POS-060",
-            "requirement_id": "FR-031",
-            "requirement_title": "Geolocation Access",
-            "scenario_type": "POSITIVE",
-            "title": "Retrieve Location",
-            "steps": [
-                "Navigate to geolocation page",
-                "Click Where am I button"
-            ],
-            "expected_result": "Latitude and longitude are displayed."
-        },
-        {
-            "id": "POS-061",
-            "requirement_id": "FR-031",
-            "requirement_title": "Geolocation Access",
-            "scenario_type": "POSITIVE",
-            "title": "Verify Button Presence",
-            "steps": [
-                "Navigate to geolocation page"
-            ],
-            "expected_result": "Where am I button is visible."
-        },
-        {
-            "id": "POS-062",
+            "id": "POS-052",
             "requirement_id": "FR-032",
             "requirement_title": "JavaScript Dialog Handling",
             "scenario_type": "POSITIVE",
@@ -1480,10 +1356,10 @@
                 "Trigger alert",
                 "Dismiss alert"
             ],
-            "expected_result": "Result output is rendered on the page."
+            "expected_result": "Result output renders correctly."
         },
         {
-            "id": "POS-063",
+            "id": "POS-053",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "POSITIVE",
@@ -1495,7 +1371,7 @@
             "expected_result": "Slider value updates to reflect the new position."
         },
         {
-            "id": "POS-064",
+            "id": "POS-054",
             "requirement_id": "FR-033",
             "requirement_title": "Infinite Scroll Content Loading",
             "scenario_type": "POSITIVE",
@@ -1520,7 +1396,7 @@
                 "Enter invalid password",
                 "Submit form"
             ],
-            "expected_result": "User remains on the login page with an error notification."
+            "expected_result": "User remains on login page with error notification."
         },
         {
             "id": "NEG-002",
@@ -1532,14 +1408,14 @@
                 "Navigate to /upload",
                 "Click upload without selecting a file"
             ],
-            "expected_result": "System indicates no file was selected."
+            "expected_result": "System displays an error or prevents submission."
         },
         {
             "id": "NEG-003",
             "requirement_id": "FR-003",
             "requirement_title": "File Download",
             "scenario_type": "NEGATIVE",
-            "title": "Download Non-Existent File",
+            "title": "Download Non-existent File",
             "steps": [
                 "Navigate to /download",
                 "Attempt to access a non-existent file path"
@@ -1548,29 +1424,43 @@
         },
         {
             "id": "NEG-004",
-            "requirement_id": "FR-010",
-            "requirement_title": "Dropdown Selection",
+            "requirement_id": "FR-009",
+            "requirement_title": "Error Handling for Invalid Credentials",
             "scenario_type": "NEGATIVE",
-            "title": "Attempt Selection without Interaction",
+            "title": "Login With Incorrect Credentials",
             "steps": [
-                "Navigate to /dropdown"
+                "Navigate to /login",
+                "Enter invalid username or password",
+                "Click Login"
             ],
-            "expected_result": "Dropdown remains at default prompt."
+            "expected_result": "Error message is displayed and user remains on login page."
         },
         {
             "id": "NEG-005",
-            "requirement_id": "FR-002",
-            "requirement_title": "File Upload",
+            "requirement_id": "FR-010",
+            "requirement_title": "Dropdown Selection",
             "scenario_type": "NEGATIVE",
-            "title": "Upload without File Selection",
+            "title": "Attempt Selection Without Interaction",
             "steps": [
-                "Navigate to /upload",
-                "Click Upload without selecting file"
+                "Navigate to /dropdown",
+                "Verify default prompt"
             ],
-            "expected_result": "Browser default behavior applies."
+            "expected_result": "No error is displayed as no selection is required."
         },
         {
             "id": "NEG-006",
+            "requirement_id": "FR-002",
+            "requirement_title": "File Upload",
+            "scenario_type": "NEGATIVE",
+            "title": "Upload Without File Selection",
+            "steps": [
+                "Navigate to /upload",
+                "Click Upload without selecting a file"
+            ],
+            "expected_result": "Browser default file input behavior applies."
+        },
+        {
+            "id": "NEG-007",
             "requirement_id": "FR-011",
             "requirement_title": "Basic Alert Trigger",
             "scenario_type": "NEGATIVE",
@@ -1581,7 +1471,7 @@
             "expected_result": "No alert is displayed until the button is clicked."
         },
         {
-            "id": "NEG-007",
+            "id": "NEG-008",
             "requirement_id": "FR-012",
             "requirement_title": "Confirm and Prompt Triggers",
             "scenario_type": "NEGATIVE",
@@ -1589,114 +1479,113 @@
             "steps": [
                 "Navigate to /javascript_alerts"
             ],
-            "expected_result": "No dialogs are displayed until the respective buttons are clicked."
-        },
-        {
-            "id": "NEG-008",
-            "requirement_id": "FR-013",
-            "requirement_title": "Drag and Drop Example Rendering",
-            "scenario_type": "NEGATIVE",
-            "title": "Verify Page Load Failure",
-            "steps": [
-                "Attempt to load /drag_and_drop with invalid network"
-            ],
-            "expected_result": "The drag-and-drop region fails to render."
+            "expected_result": "No dialogs are displayed until buttons are clicked."
         },
         {
             "id": "NEG-009",
-            "requirement_id": "FR-014",
-            "requirement_title": "Data Tables Rendering",
+            "requirement_id": "FR-013",
+            "requirement_title": "Drag and Drop Example Rendering",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Missing Data",
+            "title": "Verify No Error on Load",
             "steps": [
-                "Navigate to /tables"
+                "Navigate to /drag_and_drop"
             ],
-            "expected_result": "The system does not display tables if data is unavailable."
+            "expected_result": "The page loads without rendering errors."
         },
         {
             "id": "NEG-010",
-            "requirement_id": "FR-015",
-            "requirement_title": "Row Actions Representation",
+            "requirement_id": "FR-014",
+            "requirement_title": "Data Tables Rendering",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Missing Actions",
+            "title": "Verify No Data Corruption",
             "steps": [
                 "Navigate to /tables"
             ],
-            "expected_result": "The system does not render rows without action controls."
+            "expected_result": "The table displays the expected static data without errors."
         },
         {
             "id": "NEG-011",
-            "requirement_id": "FR-016",
-            "requirement_title": "Notification Message Rendering",
+            "requirement_id": "FR-015",
+            "requirement_title": "Row Actions Representation",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Missing Message",
+            "title": "Verify No Action Errors",
             "steps": [
-                "Navigate to /notification_message_rendered"
+                "Navigate to /tables"
             ],
-            "expected_result": "The system does not display a message if the service is unavailable."
+            "expected_result": "The page does not throw errors when viewing row actions."
         },
         {
             "id": "NEG-012",
-            "requirement_id": "FR-017",
-            "requirement_title": "Load New Notification Message",
+            "requirement_id": "FR-016",
+            "requirement_title": "Notification Message Rendering",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Error Handling on Load",
+            "title": "Verify No Missing Message",
             "steps": [
-                "Navigate to /notification_message_rendered",
-                "Click load new message"
+                "Navigate to /notification_message_rendered"
             ],
-            "expected_result": "The system does not crash if the new message fails to load."
+            "expected_result": "A message is always present."
         },
         {
             "id": "NEG-013",
-            "requirement_id": "FR-018",
-            "requirement_title": "Entry Ad Display on First Load",
+            "requirement_id": "FR-017",
+            "requirement_title": "Load New Notification Message",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Ad Not Displayed",
+            "title": "Verify System Stability",
             "steps": [
-                "Navigate to /entry_ad"
+                "Click load message button rapidly"
             ],
-            "expected_result": "The ad does not display if the ad service is disabled."
+            "expected_result": "The system does not produce runtime errors."
         },
         {
             "id": "NEG-014",
-            "requirement_id": "FR-019",
-            "requirement_title": "Close Ad and Prevent Reappearance",
+            "requirement_id": "FR-018",
+            "requirement_title": "Entry Ad Display on First Load",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Ad Reappearance",
+            "title": "Verify Ad Does Not Block Content",
             "steps": [
-                "Close the ad",
-                "Clear browser cookies",
-                "Reload the page"
+                "Navigate to /entry_ad"
             ],
-            "expected_result": "The ad reappears as the suppression state is lost."
+            "expected_result": "The ad is clearly distinguishable and does not break page layout."
         },
         {
             "id": "NEG-015",
-            "requirement_id": "FR-020",
-            "requirement_title": "Ad Re-enablement",
+            "requirement_id": "FR-019",
+            "requirement_title": "Close Ad and Prevent Reappearance",
             "scenario_type": "NEGATIVE",
-            "title": "Attempt Re-enablement Without Closing",
+            "title": "Verify Ad Suppression Persistence",
             "steps": [
-                "Navigate to /entry_ad",
-                "Attempt to trigger re-enablement"
+                "Close ad",
+                "Navigate away",
+                "Return to /entry_ad"
             ],
-            "expected_result": "No change in ad state."
+            "expected_result": "The ad remains suppressed."
         },
         {
             "id": "NEG-016",
-            "requirement_id": "FR-021",
-            "requirement_title": "Random Typo Behavior",
+            "requirement_id": "FR-020",
+            "requirement_title": "Ad Re-enablement",
             "scenario_type": "NEGATIVE",
-            "title": "Verify Non-Typo Text Integrity",
+            "title": "Re-enable Without Closing",
             "steps": [
-                "Navigate to /typos",
-                "Refresh page"
+                "Navigate to /entry_ad",
+                "Attempt to trigger re-enablement while ad is visible"
             ],
-            "expected_result": "Non-typo text remains unchanged."
+            "expected_result": "System does not duplicate the ad."
         },
         {
             "id": "NEG-017",
+            "requirement_id": "FR-021",
+            "requirement_title": "Random Typo Behavior",
+            "scenario_type": "NEGATIVE",
+            "title": "Verify Non-Deterministic State",
+            "steps": [
+                "Navigate to /typos",
+                "Refresh page 10 times"
+            ],
+            "expected_result": "The presence of typos is not consistent across all loads."
+        },
+        {
+            "id": "NEG-018",
             "requirement_id": "FR-022",
             "requirement_title": "Add Element Action",
             "scenario_type": "NEGATIVE",
@@ -1707,7 +1596,7 @@
             "expected_result": "No elements are added automatically."
         },
         {
-            "id": "NEG-018",
+            "id": "NEG-019",
             "requirement_id": "FR-023",
             "requirement_title": "Remove Added Elements",
             "scenario_type": "NEGATIVE",
@@ -1716,119 +1605,70 @@
                 "Navigate to /add_remove_elements/",
                 "Attempt to remove element when none exist"
             ],
-            "expected_result": "No action taken."
-        },
-        {
-            "id": "NEG-019",
-            "requirement_id": "FR-024",
-            "requirement_title": "Hover-to-Reveal Behavior",
-            "scenario_type": "NEGATIVE",
-            "title": "Hover Outside Image Area",
-            "steps": [
-                "Navigate to /hovers",
-                "Hover near image but not over it"
-            ],
-            "expected_result": "Details remain hidden."
+            "expected_result": "No error occurs and page remains unchanged."
         },
         {
             "id": "NEG-020",
-            "requirement_id": "FR-025",
-            "requirement_title": "Dynamic Content Refresh",
+            "requirement_id": "FR-024",
+            "requirement_title": "Hover-to-Reveal Behavior",
             "scenario_type": "NEGATIVE",
-            "title": "Invalid Content Parameter",
+            "title": "Hover Outside Target Area",
             "steps": [
-                "Navigate to /dynamic_content?with_content=invalid"
+                "Navigate to /hovers",
+                "Hover in empty space between images"
             ],
-            "expected_result": "System defaults to dynamic behavior."
+            "expected_result": "No user details are revealed."
         },
         {
             "id": "NEG-021",
-            "requirement_id": "FR-026",
-            "requirement_title": "Numeric Input Handling",
+            "requirement_id": "FR-025",
+            "requirement_title": "Dynamic Content Refresh",
             "scenario_type": "NEGATIVE",
-            "title": "Enter Non-Numeric Character",
+            "title": "Invalid Static Parameter",
             "steps": [
-                "Navigate to /inputs",
-                "Enter alphabetic character"
+                "Navigate to /dynamic_content",
+                "Append invalid parameter to URL"
             ],
-            "expected_result": "Input is rejected or ignored."
+            "expected_result": "Page loads default dynamic content."
         },
         {
             "id": "NEG-022",
-            "requirement_id": "FR-027",
-            "requirement_title": "Horizontal Slider Interaction",
+            "requirement_id": "FR-026",
+            "requirement_title": "Numeric Input Handling",
             "scenario_type": "NEGATIVE",
-            "title": "Invalid Slider Interaction",
+            "title": "Enter Non-Numeric Characters",
             "steps": [
-                "Navigate to slider page",
-                "Attempt to drag slider outside of bounds"
+                "Navigate to /inputs",
+                "Enter alphabetic characters"
             ],
-            "expected_result": "Slider remains at maximum or minimum boundary."
+            "expected_result": "Input is rejected or not processed as a number."
         },
         {
             "id": "NEG-023",
-            "requirement_id": "FR-028",
-            "requirement_title": "Custom Context Menu",
+            "requirement_id": "FR-027",
+            "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "NEGATIVE",
-            "title": "Click Outside Box",
+            "title": "Slider Interaction Without Focus",
             "steps": [
-                "Navigate to context menu page",
-                "Right-click outside the designated box"
+                "Navigate to slider page",
+                "Attempt to use keyboard arrows without focusing slider"
             ],
-            "expected_result": "Custom context menu is not displayed."
+            "expected_result": "Slider value remains unchanged."
         },
         {
             "id": "NEG-024",
-            "requirement_id": "FR-029",
-            "requirement_title": "Exit Intent Detection",
+            "requirement_id": "FR-028",
+            "requirement_title": "Custom Context Menu",
             "scenario_type": "NEGATIVE",
-            "title": "Mouse Movement Inside Viewport",
+            "title": "Left-Click Context Menu",
             "steps": [
-                "Navigate to exit intent page",
-                "Move mouse within the viewport"
+                "Navigate to context menu page",
+                "Left-click in the designated box"
             ],
-            "expected_result": "Modal window is not displayed."
+            "expected_result": "Custom context menu does not appear."
         },
         {
             "id": "NEG-025",
-            "requirement_id": "FR-003",
-            "requirement_title": "File Download",
-            "scenario_type": "NEGATIVE",
-            "title": "Click Non-existent File",
-            "steps": [
-                "Navigate to download page",
-                "Click a broken link"
-            ],
-            "expected_result": "Download does not initiate."
-        },
-        {
-            "id": "NEG-026",
-            "requirement_id": "FR-030",
-            "requirement_title": "Password Retrieval",
-            "scenario_type": "NEGATIVE",
-            "title": "Submit Empty Form",
-            "steps": [
-                "Navigate to forgot password page",
-                "Leave email field empty",
-                "Click retrieve password"
-            ],
-            "expected_result": "System does not process request."
-        },
-        {
-            "id": "NEG-027",
-            "requirement_id": "FR-031",
-            "requirement_title": "Geolocation Access",
-            "scenario_type": "NEGATIVE",
-            "title": "Deny Location Access",
-            "steps": [
-                "Navigate to geolocation page",
-                "Click Where am I button",
-                "Deny browser location permission"
-            ],
-            "expected_result": "Coordinates are not displayed."
-        },
-        {
-            "id": "NEG-028",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
             "scenario_type": "NEGATIVE",
@@ -1837,10 +1677,10 @@
                 "Navigate to /upload",
                 "Click submit without selecting a file"
             ],
-            "expected_result": "Application does not crash and handles the empty submission."
+            "expected_result": "System handles the empty submission without crashing."
         },
         {
-            "id": "NEG-029",
+            "id": "NEG-026",
             "requirement_id": "FR-032",
             "requirement_title": "JavaScript Dialog Handling",
             "scenario_type": "NEGATIVE",
@@ -1850,18 +1690,18 @@
                 "Trigger confirm dialog",
                 "Click cancel"
             ],
-            "expected_result": "Result output renders correctly without script errors."
+            "expected_result": "Result output renders without script errors."
         },
         {
-            "id": "NEG-030",
+            "id": "NEG-027",
             "requirement_id": "FR-031",
             "requirement_title": "Geolocation Access",
             "scenario_type": "NEGATIVE",
-            "title": "Deny Location Permission",
+            "title": "Deny Geolocation Permission",
             "steps": [
                 "Navigate to /geolocation",
-                "Trigger location request",
-                "Select Deny in browser prompt"
+                "Click the button to trigger location request",
+                "Select 'Deny' in the browser permission prompt"
             ],
             "expected_result": "Page handles the denial gracefully without crashing."
         }
@@ -1878,56 +1718,46 @@
                 "Select a 0-byte file",
                 "Click upload"
             ],
-            "expected_result": "System handles the empty file upload gracefully."
+            "expected_result": "System handles empty file upload gracefully."
         },
         {
             "id": "BND-002",
             "requirement_id": "FR-006",
             "requirement_title": "Checkbox State Toggle",
             "scenario_type": "BOUNDARY",
-            "title": "Rapid Toggle Interaction",
+            "title": "Toggle Multiple Checkboxes",
             "steps": [
                 "Navigate to /checkboxes",
-                "Click the checkbox multiple times in rapid succession"
+                "Toggle all available checkboxes sequentially"
             ],
-            "expected_result": "Checkbox state correctly reflects the final click action."
+            "expected_result": "All checkboxes reflect the correct toggled state."
         },
         {
             "id": "BND-003",
             "requirement_id": "FR-010",
             "requirement_title": "Dropdown Selection",
             "scenario_type": "BOUNDARY",
-            "title": "Verify Default Prompt",
+            "title": "Select Last Available Option",
             "steps": [
-                "Navigate to /dropdown"
+                "Navigate to /dropdown",
+                "Click dropdown",
+                "Select Option 2"
             ],
-            "expected_result": "Dropdown displays 'Please select an option' as the initial state."
+            "expected_result": "Dropdown displays Option 2."
         },
         {
             "id": "BND-004",
-            "requirement_id": "FR-014",
-            "requirement_title": "Data Tables Rendering",
-            "scenario_type": "BOUNDARY",
-            "title": "Verify Table With Minimum Rows",
-            "steps": [
-                "Navigate to /tables"
-            ],
-            "expected_result": "The table renders correctly with the minimum required rows."
-        },
-        {
-            "id": "BND-005",
             "requirement_id": "FR-017",
             "requirement_title": "Load New Notification Message",
             "scenario_type": "BOUNDARY",
-            "title": "Verify Rapid Message Loading",
+            "title": "Load Message After Multiple Attempts",
             "steps": [
-                "Navigate to /notification_message_rendered",
-                "Click load new message rapidly"
+                "Click load message button 100 times"
             ],
-            "expected_result": "The system handles rapid requests without runtime errors."
+            "expected_result": "The system continues to function and display messages."
         },
         {
-            "id": "BND-006",
+            "id": "BND-005",
             "requirement_id": "FR-026",
             "requirement_title": "Numeric Input Handling",
             "scenario_type": "BOUNDARY",
@@ -1936,35 +1766,23 @@
                 "Navigate to /inputs",
                 "Enter maximum supported integer"
             ],
-            "expected_result": "Value is accepted."
+            "expected_result": "Value is accepted correctly."
         },
         {
-            "id": "BND-007",
+            "id": "BND-006",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "BOUNDARY",
-            "title": "Slider Maximum Value",
+            "title": "Slider Minimum and Maximum Limits",
             "steps": [
                 "Navigate to slider page",
-                "Drag slider to the far right"
+                "Drag slider to extreme left",
+                "Drag slider to extreme right"
             ],
-            "expected_result": "Value indicator shows maximum value."
+            "expected_result": "Value indicator displays minimum and maximum defined values."
         },
         {
-            "id": "BND-008",
-            "requirement_id": "FR-030",
-            "requirement_title": "Password Retrieval",
-            "scenario_type": "BOUNDARY",
-            "title": "Maximum Email Length",
-            "steps": [
-                "Navigate to forgot password page",
-                "Enter email with maximum character limit",
-                "Click retrieve password"
-            ],
-            "expected_result": "System processes the input."
-        },
-        {
-            "id": "BND-009",
+            "id": "BND-007",
             "requirement_id": "FR-008",
             "requirement_title": "User Authentication",
             "scenario_type": "BOUNDARY",
@@ -1974,10 +1792,10 @@
                 "Leave username and password blank",
                 "Submit form"
             ],
-            "expected_result": "System treats input as incorrect and displays error message."
+            "expected_result": "System treats input as incorrect and displays error."
         },
         {
-            "id": "BND-010",
+            "id": "BND-008",
             "requirement_id": "FR-002",
             "requirement_title": "File Upload",
             "scenario_type": "BOUNDARY",
@@ -1990,14 +1808,26 @@
             "expected_result": "Application remains stable and does not crash."
         },
         {
-            "id": "BND-011",
+            "id": "BND-009",
+            "requirement_id": "FR-032",
+            "requirement_title": "JavaScript Dialog Handling",
+            "scenario_type": "BOUNDARY",
+            "title": "Rapid Dialog Triggering",
+            "steps": [
+                "Navigate to /javascript_alerts",
+                "Click alert button multiple times rapidly"
+            ],
+            "expected_result": "Page remains functional and does not break."
+        },
+        {
+            "id": "BND-010",
             "requirement_id": "FR-027",
             "requirement_title": "Horizontal Slider Interaction",
             "scenario_type": "BOUNDARY",
             "title": "Exceed Slider Extremes",
             "steps": [
                 "Navigate to /horizontal_slider",
-                "Attempt to move slider beyond the maximum limit"
+                "Attempt to move the slider beyond the maximum value"
             ],
             "expected_result": "Slider value remains clamped at the maximum limit."
         }
